@@ -27,7 +27,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 flex flex-col items-center"
+      className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
       style={{ minWidth: 280, maxWidth: 400, margin: "auto" }}
     >
       {/* Picture */}

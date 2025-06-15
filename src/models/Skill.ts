@@ -22,6 +22,7 @@ export class Skill extends PortfolioItem {
   private _yearsOfExperience: number;
   private _certifications: string[];
   private _projects: string[]; // References to project IDs where this skill was used
+  private _customColor: string | undefined;
 
   constructor(
     id: string,
@@ -31,7 +32,8 @@ export class Skill extends PortfolioItem {
     category: SkillCategory,
     yearsOfExperience: number = 0,
     certifications: string[] = [],
-    projects: string[] = []
+    projects: string[] = [],
+    customColor?: string
   ) {
     super(id, title, description);
     this._level = level;
@@ -39,6 +41,7 @@ export class Skill extends PortfolioItem {
     this._yearsOfExperience = yearsOfExperience;
     this._certifications = certifications;
     this._projects = projects;
+    this._customColor = customColor;
   }
 
   // Getters
@@ -57,6 +60,9 @@ export class Skill extends PortfolioItem {
   get projects(): string[] {
     return [...this._projects];
   }
+  get customColor(): string | undefined {
+    return this._customColor;
+  }
 
   // Setters
   set level(value: SkillLevel) {
@@ -74,6 +80,11 @@ export class Skill extends PortfolioItem {
       this._yearsOfExperience = value;
       this.updateTimestamp();
     }
+  }
+
+  set customColor(value: string | undefined) {
+    this._customColor = value;
+    this.updateTimestamp();
   }
 
   // Methods
@@ -129,6 +140,7 @@ export class Skill extends PortfolioItem {
       yearsOfExperience: this._yearsOfExperience,
       certifications: this._certifications,
       projects: this._projects,
+      customColor: this._customColor,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };

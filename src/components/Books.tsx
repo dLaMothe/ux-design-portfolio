@@ -4,6 +4,8 @@ import { Book } from "../models/Book";
 import { PortfolioManager } from "../models/PortfolioManager";
 import BookModal from "./BookModal";
 import BookCard from "./BookCard";
+import BooksIcon from "./BooksIcon";
+import { books } from "../data/books";
 
 interface BooksProps {
   portfolioManager: PortfolioManager;
@@ -11,7 +13,6 @@ interface BooksProps {
 
 const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
-  const books = portfolioManager.getAllBooks();
 
   const handleBookClick = (book: Book) => {
     setSelectedBook(book);
@@ -20,7 +21,51 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   return (
     <div className="section">
       <div className="container">
-        <h2 className="section-title">Books</h2>
+        {/* Section Header with Icon and Big Headline */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            padding: 0,
+            gap: 24,
+            width: "100%",
+            maxWidth: 1200,
+            height: 100,
+            marginBottom: 32,
+          }}
+        >
+          {/* Books Icon */}
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flex: "none",
+              order: 0,
+              flexGrow: 0,
+            }}
+          >
+            <BooksIcon />
+          </div>
+          {/* Headline */}
+          <span
+            style={{
+              fontFamily: "'Jersey 10', sans-serif",
+              fontWeight: 400,
+              fontSize: 64,
+              lineHeight: "69px",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              color: "#242628",
+              flex: 1,
+            }}
+          >
+            Books
+          </span>
+        </div>
         <div className="overflow-x-auto w-full pb-4">
           <div className="inline-flex gap-6 min-w-[1200px]">
             {books.map((book, index) => (

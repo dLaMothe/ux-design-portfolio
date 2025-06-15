@@ -31,6 +31,7 @@ import Books from "./components/Books";
 import Achievements from "./components/Achievements";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import { books } from "./data/books";
 
 function App() {
   const [portfolioManager] = useState(() => new PortfolioManager());
@@ -43,55 +44,109 @@ function App() {
   }, []);
 
   const initializePortfolioData = () => {
-    // Sample Skills - Add these FIRST so we can reference them in case studies
+    // User's detailed skills data
     const skills = [
       new Skill(
-        "skill1",
+        "ux-user-experience-design",
+        "UX | User Experience Design",
+        "In 2015 I started out my career as a UX designer. I chose this profession simply because it brings me joy. I love that, as a designer, I can help people with creativity. When I try to explain what UX is (which is not that rare of an occurrence still) I like to use the metaphor of an architect. When building a house, you first need to figure out what rooms should be in it, and then make sure that visitors find a bathroom quickly they need one.",
+        SkillLevel.EXPERT,
+        SkillCategory.DESIGN,
+        9, // Example years of experience
+        [],
+        [
+          // Quests/case studies (to be linked by id when provided)
+          // e.g. "OOUXing my Portfolio", ...
+        ],
+        "#53FEA6" // Custom color
+      ),
+      new Skill(
+        "user-research",
         "User Research",
-        "Conducting qualitative and quantitative research to understand user needs",
+        "I always like to work very closely with researchers or take on the role myself. I see it as an  interglacial part as it is the foundation for all decisions throughout the design process. I find it very exciting to learn something new or surprising or seeing that an idea actually worked. It's the feedback loop that keeps product development going. ",
         SkillLevel.EXPERT,
         SkillCategory.RESEARCH,
-        5
+        9,
+        [],
+        [],
+        "#FCFE53" // Custom color
       ),
       new Skill(
-        "skill2",
-        "Prototyping",
-        "Creating interactive prototypes to test and validate design concepts",
+        "prototyping",
+        "Prototyping ",
+        "Prototyping has been a part of my work since the beginning. This is my zen work. I love to sit down, put on some music and just build. Especially since Figma introduced basic logic to their prototyping capabilities it's been even more fun to be able to make a user test feel as realistic as possible (if needed).",
         SkillLevel.ADVANCED,
         SkillCategory.PROTOTYPING,
-        4
+        9,
+        [],
+        [],
+        "#FFB866" // Custom color
       ),
       new Skill(
-        "skill3",
-        "Visual Design",
-        "Creating beautiful and functional user interfaces",
+        "ui-user-interface-design",
+        "UI | User Interface Design",
+        "I've been doing UI alongside UX since 2021. For me UI is not only making things look nice. It's about conveying specific feelings thats suits the task at hand while staying aligned with brand guidelines and design systems. It's about knowing when to be loud and bold to show the brands colors, and when to quite down and guid the users eye to let them focus on important informations. ",
         SkillLevel.ADVANCED,
         SkillCategory.DESIGN,
-        4
+        3,
+        [],
+        [],
+        "#FF91D8" // Custom color
       ),
       new Skill(
-        "skill4",
-        "Usability Testing",
-        "Planning and conducting usability tests to validate design decisions",
-        SkillLevel.EXPERT,
-        SkillCategory.TESTING,
-        6
-      ),
-      new Skill(
-        "skill5",
-        "Design Strategy",
-        "Aligning design decisions with business goals and user needs",
+        "ooux-object-oriented-user-experience",
+        "OOUX | Object Oriented User Experience",
+        "OOUX is a design philosophy that respects the fact, that we think in nouns. That our mental modals form around objects. It helps me to understand users and systems more quickly and easily while also being a grate way of collaborating with other roles in the product team. I really enjoy this way of thinking and would love to work on a project that uses the entire process around!",
         SkillLevel.ADVANCED,
         SkillCategory.STRATEGY,
-        3
+        2,
+        [],
+        [],
+        "#90CBFF" // Custom color
       ),
       new Skill(
-        "skill6",
-        "Stakeholder Management",
-        "Collaborating effectively with cross-functional teams",
+        "drawing-painting",
+        "Drawing & Painting",
+        "I've been drawing since I can remember. It was always integral to who I am and is one of the first things people learn about me as I like to doodle in meeting (I still pay attention, I swear).",
         SkillLevel.EXPERT,
+        SkillCategory.DESIGN,
+        20,
+        [],
+        [],
+        "#DFB7FF" // Custom color
+      ),
+      new Skill(
+        "speed-cubing",
+        "Speed Cubing",
+        "I picked up cubing with a rubiks cube (that thing that was popular in the 80s) when I was around 17 just to see if I can do it. Since then I've not been able to put it down again and my collection has grown to around 20. My best time is 32 sec. which is not super fast but I'm still proud of it. ",
+        SkillLevel.INTERMEDIATE,
         SkillCategory.COLLABORATION,
-        5
+        10,
+        [],
+        [],
+        "#AFFF64" // Custom color
+      ),
+      new Skill(
+        "ux-writing",
+        "UX Writing",
+        "As someone who is dyslexic I find it important to phrase texts in a clear and easy to understand way, as I know the struggle of overly complicated sentences. This has lead me to put more and more effort and care into the texts I write for interfaces. The impact is easily visible in user tests and always makes me smile.",
+        SkillLevel.ADVANCED,
+        SkillCategory.DESIGN,
+        5,
+        [],
+        [],
+        "#B9B3FF" // Custom color
+      ),
+      new Skill(
+        "workshop-facilitation",
+        "Workshop Facilitation",
+        "I gathered up quite the suitcase of methods over the years if I do say so myself and appreciate a good flow of them, carefully put together to get to an outcome and output under a shared goal. I'm not the loudest person but passion helps me to get people on board either way.",
+        SkillLevel.ADVANCED,
+        SkillCategory.COLLABORATION,
+        7,
+        [],
+        [],
+        "#FF8688" // Custom color
       ),
     ];
 
@@ -114,7 +169,13 @@ function App() {
       "Conducted extensive user research, created new user flows, and designed a modern, intuitive interface with improved checkout process.",
       "Reduced cart abandonment by 45% and increased overall conversion rate by 32%. User satisfaction scores improved from 2.1 to 4.6 out of 5.",
       ["Figma", "Sketch", "InVision", "Hotjar", "Google Analytics"],
-      ["skill1", "skill2", "skill3", "skill4", "skill5"], // Skills used: User Research, Prototyping, Visual Design, Usability Testing, Design Strategy
+      [
+        "ux-user-experience-design",
+        "user-research",
+        "prototyping",
+        "ui-user-interface-design",
+        "workshop-facilitation",
+      ], // Skills used: User Research, Prototyping, Visual Design, Usability Testing, Design Strategy
       [
         {
           name: "Research & Discovery",
@@ -166,7 +227,12 @@ function App() {
       "Designed a clean, intuitive interface with biometric authentication and simplified transaction flows.",
       "App achieved 4.8-star rating in app stores and 89% user adoption rate within first 6 months.",
       ["Figma", "Principle", "Marvel", "UserTesting", "Mixpanel"],
-      ["skill1", "skill3", "skill4", "skill6"], // Skills used: User Research, Visual Design, Usability Testing, Stakeholder Management
+      [
+        "ux-user-experience-design",
+        "drawing-painting",
+        "ui-user-interface-design",
+        "workshop-facilitation",
+      ], // Skills used: User Research, Visual Design, Usability Testing, Stakeholder Management
       [
         {
           name: "User Research",
@@ -201,334 +267,580 @@ function App() {
     portfolioManager.addCaseStudy(caseStudy1);
     portfolioManager.addCaseStudy(caseStudy2);
 
-    // Sample Tools
+    // Tools data from user CSV
     const tools = [
       new Tool(
-        "tool1",
-        "Figma",
-        "Collaborative interface design tool",
+        "expert-interviews",
+        "Expert Interviews ❤️",
+        "To collect all that knowledge we already have ",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "crazy-8s",
+        "Crazy 8s ❤️",
+        "To get the creative juices flowing",
         ToolCategory.DESIGN,
         ProficiencyLevel.EXPERT,
-        "2024",
-        "https://figma.com",
+        undefined,
+        undefined,
         [],
         [],
         [],
         [],
-        ["skill1", "skill2", "skill3"] // Associated with User Research, Prototyping, and Visual Design
+        ["ux-user-experience-design", "workshop-facilitation"]
       ),
       new Tool(
-        "tool2",
-        "Sketch",
-        "Digital design toolkit",
+        "lightning-demos",
+        "Lightning Demos",
+        "To find grate ideas to steal",
         ToolCategory.DESIGN,
-        ProficiencyLevel.ADVANCED,
-        "2023",
-        "https://sketch.com",
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
         [],
         [],
         [],
         [],
-        ["skill3"] // Associated with Visual Design
+        ["ux-user-experience-design", "workshop-facilitation"]
       ),
       new Tool(
-        "tool3",
-        "InVision",
-        "Digital product design platform",
-        ToolCategory.PROTOTYPING,
-        ProficiencyLevel.ADVANCED,
-        "2023",
-        "https://invisionapp.com",
+        "affinity-mapping",
+        "Affinity Mapping",
+        "To clean up the sticky notes",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
         [],
         [],
         [],
         [],
-        ["skill2"] // Associated with Prototyping
+        ["ux-user-experience-design", "workshop-facilitation"]
       ),
       new Tool(
-        "tool4",
-        "Miro",
-        "Online collaborative whiteboarding platform",
+        "hmw",
+        "HMW",
+        "To phrase a problem or opportunity in an actionable way",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "jtbd",
+        "JTBD",
+        "To put the users need in the center",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "journey-mapping",
+        "Journey Mapping",
+        "To uncover areas of opportunity",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design", "workshop-facilitation"]
+      ),
+      new Tool(
+        "opportunity-decision-tree",
+        "Opportunity decision tree ❤️",
+        "To document insights and make them actionable",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design", "workshop-facilitation"]
+      ),
+      new Tool(
+        "behavioural-psychology",
+        "Behavioural Psychology",
+        "To understand why people do what thez do",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "workshop-facilitation",
+        "Workshop Facilitation",
+        "To guide the team to a shared outcome and output",
         ToolCategory.COLLABORATION,
         ProficiencyLevel.EXPERT,
-        "2024",
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "wireframing",
+        "Wireframing",
+        "To experiment fast before deciding on a solution",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "double-diamond",
+        "Double Diamond",
+        "To follow it's phases during a project",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ux-user-experience-design"]
+      ),
+      new Tool(
+        "miro",
+        "Miro ❤️",
+        "To collaborate and collect my thoughts",
+        ToolCategory.COLLABORATION,
+        ProficiencyLevel.EXPERT,
+        undefined,
         "https://miro.com",
         [],
         [],
         [],
         [],
-        ["skill6"] // Associated with Stakeholder Management
+        [
+          "ux-user-experience-design",
+          "prototyping",
+          "ooux-object-oriented-user-experience",
+          "ux-writing",
+          "workshop-facilitation",
+        ]
       ),
       new Tool(
-        "tool5",
-        "Hotjar",
-        "Behavior analytics and user feedback service",
+        "notion",
+        "Notion ❤️",
+        "To create content, document thoughts and plan trips",
+        ToolCategory.COLLABORATION,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        "https://notion.so",
+        [],
+        [],
+        [],
+        [],
+        ["ooux-object-oriented-user-experience", "ux-writing"]
+      ),
+      new Tool(
+        "orca",
+        "ORCA ❤️",
+        "To use OOUX as a structured process",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ooux-object-oriented-user-experience", "workshop-facilitation"]
+      ),
+      new Tool(
+        "figma",
+        "Figma ❤️",
+        "To build cool prototypes and interfaces",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        "https://figma.com",
+        [],
+        [],
+        [],
+        [],
+        [
+          "ux-user-experience-design",
+          "prototyping",
+          "ui-user-interface-design",
+          "ooux-object-oriented-user-experience",
+          "ux-writing",
+        ]
+      ),
+      new Tool(
+        "gestalt-principles",
+        "Gestalt Principles",
+        "To be intentional with visual decisions",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ui-user-interface-design"]
+      ),
+      new Tool(
+        "mobbin",
+        "Mobbin ❤️",
+        "To get inspired by awesome interfaces",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        "https://mobbin.com",
+        [],
+        [],
+        [],
+        [],
+        ["ui-user-interface-design"]
+      ),
+      new Tool(
+        "sketch",
+        "Sketch",
+        "My past building tool of choice",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.ADVANCED,
+        undefined,
+        "https://sketch.com",
+        [],
+        [],
+        [],
+        [],
+        ["ui-user-interface-design"]
+      ),
+      new Tool(
+        "abstract",
+        "Abstract",
+        "My past building tool of choice",
+        ToolCategory.COLLABORATION,
+        ProficiencyLevel.ADVANCED,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["ui-user-interface-design"]
+      ),
+      new Tool(
+        "hotjar",
+        "Hotjar ❤️",
+        "To track user behaviour within systems",
         ToolCategory.ANALYTICS,
         ProficiencyLevel.INTERMEDIATE,
-        "2024",
+        undefined,
         "https://hotjar.com",
         [],
         [],
         [],
         [],
-        ["skill1", "skill4"] // Associated with User Research and Usability Testing
+        ["user-research"]
       ),
       new Tool(
-        "tool6",
-        "UserTesting",
-        "Remote user research platform",
+        "optimal-workshop",
+        "Optimal Workshop ❤️",
+        "To do user tests and evaluate them",
         ToolCategory.RESEARCH,
-        ProficiencyLevel.ADVANCED,
-        "2024",
-        "https://usertesting.com",
+        ProficiencyLevel.EXPERT,
+        undefined,
+        "https://optimalworkshop.com",
         [],
         [],
         [],
         [],
-        ["skill1", "skill4"] // Associated with User Research and Usability Testing
+        ["user-research"]
+      ),
+      new Tool(
+        "rapid-usertests",
+        "rapid Usertests",
+        "To do user interviews and record them",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research"]
+      ),
+      new Tool(
+        "benchmark",
+        "Benchmark",
+        "To learn about common patterns",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research", "workshop-facilitation"]
+      ),
+      new Tool(
+        "user-testing",
+        "User Testing",
+        "To observe user behaviour",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research", "ux-writing"]
+      ),
+      new Tool(
+        "user-interviews",
+        "User Interviews",
+        "To learn about users problems and needs",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research", "prototyping"]
+      ),
+      new Tool(
+        "desk-research",
+        "Desk Research",
+        "To gather knowledge about a new subject",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research", "workshop-facilitation"]
+      ),
+      new Tool(
+        "card-sorting",
+        "Card Sorting ❤️",
+        "To learn about the users mental model",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research"]
+      ),
+      new Tool(
+        "tree-testing",
+        "Tree Testing ❤️",
+        "To verify the users mental model",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research"]
+      ),
+      new Tool(
+        "wizard-of-oz",
+        "Wizard of Oz",
+        "To create a personalized experience during a test",
+        ToolCategory.RESEARCH,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["user-research", "prototyping"]
+      ),
+      new Tool(
+        "water-colors",
+        "Water Colors ",
+        "To get that soft and organic feeling",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["drawing-painting"]
+      ),
+      new Tool(
+        "gouache",
+        "Gouache",
+        "To make it vibrant",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["drawing-painting"]
+      ),
+      new Tool(
+        "fine-liner",
+        "Fine liner",
+        "To outline and give it some details",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["drawing-painting"]
+      ),
+      new Tool(
+        "poscas",
+        "Poscas",
+        "To limit my color pallet",
+        ToolCategory.DESIGN,
+        ProficiencyLevel.EXPERT,
+        undefined,
+        undefined,
+        [],
+        [],
+        [],
+        [],
+        ["drawing-painting"]
       ),
     ];
 
     tools.forEach((tool) => portfolioManager.addTool(tool));
 
     // Sample Books
-    const books = [
-      new Book(
-        "book1",
-        "Don't Make Me Think",
-        "A Common Sense Approach to Web Usability",
-        "Steve Krug",
-        2014,
-        BookCategory.UX_DESIGN,
-        ReadingStatus.COMPLETED,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill1", "skill4"] // Associated with User Research and Usability Testing
-      ),
-      new Book(
-        "book2",
-        "The Design of Everyday Things",
-        "Revised and Expanded Edition",
-        "Don Norman",
-        2013,
-        BookCategory.DESIGN_THINKING,
-        ReadingStatus.COMPLETED,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill3", "skill5"] // Associated with Visual Design and Design Strategy
-      ),
-      new Book(
-        "book3",
-        "Atomic Design",
-        "Creating design systems that work",
-        "Brad Frost",
-        2016,
-        BookCategory.UI_DESIGN,
-        ReadingStatus.CURRENTLY_READING,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill3"] // Associated with Visual Design
-      ),
-      new Book(
-        "book4",
-        "Thinking, Fast and Slow",
-        "Understanding human decision-making",
-        "Daniel Kahneman",
-        2011,
-        BookCategory.PSYCHOLOGY,
-        ReadingStatus.COMPLETED,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill1", "skill5"] // Associated with User Research and Design Strategy
-      ),
-      new Book(
-        "book5",
-        "Lean UX",
-        "Applying Lean Principles to Improve User Experience",
-        "Jeff Gothelf",
-        2016,
-        BookCategory.UX_DESIGN,
-        ReadingStatus.WANT_TO_READ,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill2", "skill5"] // Associated with Prototyping and Design Strategy
-      ),
-      // Additional books for scroll testing
-      new Book(
-        "book6",
-        "Creativity, Inc.",
-        "Overcoming the Unseen Forces That Stand in the Way of True Inspiration",
-        "Ed Catmull",
-        2014,
-        BookCategory.CREATIVITY,
-        ReadingStatus.COMPLETED,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill6"]
-      ),
-      new Book(
-        "book7",
-        "Sprint",
-        "How to Solve Big Problems and Test New Ideas in Just Five Days",
-        "Jake Knapp",
-        2016,
-        BookCategory.BUSINESS,
-        ReadingStatus.COMPLETED,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill2"]
-      ),
-      new Book(
-        "book8",
-        "Hooked",
-        "How to Build Habit-Forming Products",
-        "Nir Eyal",
-        2014,
-        BookCategory.BUSINESS,
-        ReadingStatus.WANT_TO_READ,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill4"]
-      ),
-      new Book(
-        "book9",
-        "The Lean Startup",
-        "How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
-        "Eric Ries",
-        2011,
-        BookCategory.BUSINESS,
-        ReadingStatus.REFERENCE,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill5"]
-      ),
-      new Book(
-        "book10",
-        "Drive",
-        "The Surprising Truth About What Motivates Us",
-        "Daniel H. Pink",
-        2009,
-        BookCategory.PSYCHOLOGY,
-        ReadingStatus.ON_HOLD,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill1"]
-      ),
-      new Book(
-        "book11",
-        "Radical Candor",
-        "Be a Kick-Ass Boss Without Losing Your Humanity",
-        "Kim Scott",
-        2017,
-        BookCategory.LEADERSHIP,
-        ReadingStatus.CURRENTLY_READING,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill6"]
-      ),
-      new Book(
-        "book12",
-        "The Art of Thinking Clearly",
-        "Better thinking for better decisions",
-        "Rolf Dobelli",
-        2013,
-        BookCategory.PSYCHOLOGY,
-        ReadingStatus.DNF,
-        undefined,
-        [],
-        [],
-        [],
-        ["skill5"]
-      ),
-    ];
-
-    // Add ratings and reviews for completed books
-    books[0].addReview(
-      5,
-      "Essential read for anyone in UX. Clear, practical advice that has shaped how I approach usability."
-    );
-    books[1].addReview(
-      5,
-      "Foundational book that changed my perspective on design. Norman's insights are timeless."
-    );
-    books[3].addReview(
-      4,
-      "Incredible insights into human psychology and decision-making. Very relevant for UX design."
-    );
-
     books.forEach((book) => portfolioManager.addBook(book));
 
-    // Sample Achievements
+    // Real Achievements Data
     const achievements = [
-      new Achievement(
-        "ach1",
-        "Certified Usability Analyst",
-        "Professional certification in usability analysis and testing",
-        AchievementType.CERTIFICATION,
-        AchievementLevel.EXPERT,
-        "Human Factors International",
-        new Date("2023-03-15"),
-        new Date("2026-03-15"),
-        "CUA-2023-001234"
-      ),
-      new Achievement(
-        "ach2",
-        "UX Design Conference Speaker",
-        'Presented "The Future of Voice Interfaces" at UX Week 2023',
-        AchievementType.CONFERENCE_SPEAKER,
-        AchievementLevel.INDUSTRY_RECOGNITION,
-        "UX Week",
-        new Date("2023-10-12"),
-        undefined,
-        "UXWEEK2023-SP-042"
-      ),
-      new Achievement(
-        "ach3",
-        "Google UX Design Certificate",
-        "Completed comprehensive UX design program",
-        AchievementType.COURSE_COMPLETION,
-        AchievementLevel.INTERMEDIATE,
-        "Google",
-        new Date("2022-08-20"),
-        undefined,
-        "GOOGLE-UX-2022-567890"
-      ),
+      (() => {
+        const a = new Achievement(
+          "ach1",
+          "How to use the focus state to improve your TV App",
+          'After my first experience with designing for TV I was surprised and excited about the differences compared to designing for mobile or desktop. Hence I wrote down my learnings which got published under "Bootcamp".',
+          AchievementType.PUBLICATION,
+          AchievementLevel.INTERMEDIATE,
+          "Bootcamp",
+          new Date("2024-01-01")
+        );
+        a.badgeUrl =
+          "/Achievements%201f09193d1f918004b2b4f92942c436e0/How_to_use_the_focus_state_to_improve_your_TV_App.jpg";
+        a.publicUrl =
+          "https://medium.com/design-bootcamp/how-to-use-the-focus-state-to-improve-your-tv-app-7cb399b89e3d";
+        return a;
+      })(),
+      (() => {
+        const a = new Achievement(
+          "ach2",
+          "A compass for page layouts",
+          'While working on a design system, we wanted to include not only visual but also navigational guidelines. One of which got published under "UX Planet".',
+          AchievementType.PUBLICATION,
+          AchievementLevel.INTERMEDIATE,
+          "UX Planet",
+          new Date("2024-01-01")
+        );
+        a.badgeUrl =
+          "/Achievements%201f09193d1f918004b2b4f92942c436e0/A_compass_for_page_layouts.jpg";
+        a.publicUrl =
+          "https://medium.com/ux-planet/a-compass-for-page-layouts-71231306b67";
+        return a;
+      })(),
+      (() => {
+        const a = new Achievement(
+          "ach3",
+          "Design Sprint Masterclass Certificate",
+          "I am a big fan of the Design Sprint by Jake Knapp even though I like to bend the ruled. But I can do that now with confidence after learning the rules in their masterclass.",
+          AchievementType.CERTIFICATION,
+          AchievementLevel.INTERMEDIATE,
+          "Design Sprint Masterclass",
+          new Date("2024-01-01")
+        );
+        a.certificateUrl =
+          "/Achievements%201f09193d1f918004b2b4f92942c436e0/Certificate-Carina_Lea_Meyer.png";
+        return a;
+      })(),
+      (() => {
+        const a = new Achievement(
+          "ach4",
+          "Scrum Product Owner Certificate",
+          "Though I never worked as a product owner, this class gave me a good understanding about working in a team with diverse roles.",
+          AchievementType.CERTIFICATION,
+          AchievementLevel.INTERMEDIATE,
+          "Scrum Alliance",
+          new Date("2024-01-01")
+        );
+        a.certificateUrl =
+          "/Achievements%201f09193d1f918004b2b4f92942c436e0/01_Carina_Lea_Meyer-ScrumAlliance_CSPO_Certificate.png";
+        return a;
+      })(),
+      (() => {
+        const a = new Achievement(
+          "ach5",
+          "OOUXer of the Month: May 2025",
+          "While taking the OOUX foundations course I was thrilled that my work for it got recognized and posted about. Though not a flashy achievement it is one I hold dear to my heart.",
+          AchievementType.AWARD,
+          AchievementLevel.INTERMEDIATE,
+          "OOUX",
+          new Date("2025-05-01")
+        );
+        a.badgeUrl =
+          "/Achievements%201f09193d1f918004b2b4f92942c436e0/OOUXer_of_the_Month__May_2025.jpg";
+        return a;
+      })(),
     ];
-
-    achievements[0].markAsVerified(
-      "https://hfi.org/verify/CUA-2023-001234",
-      "HFI Verification System"
-    );
-    achievements[1].markAsVerified(
-      "https://uxweek.com/speakers/2023",
-      "UX Week"
-    );
-    achievements[2].markAsVerified(
-      "https://coursera.org/verify/professional-cert/567890",
-      "Coursera"
-    );
 
     achievements.forEach((achievement) =>
       portfolioManager.addAchievement(achievement)
@@ -564,7 +876,7 @@ function App() {
                         My values
                       </h2>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="card p-6">
+                        <div className="bg-white border border-gray-200 rounded-lg p-6">
                           <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                             Learning from Users
                           </h3>
@@ -576,7 +888,7 @@ function App() {
                             drive my process.
                           </p>
                         </div>
-                        <div className="card p-6">
+                        <div className="bg-white border border-gray-200 rounded-lg p-6">
                           <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                             Learning from Peers
                           </h3>
@@ -587,7 +899,7 @@ function App() {
                             helps me grow and deliver better solutions.
                           </p>
                         </div>
-                        <div className="card p-6">
+                        <div className="bg-white border border-gray-200 rounded-lg p-6">
                           <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                             Learning from Media
                           </h3>

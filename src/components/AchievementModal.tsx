@@ -52,77 +52,58 @@ const AchievementModal: React.FC<AchievementModalProps> = ({
           background: "rgba(0,0,0,0.25)",
         }}
         aria-hidden="true"
+        onClick={onClose}
       />
       {/* Modal Card */}
       <div
+        className="achievement-modal"
+        onClick={(e) => e.stopPropagation()}
         ref={modalRef}
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          zIndex: 10000,
-          transform: "translate(-50%, -50%)",
-          background: "white",
-          borderRadius: "0.75rem",
-          boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
-          maxWidth: "40rem",
-          width: "100%",
-          maxHeight: "90vh",
-          overflow: "auto",
-          border: "1px solid #e5e7eb",
-          display: "flex",
-          flexDirection: "column",
-        }}
       >
         {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
-          style={{ zIndex: 10 }}
-        >
+        <button onClick={onClose} className="achievement-modal-close">
           <X size={24} />
         </button>
-
-        {/* Type at top, in brackets, centered */}
-        <div className="w-full text-center mt-8 mb-6">
-          <span className="text-xs text-gray-500 tracking-widest uppercase">
-            [{achievement.type}]
-          </span>
-        </div>
-
-        {/* Large centered image with border */}
-        {(achievement.badgeUrl || achievement.certificateUrl) && (
-          <div className="w-full flex justify-center mb-8">
-            <div
-              className="bg-white border border-gray-300 rounded-md overflow-hidden"
-              style={{
-                width: 400,
-                height: 225,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+        <div className="achievement-modal-content">
+          {/* Type tag */}
+          <div className="achievement-modal-type">
+            <span>[</span>
+            <span>{achievement.type}</span>
+            <span>]</span>
+          </div>
+          {/* Image and Details Side by Side */}
+          <div className="achievement-modal-image">
+            {achievement.badgeUrl || achievement.certificateUrl ? (
               <img
                 src={achievement.badgeUrl || achievement.certificateUrl}
                 alt={achievement.title}
-                className="object-contain w-full h-full"
-                style={{ maxHeight: 225, maxWidth: 400 }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: 2,
+                }}
               />
-            </div>
+            ) : null}
           </div>
-        )}
-
-        {/* Title as bold, centered heading */}
-        <h3 className="text-2xl font-bold text-gray-900 text-center mb-6 px-6">
-          {achievement.title}
-        </h3>
-
-        {/* Description/copy text below, left-aligned, smaller font */}
-        <div className="w-full px-8 pb-10">
-          <p className="text-sm text-gray-700 leading-relaxed text-left">
-            {achievement.description}
-          </p>
+          <div className="achievement-modal-details">
+            <div className="achievement-modal-title">{achievement.title}</div>
+            <div className="copy75">{achievement.description}</div>
+            {achievement.publicUrl && (
+              <div className="mt-6 text-center">
+                <a
+                  href={achievement.publicUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="custom-link"
+                >
+                  {achievement.type === "Publication"
+                    ? "View publication"
+                    : "Read more"}
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

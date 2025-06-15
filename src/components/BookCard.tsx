@@ -3,7 +3,7 @@ import { Book, ReadingStatus } from "../models/Book";
 
 interface BookCardProps {
   book: Book;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
@@ -25,7 +25,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-gray-50 border border-gray-300 rounded-md p-0 flex flex-col items-center cursor-pointer"
+      className="bg-gray-50 border border-gray-300 rounded-md p-0 flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
       style={{ width: 220, minHeight: 390 }}
     >
       {/* Book Cover */}
@@ -49,11 +49,12 @@ const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
         />
       </div>
       {/* Tags */}
-      <div
-        className="w-full text-xs text-gray-500 text-left px-3 py-2"
-        style={{ minHeight: 24 }}
-      >
-        [{tags.join(", ")}]
+      <div className="w-full px-3 py-2 flex flex-wrap gap-1">
+        {tags.map((tag, index) => (
+          <span key={index} className="tag">
+            [{tag}]
+          </span>
+        ))}
       </div>
       {/* Title */}
       <div className="w-full px-3 mt-2">

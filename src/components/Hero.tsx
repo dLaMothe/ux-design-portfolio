@@ -24,7 +24,8 @@ const Hero: React.FC = () => {
           {/* Main Heading */}
           <motion.h1
             style={{
-              fontFamily: "'Jersey 10', sans-serif",
+              fontFamily:
+                "'Jersey 10', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
               fontStyle: "normal",
               fontWeight: 400,
               fontSize: "64px",

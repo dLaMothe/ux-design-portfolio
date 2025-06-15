@@ -1,6 +1,4 @@
 /* Tailwind-like utility classes for modern styling */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
 body {
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -14,6 +12,107 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Typography */
+h2 {
+  font-family: "Jersey 10", "Inter", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+}
+
+h3 {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #242628;
+}
+
+/* Base text styles */
+p,
+.description,
+.text-content,
+.card-content p,
+.section p {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+}
+
+.copy100 {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+}
+
+.copy75 {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #242628;
+}
+
+.copy50 {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #242628;
+}
+
+/* Tag styles */
+.tag,
+.badge {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #242628;
+}
+
+.font-jersey-10-h2 {
+  font-family: "Jersey 10", "Inter", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+}
+
+.font-ubuntu-mono-h3 {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #242628;
 }
 
 /* Utility classes */
@@ -612,4 +711,621 @@ code {
   .sm\:flex-row {
     flex-direction: row;
   }
+}
+
+.font-jersey-10 {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 69px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+}
+
+/* Case Study Hero Section */
+.case-study-hero {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 56px 88px 80px;
+  gap: 48px;
+  background: linear-gradient(
+    135deg,
+    #b0ffb0 0%,
+    #7ee7f7 100%
+  ); /* Placeholder gradient */
+}
+
+.case-study-title {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 69px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  margin: 32px 0 0 0;
+}
+
+.custom-link {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: #242628;
+  transition: font-weight 0.2s;
+}
+.custom-link:hover {
+  font-weight: bold;
+}
+
+/* Achievement Card Styles */
+.achievement-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  width: 299px;
+  height: 298px;
+  background: #efefef;
+  box-shadow: 0px 4px 0px #000000;
+  border: 1px solid #242628;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.achievement-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 8px #00000022;
+}
+.achievement-type {
+  width: 34px;
+  height: 14px;
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #242628;
+  text-transform: uppercase;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.achievement-image-wrapper {
+  width: 283px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b9b3ff;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.achievement-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.achievement-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #b9b3ff;
+  border-radius: 2px;
+}
+.achievement-title {
+  width: 283px;
+  height: 56px;
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #242628;
+  align-self: stretch;
+}
+
+/* Achievement Modal Styles */
+.achievement-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 100%;
+  max-width: 1000px;
+  height: 90vh;
+  max-height: 90vh;
+  background: #efefef;
+  box-shadow: 0px 1497px 250px rgba(0, 0, 0, 0.01),
+    0px 842px 250px rgba(0, 0, 0, 0.05), 0px 374px 250px rgba(0, 0, 0, 0.09),
+    0px 94px 206px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 64px 0;
+  gap: 64px;
+  overflow: auto;
+}
+.achievement-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #242628;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+}
+.achievement-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 780px;
+  max-width: 100vw;
+  gap: 24px;
+}
+.achievement-modal-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 6px;
+  width: 107px;
+  height: 22px;
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.achievement-modal-type span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.achievement-modal-image {
+  width: 780px;
+  max-width: 100vw;
+  height: 55vh;
+  max-height: 551px;
+  background: #fff;
+  border: 1px solid #242628;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.achievement-modal-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 16px;
+  width: 780px;
+  max-width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+}
+.achievement-modal-title {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: #242628;
+  width: 100%;
+  max-width: 808px;
+  height: auto;
+  margin-bottom: 0;
+  word-break: break-word;
+}
+.achievement-modal-description {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+  width: 808px;
+  max-width: 100vw;
+  height: auto;
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .achievement-modal-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .achievement-modal-image,
+  .achievement-modal-details {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.skill-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 16px;
+  width: 100%;
+  height: 230px;
+  background: #fcfe53;
+  border-bottom: 2px solid #242628;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 0;
+}
+.skill-card:hover {
+  transform: scale(1.02);
+}
+.skill-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 16px;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+}
+.skill-card-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skill-card-title {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.skill-card-description {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #242628;
+  width: 100%;
+  height: 92px;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.skill-card-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  gap: 4px;
+  width: 100%;
+  height: 18px;
+  margin: 0;
+}
+.skill-card-arrow {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  color: #242628;
+  width: 14px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.book-module {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 16px;
+  width: 100%;
+  height: 230px;
+  background: #fff;
+  border-bottom: 2px solid #e5e7eb;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 0;
+}
+.book-module:hover {
+  transform: scale(1.02);
+}
+.book-module-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 16px;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+}
+.book-module-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-module-title {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.book-module-description {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #242628;
+  width: 100%;
+  height: 92px;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.book-module-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  gap: 4px;
+  width: 100%;
+  height: 18px;
+  margin: 0;
+}
+.book-module-arrow {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  color: #242628;
+  width: 14px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.book-modal-hero {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 48px 96px 0 96px;
+  gap: 48px;
+  width: 1000px;
+  height: 418px;
+  box-sizing: border-box;
+}
+.book-modal-cover {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px;
+  width: 241px;
+  height: 370px;
+  background: #fff;
+  border: 1px solid #242628;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.book-modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  gap: 48px;
+  width: 519px;
+  height: 370px;
+}
+.book-modal-tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 18px;
+  margin-bottom: 16px;
+}
+.book-modal-title {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.book-modal-author {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.book-modal-thoughts {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.book-modal-rating {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+  width: 100%;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.book-modal-quotes-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 96px;
+  gap: 104px;
+  width: 1000px;
+  box-sizing: border-box;
+}
+.book-modal-quotes-header {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 185px;
+  height: 24px;
+  margin-bottom: 32px;
+}
+.book-modal-quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 808px;
+}
+.book-modal-quote-card {
+  background: #efefef;
+  padding: 8px;
+  width: 808px;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #242628;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.book-modal-skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 96px;
+  gap: 48px;
+  width: 1000px;
+  height: 268px;
+  box-sizing: border-box;
+}
+.book-modal-skills-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  width: 808px;
+  max-width: 1200px;
+  height: 40px;
+}
+.book-modal-skills-star {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-modal-skills-title {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+}
+.book-modal-skills-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 808px;
+  max-width: 1200px;
+  height: 180px;
+}
+/* Skill card override for book modal */
+.book-modal-skills-grid .skill-card {
+  width: 253.33px;
+  height: 180px;
+  min-width: 253.33px;
+  min-height: 180px;
+  max-width: 253.33px;
+  max-height: 180px;
+  padding: 24px;
+  gap: 16px;
+  box-sizing: border-box;
 }

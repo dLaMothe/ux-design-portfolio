@@ -56,29 +56,14 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 py-16">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <button
-              onClick={() => navigate("/")}
-              className="btn btn-secondary flex items-center gap-2 mb-8"
-            >
-              <ArrowLeft size={20} />
-              Back to Portfolio
-            </button>
-
-            <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {caseStudy.title}
-              </h1>
-            </div>
-          </motion.div>
+      <section className="case-study-hero">
+        <div>
+          <a href="/" className="custom-link">
+            ← Home
+          </a>
+          <h1 className="case-study-title">{caseStudy.title}</h1>
         </div>
       </section>
 
@@ -97,17 +82,17 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       <section className="py-8">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="card">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Problem
               </h3>
               <p className="text-gray-600">{caseStudy.challenge}</p>
             </div>
-            <div className="card">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Goal</h3>
               <p className="text-gray-600">{caseStudy.solution}</p>
             </div>
-            <div className="card">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Challenge
               </h3>
@@ -174,7 +159,10 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 </h2>
                 <div className="space-y-8">
                   {caseStudy.phases.map((phase, index) => (
-                    <div key={index} className="card">
+                    <div
+                      key={index}
+                      className="bg-white border border-gray-200 rounded-lg p-6"
+                    >
                       <div className="flex items-start gap-4">
                         <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0 mt-1">
                           {index + 1}
@@ -224,7 +212,10 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {caseStudy.images.map((image, index) => (
-                    <div key={index} className="card p-0 overflow-hidden">
+                    <div
+                      key={index}
+                      className="bg-white border border-gray-200 rounded-lg p-0 overflow-hidden"
+                    >
                       <div className="w-full h-64 bg-gray-100 flex items-center justify-center">
                         <div className="text-center text-gray-500">
                           <Eye size={48} className="mx-auto mb-2 opacity-50" />
@@ -248,7 +239,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                 Learnings & Decisions
               </h2>
-              <div className="card">
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
                 <p className="text-gray-600">
                   {caseStudy.learnings ||
                     "No learnings and decisions have been documented for this case study yet."}
@@ -269,7 +260,10 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {caseStudy.images.map((image, index) => (
-                    <div key={index} className="card p-0 overflow-hidden">
+                    <div
+                      key={index}
+                      className="bg-white border border-gray-200 rounded-lg p-0 overflow-hidden"
+                    >
                       <div className="w-full h-64 bg-gray-100 flex items-center justify-center">
                         <div className="text-center text-gray-500">
                           <Eye size={48} className="mx-auto mb-2 opacity-50" />
@@ -365,12 +359,6 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   className="btn btn-primary"
                 >
                   Get In Touch
-                </button>
-                <button
-                  onClick={() => navigate("/")}
-                  className="btn btn-outline"
-                >
-                  View More Projects
                 </button>
               </div>
             </motion.div>
