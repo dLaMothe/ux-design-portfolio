@@ -1,0 +1,111 @@
+[
+  {
+    "id": "cs1",
+    "title": "E-commerce Redesign",
+    "description": "Complete redesign of a major e-commerce platform to improve user experience and increase conversion rates.",
+    "client": "TechCorp Inc.",
+    "duration": "6 months",
+    "role": "Lead UX Designer",
+    "team": [
+      "Sarah Johnson (PM)",
+      "Mike Chen (Developer)",
+      "Lisa Wong (UI Designer)"
+    ],
+    "challenge": "Users were abandoning their shopping carts at a 70% rate, and the overall user experience was confusing and outdated.",
+    "solution": "Conducted extensive user research, created new user flows, and designed a modern, intuitive interface with improved checkout process.",
+    "outcome": "Reduced cart abandonment by 45% and increased overall conversion rate by 32%. User satisfaction scores improved from 2.1 to 4.6 out of 5.",
+    "tools": ["Figma", "Sketch", "InVision", "Hotjar", "Google Analytics"],
+    "skillIds": [
+      "ux-user-experience-design",
+      "user-research",
+      "prototyping",
+      "ui-user-interface-design",
+      "workshop-facilitation"
+    ],
+    "phases": [
+      {
+        "name": "Research & Discovery",
+        "description": "User interviews, competitive analysis, and analytics review",
+        "deliverables": [
+          "User personas",
+          "Journey maps",
+          "Research findings report"
+        ]
+      },
+      {
+        "name": "Design & Prototyping",
+        "description": "Wireframing, visual design, and interactive prototypes",
+        "deliverables": [
+          "Wireframes",
+          "High-fidelity mockups",
+          "Interactive prototype"
+        ]
+      },
+      {
+        "name": "Testing & Iteration",
+        "description": "Usability testing and design refinements",
+        "deliverables": ["Test results", "Design iterations", "Final designs"]
+      }
+    ],
+    "images": [
+      "/images/ecommerce-1.jpg",
+      "/images/ecommerce-2.jpg",
+      "/images/ecommerce-3.jpg"
+    ],
+    "liveUrl": "https://example-ecommerce.com",
+    "prototypeUrl": "https://figma.com/proto/example",
+    "learnings": ""
+  },
+  {
+    "id": "cs2",
+    "title": "Mobile Banking App",
+    "description": "Design of a new mobile banking application focused on simplicity and security.",
+    "client": "SecureBank",
+    "duration": "8 months",
+    "role": "Senior UX Designer",
+    "team": [
+      "David Kim (Product Owner)",
+      "Emma Davis (iOS Developer)",
+      "Carlos Rodriguez (Android Developer)"
+    ],
+    "challenge": "Customers found existing mobile banking options complex and were concerned about security.",
+    "solution": "Designed a clean, intuitive interface with biometric authentication and simplified transaction flows.",
+    "outcome": "App achieved 4.8-star rating in app stores and 89% user adoption rate within first 6 months.",
+    "tools": ["Figma", "Principle", "Marvel", "UserTesting", "Mixpanel"],
+    "skillIds": [
+      "ux-user-experience-design",
+      "drawing-painting",
+      "ui-user-interface-design",
+      "workshop-facilitation"
+    ],
+    "phases": [
+      {
+        "name": "User Research",
+        "description": "Conducted interviews with 50+ banking customers to understand pain points",
+        "deliverables": [
+          "User personas",
+          "Customer journey maps",
+          "Pain point analysis"
+        ]
+      },
+      {
+        "name": "Security Analysis",
+        "description": "Worked with security team to design secure yet user-friendly authentication",
+        "deliverables": [
+          "Security requirements",
+          "Authentication flow",
+          "Risk assessment"
+        ]
+      },
+      {
+        "name": "Design & Testing",
+        "description": "Created and tested multiple design iterations with users",
+        "deliverables": ["Wireframes", "Prototypes", "Usability test results"]
+      }
+    ],
+    "images": ["/images/banking-1.jpg", "/images/banking-2.jpg"],
+    "liveUrl": null,
+    "prototypeUrl": null,
+    "learnings": ""
+  }
+]

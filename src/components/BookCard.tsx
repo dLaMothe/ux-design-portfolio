@@ -1,70 +1,141 @@
 import React from "react";
 import { Book, ReadingStatus } from "../models/Book";
+import { useModal } from "../App";
 
 interface BookCardProps {
   book: Book;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
-  // Use coverImageUrl if available, otherwise fallback to a placeholder
+  const { openBookModal } = useModal();
   const imageUrl =
     (book as any).coverImageUrl ||
-    "https://placehold.co/200x300?text=Book+Cover";
+    "https://placehold.co/166x255?text=Book+Cover";
 
-  // Build tags string
-  let tags = [];
-  if (book.status === ReadingStatus.COMPLETED) tags.push("Done");
-  else if (book.status === ReadingStatus.CURRENTLY_READING)
-    tags.push("Currently reading");
-  else if (book.status === ReadingStatus.DNF) tags.push("Did not finish");
-  else if (book.status === ReadingStatus.REFERENCE) tags.push("Reference");
-  else tags.push(book.status);
-  if (book.hasNotes) tags.push("With notes");
+  // Tag label (use first tag if available)
+  const tagLabel =
+    Array.isArray(book.tags) && book.tags.length > 0 ? book.tags[0] : "";
 
   return (
     <div
-      onClick={onClick}
-      className="bg-gray-50 border border-gray-300 rounded-md p-0 flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
-      style={{ width: 220, minHeight: 390 }}
+      onClick={() => {
+        if (onClick) onClick();
+        else openBookModal(book);
+      }}
+      style={{
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: 4,
+        width: 174,
+        height: "100%",
+        background: "#EFEFEF",
+        border: "1px solid #242628",
+        boxShadow: "0px 4px 0px #000000",
+        borderRadius: 2,
+        cursor: "pointer",
+        gap: 0,
+        justifyContent: "flex-start",
+      }}
     >
-      {/* Book Cover */}
+      {/* Picture */}
       <div
-        className="w-full flex justify-center border-b border-gray-200"
-        style={{ background: "#fff" }}
+        style={{
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          alignItems: "flex-start",
+          padding: 8,
+          width: 166,
+          height: 255,
+          background: "#FFFFFF",
+          border: "1px solid #242628",
+          borderRadius: 0,
+        }}
       >
         <img
           src={imageUrl}
           alt={book.title}
-          className="object-contain"
           style={{
-            width: 200,
-            height: 260,
-            margin: 0,
-            padding: 0,
-            border: "1px solid #bbb",
-            borderRadius: 2,
+            width: 150,
+            height: 239,
+            objectFit: "cover",
             background: "#fff",
+            border: "none",
+            borderRadius: 0,
           }}
         />
       </div>
-      {/* Tags */}
-      <div className="w-full px-3 py-2 flex flex-wrap gap-1">
-        {tags.map((tag, index) => (
-          <span key={index} className="tag">
-            [{tag}]
+      {/* Status (now Tag) */}
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          padding: 0,
+          margin: 0,
+          marginBottom: 8,
+          height: "auto",
+        }}
+      >
+        {Array.isArray(book.tags) && book.tags.length > 0 && (
+          <span
+            style={{
+              fontFamily: "Ubuntu Mono, monospace",
+              fontWeight: 400,
+              fontSize: 14,
+              lineHeight: "18px",
+              color: "#242628",
+              margin: "0 2px",
+            }}
+          >
+            [{book.tags.join(", ")}]
           </span>
-        ))}
+        )}
       </div>
-      {/* Title */}
-      <div className="w-full px-3 mt-2">
+      {/* Name and Creator */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "flex-start",
+          padding: 0,
+          margin: "0 auto",
+          width: 150,
+          marginTop: "auto",
+        }}
+      >
         <div
-          className="font-bold text-base text-gray-900"
-          style={{ fontFamily: "serif" }}
+          style={{
+            fontFamily: "Ubuntu Mono, monospace",
+            fontWeight: 700,
+            fontSize: 14,
+            lineHeight: "20px",
+            color: "#242628",
+            width: 150,
+            marginBottom: 2,
+            wordBreak: "break-word",
+          }}
         >
           {book.title}
         </div>
-        <div className="text-xs text-gray-700 mt-1 mb-2">{book.author}</div>
+        <div
+          style={{
+            fontFamily: "Ubuntu Mono, monospace",
+            fontWeight: 400,
+            fontSize: 12,
+            lineHeight: "20px",
+            color: "#242628",
+            width: 150,
+            marginTop: 2,
+            wordBreak: "break-word",
+          }}
+        >
+          {book.author}
+        </div>
       </div>
     </div>
   );

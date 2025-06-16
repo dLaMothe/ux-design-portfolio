@@ -6,6 +6,7 @@ import { PortfolioManager } from "../models/PortfolioManager";
 import SkillCard from "./SkillCard";
 import BookCard from "./BookCard";
 import { books } from "../data/books";
+import SkillModal from "./SkillModal";
 
 interface BookModalProps {
   book: Book;
@@ -19,6 +20,7 @@ const BookModal: React.FC<BookModalProps> = ({
   onClose,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [selectedSkill, setSelectedSkill] = React.useState<any | null>(null);
 
   // Handle click outside
   useEffect(() => {
@@ -55,7 +57,7 @@ const BookModal: React.FC<BookModalProps> = ({
           position: "fixed",
           inset: 0,
           zIndex: 9999,
-          background: "rgba(0,0,0,0.25)",
+          background: "rgba(0, 0, 0, 0.25)",
         }}
         aria-hidden="true"
       />
@@ -68,7 +70,7 @@ const BookModal: React.FC<BookModalProps> = ({
           left: "50%",
           zIndex: 10000,
           transform: "translate(-50%, -50%)",
-          background: "white",
+          background: "#EFEFEF",
           borderRadius: 2,
           boxShadow:
             "0px 1497px 250px rgba(0, 0, 0, 0.01), 0px 842px 250px rgba(0, 0, 0, 0.05), 0px 374px 250px rgba(0, 0, 0, 0.09), 0px 94px 206px rgba(0, 0, 0, 0.1)",
@@ -85,27 +87,36 @@ const BookModal: React.FC<BookModalProps> = ({
           border: "none",
         }}
       >
-        {/* Header */}
-        <div className="bg-white border-b p-4 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-gray-900">Book Details</h2>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <X size={24} />
-          </button>
-        </div>
-        <div
-          className="overflow-y-auto"
+        {/* Close Button */}
+        <button
+          onClick={onClose}
           style={{
-            height: "calc(80vh - 4rem)",
-            WebkitOverflowScrolling: "touch",
-            overflowX: "hidden",
+            position: "absolute",
+            top: 24,
+            right: 24,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "#242628",
+            zIndex: 1,
           }}
         >
-          <div className="p-6 space-y-8">
+          <X size={24} />
+        </button>
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+            overflowX: "hidden",
+            padding: "0 90px 64px 90px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div style={{ padding: 0, margin: 0 }}>
             {/* Book Header Section */}
-            <div className="book-modal-hero">
+            <div className="book-modal-hero" style={{ padding: 0 }}>
               {/* Book Cover */}
               <div className="book-modal-cover">
                 {/* Placeholder for book cover image */}
@@ -126,12 +137,9 @@ const BookModal: React.FC<BookModalProps> = ({
               {/* Book Info */}
               <div className="book-modal-info">
                 <div className="book-modal-tags">
-                  {book.tags &&
-                    book.tags.map((tag, i) => (
-                      <span key={i} className="tag">
-                        [{tag}]
-                      </span>
-                    ))}
+                  {book.tags && book.tags.length > 0 && (
+                    <span className="tag">[{book.tags.join(", ")}]</span>
+                  )}
                 </div>
                 <div className="book-modal-title">{book.title}</div>
                 <div className="book-modal-author">{book.author}</div>
@@ -160,9 +168,20 @@ const BookModal: React.FC<BookModalProps> = ({
 
             {/* Favorite Quotes Section */}
             {book.quotes && book.quotes.length > 0 && (
-              <div className="book-modal-quotes-section">
-                <div className="book-modal-quotes-header">Favorite Quotes</div>
-                <div className="book-modal-quotes-list">
+              <div
+                className="book-modal-quotes-section"
+                style={{ padding: 0, margin: 0 }}
+              >
+                <div
+                  className="book-modal-quotes-header"
+                  style={{ margin: 0, padding: 0 }}
+                >
+                  Favorite Quotes
+                </div>
+                <div
+                  className="book-modal-quotes-list"
+                  style={{ margin: 0, padding: 0 }}
+                >
                   {book.quotes.map((quote, index) => (
                     <div key={index} className="book-modal-quote-card">
                       {quote}
@@ -175,8 +194,14 @@ const BookModal: React.FC<BookModalProps> = ({
             {/* Skills Section */}
             {book.skillIds && book.skillIds.length > 0 && (
               <>
-                <div className="book-modal-skills-section">
-                  <div className="book-modal-skills-header">
+                <div
+                  className="book-modal-skills-section"
+                  style={{ padding: 0, margin: 0 }}
+                >
+                  <div
+                    className="book-modal-skills-header"
+                    style={{ margin: 0, padding: 0 }}
+                  >
                     <span
                       className="book-modal-skills-star"
                       style={{
@@ -202,7 +227,10 @@ const BookModal: React.FC<BookModalProps> = ({
                         />
                       </svg>
                     </span>
-                    <span className="book-modal-skills-title">
+                    <span
+                      className="book-modal-skills-title"
+                      style={{ margin: 0, padding: 0 }}
+                    >
                       For what I am reading this
                     </span>
                   </div>
@@ -222,7 +250,7 @@ const BookModal: React.FC<BookModalProps> = ({
                     })}
                   </div>
                 </div>
-                {/* DEBUG: List all loaded skills and their IDs */}
+                {/* DEBUG: Show skillIds, found skills, and all loaded skills */}
                 <div
                   style={{
                     marginTop: 24,
@@ -232,20 +260,38 @@ const BookModal: React.FC<BookModalProps> = ({
                     borderRadius: 4,
                   }}
                 >
-                  <strong>DEBUG: Loaded Skills</strong>
-                  <ul
-                    style={{
-                      margin: 0,
-                      padding: 0,
-                      listStyle: "none",
-                    }}
-                  >
-                    {portfolioManager.getAllSkills().map((skill) => (
-                      <li key={skill.id} style={{ fontFamily: "monospace" }}>
-                        <b>{skill.id}</b>: {skill.title}
-                      </li>
-                    ))}
-                  </ul>
+                  <strong>DEBUG: Book Skill Connections</strong>
+                  <div style={{ fontFamily: "monospace", marginTop: 8 }}>
+                    <div>
+                      <b>book.skillIds:</b> [{book.skillIds.join(", ")}]
+                    </div>
+                    <div>
+                      <b>Found skills for this book:</b>
+                      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                        {book.skillIds.map((skillId) => {
+                          const skill = portfolioManager.getSkill(skillId);
+                          return (
+                            <li key={skillId}>
+                              {skillId}:{" "}
+                              {skill ? (
+                                skill.title
+                              ) : (
+                                <span style={{ color: "red" }}>NOT FOUND</span>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                    <div>All loaded skills:</div>
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                      {portfolioManager.getAllSkills().map((skill) => (
+                        <li key={skill.id}>
+                          <b>{skill.id}</b>: {skill.title}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </>
             )}
@@ -272,6 +318,15 @@ const BookModal: React.FC<BookModalProps> = ({
           </div>
         </div>
       </div>
+      {/* Skill Modal for selected skill */}
+      {selectedSkill && (
+        <SkillModal
+          skill={selectedSkill}
+          portfolioManager={portfolioManager}
+          onClose={() => setSelectedSkill(null)}
+          color={selectedSkill.customColor || "#EFEFEF"}
+        />
+      )}
     </>
   );
 

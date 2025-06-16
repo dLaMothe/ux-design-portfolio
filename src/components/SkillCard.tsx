@@ -5,6 +5,7 @@ import { Skill, SkillLevel, SkillCategory } from "../models/Skill";
 import { CaseStudy } from "../models/CaseStudy";
 import { PortfolioManager } from "../models/PortfolioManager";
 import SkillModal from "./SkillModal";
+import { useModal } from "../App";
 
 interface SkillCardProps {
   skill: Skill;
@@ -50,6 +51,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
   showCaseStudies = true,
   portfolioManager,
 }) => {
+  const { openSkillModal } = useModal();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const color = getSkillColor(skill, index);
 
@@ -86,12 +88,12 @@ const SkillCard: React.FC<SkillCardProps> = ({
   return (
     <>
       <div
+        onClick={() => openSkillModal(skill)}
         className="skill-card"
         style={{
           background: color || "#FCFE53",
           borderBottom: "2px solid #242628",
         }}
-        onClick={() => setIsModalOpen(true)}
       >
         <div className="skill-card-header">
           <div className="skill-card-icon">

@@ -9,6 +9,7 @@ export enum AchievementType {
   MENTORSHIP = "Mentorship",
   VOLUNTEER = "Volunteer Work",
   PROJECT_MILESTONE = "Project Milestone",
+  SHOUT_OUT = "Shout Out",
 }
 
 export enum AchievementLevel {

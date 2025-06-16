@@ -1155,9 +1155,11 @@ p,
   align-items: flex-end;
   padding: 48px 96px 0 96px;
   gap: 48px;
-  width: 1000px;
+  width: auto;
   height: 418px;
   box-sizing: border-box;
+  margin-bottom: 88px;
+  padding-bottom: 0;
 }
 .book-modal-cover {
   box-sizing: border-box;
@@ -1165,7 +1167,7 @@ p,
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 8px;
+  padding: 8px 0;
   width: 241px;
   height: 370px;
   background: #fff;
@@ -1173,24 +1175,43 @@ p,
   border-radius: 2px;
   overflow: hidden;
 }
+.book-modal-cover img {
+  width: 241px;
+  height: 354px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
 .book-modal-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0;
-  gap: 48px;
-  width: 519px;
-  height: 370px;
+  align-items: flex-start;
+  padding: 8px 0;
+  gap: 16px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 .book-modal-tags {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #242628;
   width: 100%;
-  height: 18px;
-  margin-bottom: 16px;
+}
+.book-modal-tags .tag {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #242628;
+  width: 100%;
+  display: block;
 }
 .book-modal-title {
   font-family: "Ubuntu Sans Mono", monospace;
@@ -1198,10 +1219,8 @@ p,
   font-size: 24px;
   line-height: 29px;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: #242628;
-  width: 100%;
-  margin-bottom: 8px;
+  margin: 0;
 }
 .book-modal-author {
   font-family: "Ubuntu Mono", monospace;
@@ -1209,8 +1228,7 @@ p,
   font-size: 16px;
   line-height: 23px;
   color: #242628;
-  width: 100%;
-  margin-bottom: 8px;
+  margin: 0;
 }
 .book-modal-thoughts {
   font-family: "Ubuntu Mono", monospace;
@@ -1218,8 +1236,7 @@ p,
   font-size: 16px;
   line-height: 23px;
   color: #242628;
-  width: 100%;
-  margin-bottom: 8px;
+  margin: 0;
 }
 .book-modal-rating {
   font-family: "Ubuntu Mono", monospace;
@@ -1227,8 +1244,7 @@ p,
   font-size: 16px;
   line-height: 23px;
   color: #242628;
-  width: 100%;
-  margin-bottom: 8px;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1237,33 +1253,36 @@ p,
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 64px 96px;
-  gap: 104px;
-  width: 1000px;
+  padding: 0;
+  padding-top: 0;
+  gap: 24px;
+  width: 100%;
   box-sizing: border-box;
 }
 .book-modal-quotes-header {
   font-family: "Ubuntu Sans Mono", monospace;
   font-weight: 700;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 1;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
-  width: 185px;
-  height: 24px;
-  margin-bottom: 32px;
+  width: 100%;
+  margin-bottom: 24px;
+  /* background: none; */
 }
 .book-modal-quotes-list {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  width: 808px;
+  gap: 0;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
 }
 .book-modal-quote-card {
   background: #efefef;
   padding: 8px;
-  width: 808px;
+  width: 100%;
   font-family: "Ubuntu Mono", monospace;
   font-weight: 400;
   font-size: 16px;
@@ -1271,15 +1290,19 @@ p,
   color: #242628;
   border-radius: 2px;
   box-sizing: border-box;
+  margin-top: 0;
+}
+.book-modal-quote-card:first-child {
+  margin-top: 0 !important;
 }
 
 .book-modal-skills-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 96px;
+  padding: 0;
   gap: 48px;
-  width: 1000px;
+  width: 100%;
   height: 268px;
   box-sizing: border-box;
 }
@@ -1288,7 +1311,7 @@ p,
   flex-direction: row;
   align-items: center;
   gap: 24px;
-  width: 808px;
+  width: 100%;
   max-width: 1200px;
   height: 40px;
 }
@@ -1313,7 +1336,7 @@ p,
   display: flex;
   flex-direction: row;
   gap: 32px;
-  width: 808px;
+  width: 100%;
   max-width: 1200px;
   height: 180px;
 }

@@ -1,0 +1,323 @@
+[
+  {
+    "id": "expert-interviews",
+    "title": "Expert Interviews ❤️",
+    "description": "To collect all that knowledge we already have ",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "crazy-8s",
+    "title": "Crazy 8s ❤️",
+    "description": "To get the creative juices flowing",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design", "workshop-facilitation"]
+  },
+  {
+    "id": "lightning-demos",
+    "title": "Lightning Demos",
+    "description": "To find grate ideas to steal",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design", "workshop-facilitation"]
+  },
+  {
+    "id": "affinity-mapping",
+    "title": "Affinity Mapping",
+    "description": "To clean up the sticky notes",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design", "workshop-facilitation"]
+  },
+  {
+    "id": "hmw",
+    "title": "HMW",
+    "description": "To phrase a problem or opportunity in an actionable way",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "jtbd",
+    "title": "JTBD",
+    "description": "To put the users need in the center",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "journey-mapping",
+    "title": "Journey Mapping",
+    "description": "To uncover areas of opportunity",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design", "workshop-facilitation"]
+  },
+  {
+    "id": "opportunity-decision-tree",
+    "title": "Opportunity decision tree ❤️",
+    "description": "To document insights and make them actionable",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design", "workshop-facilitation"]
+  },
+  {
+    "id": "behavioural-psychology",
+    "title": "Behavioural Psychology",
+    "description": "To understand why people do what thez do",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "workshop-facilitation",
+    "title": "Workshop Facilitation",
+    "description": "To guide the team to a shared outcome and output",
+    "category": "COLLABORATION",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "wireframing",
+    "title": "Wireframing",
+    "description": "To experiment fast before deciding on a solution",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "double-diamond",
+    "title": "Double Diamond",
+    "description": "To follow it's phases during a project",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ux-user-experience-design"]
+  },
+  {
+    "id": "miro",
+    "title": "Miro ❤️",
+    "description": "To collaborate and collect my thoughts",
+    "category": "COLLABORATION",
+    "proficiency": "EXPERT",
+    "url": "https://miro.com",
+    "skillIds": [
+      "ux-user-experience-design",
+      "prototyping",
+      "ooux-object-oriented-user-experience",
+      "ux-writing",
+      "workshop-facilitation"
+    ]
+  },
+  {
+    "id": "notion",
+    "title": "Notion ❤️",
+    "description": "To create content, document thoughts and plan trips",
+    "category": "COLLABORATION",
+    "proficiency": "EXPERT",
+    "url": "https://notion.so",
+    "skillIds": ["ooux-object-oriented-user-experience", "ux-writing"]
+  },
+  {
+    "id": "orca",
+    "title": "ORCA ❤️",
+    "description": "To use OOUX as a structured process",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": [
+      "ooux-object-oriented-user-experience",
+      "workshop-facilitation"
+    ]
+  },
+  {
+    "id": "figma",
+    "title": "Figma ❤️",
+    "description": "To build cool prototypes and interfaces",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": "https://figma.com",
+    "skillIds": [
+      "ux-user-experience-design",
+      "prototyping",
+      "ui-user-interface-design",
+      "ooux-object-oriented-user-experience",
+      "ux-writing"
+    ]
+  },
+  {
+    "id": "gestalt-principles",
+    "title": "Gestalt Principles",
+    "description": "To be intentional with visual decisions",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["ui-user-interface-design"]
+  },
+  {
+    "id": "mobbin",
+    "title": "Mobbin ❤️",
+    "description": "To get inspired by awesome interfaces",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": "https://mobbin.com",
+    "skillIds": ["ui-user-interface-design"]
+  },
+  {
+    "id": "sketch",
+    "title": "Sketch",
+    "description": "My past building tool of choice",
+    "category": "DESIGN",
+    "proficiency": "ADVANCED",
+    "url": "https://sketch.com",
+    "skillIds": ["ui-user-interface-design"]
+  },
+  {
+    "id": "abstract",
+    "title": "Abstract",
+    "description": "My past building tool of choice",
+    "category": "COLLABORATION",
+    "proficiency": "ADVANCED",
+    "url": null,
+    "skillIds": ["ui-user-interface-design"]
+  },
+  {
+    "id": "hotjar",
+    "title": "Hotjar ❤️",
+    "description": "To track user behaviour within systems",
+    "category": "ANALYTICS",
+    "proficiency": "INTERMEDIATE",
+    "url": "https://hotjar.com",
+    "skillIds": ["user-research"]
+  },
+  {
+    "id": "optimal-workshop",
+    "title": "Optimal Workshop ❤️",
+    "description": "To do user tests and evaluate them",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": "https://optimalworkshop.com",
+    "skillIds": ["user-research"]
+  },
+  {
+    "id": "rapid-usertests",
+    "title": "rapid Usertests",
+    "description": "To do user interviews and record them",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research"]
+  },
+  {
+    "id": "benchmark",
+    "title": "Benchmark",
+    "description": "To learn about common patterns",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research", "workshop-facilitation"]
+  },
+  {
+    "id": "user-testing",
+    "title": "User Testing",
+    "description": "To observe user behaviour",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research", "ux-writing"]
+  },
+  {
+    "id": "user-interviews",
+    "title": "User Interviews",
+    "description": "To learn about users problems and needs",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research", "prototyping"]
+  },
+  {
+    "id": "desk-research",
+    "title": "Desk Research",
+    "description": "To gather knowledge about a new subject",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research", "workshop-facilitation"]
+  },
+  {
+    "id": "card-sorting",
+    "title": "Card Sorting ❤️",
+    "description": "To learn about the users mental model",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research"]
+  },
+  {
+    "id": "tree-testing",
+    "title": "Tree Testing ❤️",
+    "description": "To verify the users mental model",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research"]
+  },
+  {
+    "id": "wizard-of-oz",
+    "title": "Wizard of Oz",
+    "description": "To create a personalized experience during a test",
+    "category": "RESEARCH",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["user-research", "prototyping"]
+  },
+  {
+    "id": "water-colors",
+    "title": "Water Colors ",
+    "description": "To get that soft and organic feeling",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["drawing-painting"]
+  },
+  {
+    "id": "gouache",
+    "title": "Gouache",
+    "description": "To make it vibrant",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["drawing-painting"]
+  },
+  {
+    "id": "fine-liner",
+    "title": "Fine liner",
+    "description": "To outline and give it some details",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["drawing-painting"]
+  },
+  {
+    "id": "poscas",
+    "title": "Poscas",
+    "description": "To limit my color pallet",
+    "category": "DESIGN",
+    "proficiency": "EXPERT",
+    "url": null,
+    "skillIds": ["drawing-painting"]
+  }
+]

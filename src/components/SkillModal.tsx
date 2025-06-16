@@ -9,6 +9,7 @@ import { PortfolioManager } from "../models/PortfolioManager";
 import BookCard from "./BookCard";
 import CaseStudyCard from "./CaseStudyCard";
 import { useNavigate } from "react-router-dom";
+import BookModal from "./BookModal";
 
 interface SkillModalProps {
   skill: Skill;
@@ -72,7 +73,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
           position: "fixed",
           inset: 0,
           zIndex: 9999,
-          background: "rgba(0,0,0,0.25)",
+          background: "rgba(0, 0, 0, 0.25)",
         }}
         aria-hidden="true"
       />
@@ -85,7 +86,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
           left: "50%",
           zIndex: 10000,
           transform: "translate(-50%, -50%)",
-          background: "white",
+          background: "#EFEFEF",
           borderRadius: 2,
           boxShadow:
             "0px 1497px 250px rgba(0, 0, 0, 0.01), 0px 842px 250px rgba(0, 0, 0, 0.05), 0px 374px 250px rgba(0, 0, 0, 0.09), 0px 94px 206px rgba(0, 0, 0, 0.1)",
@@ -403,7 +404,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
                 .getAllBooks()
                 .filter((book) => book.skillIds.includes(skill.id))
                 .map((book) => (
-                  <BookCard key={book.id} book={book} onClick={() => {}} />
+                  <BookCard key={book.id} book={book} />
                 ))}
             </div>
           </div>

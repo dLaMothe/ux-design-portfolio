@@ -67,7 +67,15 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
           </span>
         </div>
         <div className="overflow-x-auto w-full pb-4">
-          <div className="inline-flex gap-6 min-w-[1200px]">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 24,
+              minWidth: 1200,
+              alignItems: "stretch",
+            }}
+          >
             {books.map((book, index) => (
               <motion.div
                 key={book.id}
@@ -76,9 +84,14 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 className="flex-shrink-0"
-                style={{ width: 260 }}
+                style={{
+                  width: 174,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "stretch",
+                }}
               >
-                <BookCard book={book} onClick={() => handleBookClick(book)} />
+                <BookCard book={book} />
               </motion.div>
             ))}
           </div>
