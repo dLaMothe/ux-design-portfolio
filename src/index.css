@@ -1513,7 +1513,7 @@ p,
 }
 
 .bg-case-study-tile {
-  background-image: url("/case-study-tile-bg.svg");
-  background-size: 15px 15px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="289" height="285" viewBox="0 0 289 285" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_112_3581)"><rect x="139" y="30" width="7" height="7" fill="%23DFB7FF"/><rect x="19" y="45" width="7" height="7" fill="%23AFFF64"/><rect x="169" y="180" width="7" height="7" fill="%2353FEA6"/><rect x="214" y="75" width="7" height="7" fill="%23FCFE53"/><rect x="49" y="195" width="7" height="7" fill="%2390CBFF"/><rect x="244" y="255" width="7" height="7" fill="%23FF91D8"/></g><defs><filter id="filter0_d_112_3581" x="0" y="0" width="293" height="293" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_112_3581"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_112_3581" result="shape"/></filter></defs></svg>');
+  background-size: 289px 285px;
   background-repeat: repeat;
 }
