@@ -21,7 +21,7 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
   }, {} as Record<string, typeof skills>);
 
   return (
-    <div className="section">
+    <div className="section bg-case-study-tile">
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div

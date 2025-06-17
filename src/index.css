@@ -1352,3 +1352,168 @@ p,
   gap: 16px;
   box-sizing: border-box;
 }
+
+.case-study-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px;
+  width: 485px;
+  height: 498px;
+  background: #efefef;
+  border: 1px solid #242628;
+  box-shadow: 0px 4px 0px #000000;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.case-study-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 8px #00000022;
+}
+.case-study-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 8px 8px 0px;
+  width: 477px;
+  height: 32px;
+}
+.case-study-card-image {
+  box-sizing: border-box;
+  width: 477px;
+  height: 254px;
+  background: linear-gradient(
+    157.13deg,
+    #fcfe53 -13.87%,
+    #53fea6 48.8%,
+    #90cbff 112.68%
+  );
+  border: 1px solid #242628;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+.case-study-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 16px;
+  width: 477px;
+  height: 204px;
+}
+.case-study-card-title {
+  width: 445px;
+  height: 20px;
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #242628;
+  margin-bottom: 0;
+}
+.case-study-card-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0;
+  gap: 8px;
+  width: 445px;
+  height: 136px;
+}
+.case-study-card-skill {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px 4px 6px;
+  gap: 8px;
+  height: 28px;
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #242628;
+  border-bottom: 1px solid #242628;
+  background: #90cbff; /* Default, override inline for each skill */
+}
+
+.my-values-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 96px;
+  gap: 56px;
+  width: 1280px;
+  height: 228px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-values-headline {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 1088px;
+  max-width: 1200px;
+  height: 27px;
+  margin: 0;
+  align-self: stretch;
+}
+.my-values-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  width: 1088px;
+  max-width: 1200px;
+  height: 138px;
+  align-self: stretch;
+}
+.my-values-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 346.67px;
+  height: 138px;
+  padding: 0;
+}
+.my-values-hearts {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.my-values-title {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #242628;
+  margin-bottom: 8px;
+}
+.my-values-body {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #242628;
+}
+
+.bg-case-study-tile {
+  background-image: url("/case-study-tile-bg.svg");
+  background-size: 15px 15px;
+  background-repeat: repeat;
+}

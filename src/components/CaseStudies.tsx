@@ -19,7 +19,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
   };
 
   return (
-    <div className="section">
+    <div className="section bg-case-study-tile">
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -66,7 +66,19 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
             Case Studies
           </span>
         </div>
-        <div className="grid grid-2">
+        <div
+          style={{
+            width: 1088,
+            maxWidth: 1200,
+            height: 1373,
+            margin: "0 auto",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 32,
+            justifyContent: "center",
+            alignItems: "flex-start",
+          }}
+        >
           {caseStudies.map((caseStudy, index) => (
             <CaseStudyCard
               key={caseStudy.id}

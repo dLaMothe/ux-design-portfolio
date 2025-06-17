@@ -25,46 +25,49 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       : "https://placehold.co/600x400?text=Case+Study";
 
   return (
-    <div
-      onClick={onClick}
-      className="bg-white border border-gray-200 rounded-xl shadow-sm p-4 flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
-      style={{ minWidth: 280, maxWidth: 400, margin: "auto" }}
-    >
-      {/* Picture */}
-      <div className="w-full flex justify-center mb-4">
-        <img
-          src={imageUrl}
-          alt={caseStudy.title}
-          className="rounded-lg object-cover border border-gray-100"
+    <div onClick={onClick} className="case-study-card">
+      {/* Header (optional, e.g. arrow or type) */}
+      <div className="case-study-card-header">
+        <span
           style={{
-            width: "100%",
-            maxWidth: 340,
-            height: 180,
-            background: "#f3f4f6",
-            objectFit: "cover",
+            fontFamily: "Ubuntu Sans Mono",
+            fontSize: 24,
+            fontWeight: 200,
+            color: "#242628",
+            width: 32,
+            height: 16,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            textAlign: "right",
           }}
-        />
+        >
+          &rarr;
+        </span>
       </div>
-      {/* Title */}
-      <h3 className="text-lg font-bold text-gray-900 text-center mb-4">
-        {caseStudy.title}
-      </h3>
-      {/* Skills Used as tags */}
-      <div className="flex flex-wrap gap-2 justify-center w-full">
-        {skillsUsed.map((skill, index) => (
-          <span
-            key={skill.id}
-            className="px-3 py-1 rounded-full text-xs font-medium shadow-sm"
-            style={{
-              display: "inline-block",
-              background: getSkillColor(skill, index),
-              color: "#fff",
-              border: "none",
-            }}
-          >
-            {skill.title}
-          </span>
-        ))}
+      {/* Picture */}
+      <img
+        src={imageUrl}
+        alt={caseStudy.title}
+        className="case-study-card-image"
+        style={{ objectFit: "cover" }}
+      />
+      {/* Content */}
+      <div className="case-study-card-content">
+        {/* Title */}
+        <div className="case-study-card-title">#{caseStudy.title}</div>
+        {/* Skills Used as tags */}
+        <div className="case-study-card-skills">
+          {skillsUsed.map((skill, idx) => (
+            <span
+              key={skill.id}
+              className="case-study-card-skill"
+              style={{ background: getSkillColor(skill, idx) }}
+            >
+              {skill.title}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

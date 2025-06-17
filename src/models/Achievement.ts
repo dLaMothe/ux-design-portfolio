@@ -1,17 +1,5 @@
 import { PortfolioItem } from "./PortfolioItem";
 
-export enum AchievementType {
-  CERTIFICATION = "Certification",
-  AWARD = "Award",
-  COURSE_COMPLETION = "Course Completion",
-  CONFERENCE_SPEAKER = "Conference Speaker",
-  PUBLICATION = "Publication",
-  MENTORSHIP = "Mentorship",
-  VOLUNTEER = "Volunteer Work",
-  PROJECT_MILESTONE = "Project Milestone",
-  SHOUT_OUT = "Shout Out",
-}
-
 export enum AchievementLevel {
   BEGINNER = "Beginner",
   INTERMEDIATE = "Intermediate",
@@ -28,9 +16,7 @@ export interface Verification {
 }
 
 export class Achievement extends PortfolioItem {
-  private _type: AchievementType;
-  private _level: AchievementLevel;
-  private _issuer: string;
+  private _type: string;
   private _dateEarned: Date;
   private _expirationDate?: Date;
   private _credentialId?: string;
@@ -46,10 +32,11 @@ export class Achievement extends PortfolioItem {
     id: string,
     title: string,
     description: string,
-    type: AchievementType,
-    level: AchievementLevel,
-    issuer: string,
+    type: string,
     dateEarned: Date,
+    badgeUrl?: string,
+    certificateUrl?: string,
+    publicUrl?: string,
     expirationDate?: Date,
     credentialId?: string,
     skills: string[] = [],
@@ -58,26 +45,21 @@ export class Achievement extends PortfolioItem {
   ) {
     super(id, title, description);
     this._type = type;
-    this._level = level;
-    this._issuer = issuer;
     this._dateEarned = dateEarned;
     this._expirationDate = expirationDate;
     this._credentialId = credentialId;
     this._skills = skills;
     this._relatedProjects = relatedProjects;
+    this._certificateUrl = certificateUrl;
+    this._badgeUrl = badgeUrl;
+    this._publicUrl = publicUrl;
     this._evidence = evidence;
     this._verification = { verified: false };
   }
 
   // Getters
-  get type(): AchievementType {
+  get type(): string {
     return this._type;
-  }
-  get level(): AchievementLevel {
-    return this._level;
-  }
-  get issuer(): string {
-    return this._issuer;
   }
   get dateEarned(): Date {
     return this._dateEarned;
@@ -111,16 +93,8 @@ export class Achievement extends PortfolioItem {
   }
 
   // Setters
-  set type(value: AchievementType) {
+  set type(value: string) {
     this._type = value;
-    this.updateTimestamp();
-  }
-  set level(value: AchievementLevel) {
-    this._level = value;
-    this.updateTimestamp();
-  }
-  set issuer(value: string) {
-    this._issuer = value;
     this.updateTimestamp();
   }
   set dateEarned(value: Date) {
@@ -244,9 +218,9 @@ export class Achievement extends PortfolioItem {
   public getDisplayInfo(): string {
     const statusInfo = this._verification.verified ? "✓" : "";
     const expiryInfo = this.isExpired() ? " (Expired)" : "";
-    return `${this.title} ${statusInfo} - ${
-      this._issuer
-    } (${this._dateEarned.getFullYear()})${expiryInfo}`;
+    return `${
+      this.title
+    } ${statusInfo} (${this._dateEarned.getFullYear()})${expiryInfo}`;
   }
 
   public toJSON(): Record<string, any> {
@@ -255,8 +229,6 @@ export class Achievement extends PortfolioItem {
       title: this.title,
       description: this.description,
       type: this._type,
-      level: this._level,
-      issuer: this._issuer,
       dateEarned: this._dateEarned,
       expirationDate: this._expirationDate,
       credentialId: this._credentialId,
