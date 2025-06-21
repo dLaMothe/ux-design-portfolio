@@ -6,20 +6,9 @@ export interface CaseStudyPhase {
   deliverables: string[];
 }
 
-export interface CaseStudy {
-  id: string;
+export interface LearningAndDecision {
   title: string;
-  description: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
-  role: string;
-  client: string;
-  team: string[];
-  tools: string[];
-  images: string[];
-  phases: ProjectPhase[];
-  learnings: string;
+  content: string;
 }
 
 export class CaseStudy extends PortfolioItem {
@@ -37,6 +26,15 @@ export class CaseStudy extends PortfolioItem {
   private _liveUrl?: string;
   private _prototypeUrl?: string;
   private _learnings: string;
+  // Additional fields from JSON
+  private _hmwQuestion?: string;
+  private _problem?: string;
+  private _goal?: string;
+  private _process?: string;
+  private _learningsAndDecisions?: LearningAndDecision[];
+  private _userFeedback?: string;
+  private _funFact?: string;
+  private _lessonLearned?: string;
 
   constructor(
     id: string,
@@ -53,7 +51,15 @@ export class CaseStudy extends PortfolioItem {
     skillIds: string[] = [],
     phases: CaseStudyPhase[] = [],
     images: string[] = [],
-    learnings: string = ""
+    learnings: string = "",
+    hmwQuestion?: string,
+    problem?: string,
+    goal?: string,
+    process?: string,
+    learningsAndDecisions?: LearningAndDecision[],
+    userFeedback?: string,
+    funFact?: string,
+    lessonLearned?: string
   ) {
     super(id, title, description);
     this._client = client;
@@ -68,6 +74,14 @@ export class CaseStudy extends PortfolioItem {
     this._phases = phases;
     this._images = images;
     this._learnings = learnings;
+    this._hmwQuestion = hmwQuestion;
+    this._problem = problem;
+    this._goal = goal;
+    this._process = process;
+    this._learningsAndDecisions = learningsAndDecisions;
+    this._userFeedback = userFeedback;
+    this._funFact = funFact;
+    this._lessonLearned = lessonLearned;
   }
 
   // Getters
@@ -112,6 +126,39 @@ export class CaseStudy extends PortfolioItem {
   }
   get learnings(): string {
     return this._learnings;
+  }
+
+  // Additional field getters
+  get hmwQuestion(): string | undefined {
+    return this._hmwQuestion;
+  }
+
+  get problem(): string | undefined {
+    return this._problem;
+  }
+
+  get goal(): string | undefined {
+    return this._goal;
+  }
+
+  get process(): string | undefined {
+    return this._process;
+  }
+
+  get learningsAndDecisions(): LearningAndDecision[] | undefined {
+    return this._learningsAndDecisions;
+  }
+
+  get userFeedback(): string | undefined {
+    return this._userFeedback;
+  }
+
+  get funFact(): string | undefined {
+    return this._funFact;
+  }
+
+  get lessonLearned(): string | undefined {
+    return this._lessonLearned;
   }
 
   // Setters

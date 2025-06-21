@@ -3,7 +3,7 @@ import { CaseStudy } from "./CaseStudy";
 import { Skill, SkillCategory, SkillLevel } from "./Skill";
 import { Tool, ToolCategory } from "./Tool";
 import { Book, BookCategory, ReadingStatus } from "./Book";
-import { Achievement, AchievementType } from "./Achievement";
+import { Achievement } from "./Achievement";
 
 // Strategy pattern for different sorting strategies
 export interface SortStrategy<T extends PortfolioItem> {
@@ -72,8 +72,7 @@ export interface ToolFilterCriteria extends FilterCriteria {
 }
 
 export interface AchievementFilterCriteria extends FilterCriteria {
-  types?: AchievementType[];
-  issuers?: string[];
+  types?: string[];
   verified?: boolean;
   expired?: boolean;
 }
@@ -411,8 +410,7 @@ export class PortfolioManager {
       filtered = filtered.filter(
         (achievement) =>
           achievement.title.toLowerCase().includes(term) ||
-          achievement.description.toLowerCase().includes(term) ||
-          achievement.issuer.toLowerCase().includes(term)
+          achievement.description.toLowerCase().includes(term)
       );
     }
 

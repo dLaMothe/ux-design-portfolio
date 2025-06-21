@@ -266,7 +266,7 @@ p,
   padding-bottom: 1rem;
 }
 .py-16 {
-  padding-top: 4rem;
+  padding-top: 16px;
   padding-bottom: 4rem;
 }
 .pt-3 {
@@ -787,7 +787,7 @@ p,
   box-shadow: 0px 8px 8px #00000022;
 }
 .achievement-type {
-  width: 34px;
+  width: fit-content;
   height: 14px;
   font-family: "Ubuntu Sans Mono", monospace;
   font-style: normal;
@@ -1359,8 +1359,8 @@ p,
   flex-direction: column;
   align-items: flex-start;
   padding: 4px;
-  width: 485px;
-  height: 498px;
+  width: 100%;
+  min-height: 498px;
   background: #efefef;
   border: 1px solid #242628;
   box-shadow: 0px 4px 0px #000000;
@@ -1378,12 +1378,12 @@ p,
   justify-content: flex-end;
   align-items: center;
   padding: 8px 8px 8px 0px;
-  width: 477px;
+  width: 100%;
   height: 32px;
 }
 .case-study-card-image {
   box-sizing: border-box;
-  width: 477px;
+  width: 100%;
   height: 254px;
   background: linear-gradient(
     157.13deg,
@@ -1402,12 +1402,13 @@ p,
   align-items: flex-start;
   padding: 16px;
   gap: 16px;
-  width: 477px;
-  height: 204px;
+  width: 100%;
+  flex: 1;
+  min-height: 204px;
 }
 .case-study-card-title {
-  width: 445px;
-  height: 20px;
+  width: 100%;
+  min-height: 40px;
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 700;
@@ -1424,8 +1425,9 @@ p,
   align-content: flex-start;
   padding: 0;
   gap: 8px;
-  width: 445px;
-  height: 136px;
+  width: 100%;
+  flex: 1;
+  min-height: 136px;
 }
 .case-study-card-skill {
   box-sizing: border-box;
@@ -1513,7 +1515,22 @@ p,
 }
 
 .bg-case-study-tile {
-  background-image: url('data:image/svg+xml;utf8,<svg width="289" height="285" viewBox="0 0 289 285" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_112_3581)"><rect x="139" y="30" width="7" height="7" fill="%23DFB7FF"/><rect x="19" y="45" width="7" height="7" fill="%23AFFF64"/><rect x="169" y="180" width="7" height="7" fill="%2353FEA6"/><rect x="214" y="75" width="7" height="7" fill="%23FCFE53"/><rect x="49" y="195" width="7" height="7" fill="%2390CBFF"/><rect x="244" y="255" width="7" height="7" fill="%23FF91D8"/></g><defs><filter id="filter0_d_112_3581" x="0" y="0" width="293" height="293" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_112_3581"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_112_3581" result="shape"/></filter></defs></svg>');
-  background-size: 289px 285px;
+  background-image: url("./assets/case-study-tile-bg.svg");
+  background-size: 15px 15px;
   background-repeat: repeat;
+}
+
+/* Responsive case study grid */
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+  .case-study-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

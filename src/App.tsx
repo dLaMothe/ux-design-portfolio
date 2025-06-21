@@ -262,7 +262,7 @@ function App() {
         new CaseStudy(
           caseStudyData.id,
           caseStudyData.title,
-          caseStudyData.problem || "",
+          caseStudyData.problem || "", // description
           "", // client
           caseStudyData.duration || "",
           "", // role
@@ -271,16 +271,22 @@ function App() {
             : caseStudyData.team
             ? caseStudyData.team.split(", ")
             : [],
-          caseStudyData.problem || "",
-          caseStudyData.goal || "",
-          "", // outcome
+          caseStudyData.challenge || "",
+          "", // solution - not in JSON
+          "", // outcome - not in JSON
           caseStudyData.toolIds || [],
           caseStudyData.skillIds || [],
-          [], // phases
-          [], // images
-          caseStudyData.learningsAndDecisions
-            ? JSON.stringify(caseStudyData.learningsAndDecisions)
-            : ""
+          (caseStudyData as any).phases || [], // phases
+          (caseStudyData as any).images || [], // images
+          caseStudyData.lessonLearned || "", // learnings
+          caseStudyData.hmwQuestion,
+          caseStudyData.problem,
+          caseStudyData.goal,
+          caseStudyData.process,
+          caseStudyData.learningsAndDecisions,
+          caseStudyData.userFeedback,
+          caseStudyData.funFact,
+          caseStudyData.lessonLearned
         )
       );
     });
@@ -309,8 +315,12 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Hero />
-                    <section id="my-values" className="my-values-section">
+                    <Hero style={{ marginBottom: 129 }} />
+                    <section
+                      id="my-values"
+                      className="my-values-section"
+                      style={{ marginBottom: 129 }}
+                    >
                       <div className="my-values-headline">My values</div>
                       <div className="my-values-row">
                         {/* Value 1 */}
@@ -359,16 +369,16 @@ function App() {
                         </div>
                       </div>
                     </section>
-                    <section id="case-studies">
+                    <section id="case-studies" style={{ marginBottom: 129 }}>
                       <CaseStudies portfolioManager={portfolioManager} />
                     </section>
-                    <section id="skills">
+                    <section id="skills" style={{ marginBottom: 129 }}>
                       <Skills portfolioManager={portfolioManager} />
                     </section>
-                    <section id="books">
+                    <section id="books" style={{ marginBottom: 129 }}>
                       <Books portfolioManager={portfolioManager} />
                     </section>
-                    <section id="achievements">
+                    <section id="achievements" style={{ marginBottom: 129 }}>
                       <Achievements portfolioManager={portfolioManager} />
                     </section>
                     <section id="contact">
