@@ -11,7 +11,7 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
   const achievements = portfolioManager.getAllAchievements();
 
   return (
-    <div className="section">
+    <div>
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -19,11 +19,11 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            padding: 0,
+            justifyContent: "flex-start",
+            padding: "2rem 0",
             gap: 24,
             width: "100%",
             maxWidth: 1200,
-            height: 100,
             marginBottom: 32,
           }}
         >
@@ -43,7 +43,7 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
             <AchievementsIcon />
           </div>
           {/* Headline */}
-          <span
+          <h1
             style={{
               fontFamily: "'Jersey 10', sans-serif",
               fontWeight: 400,
@@ -52,11 +52,11 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
               letterSpacing: "0.06em",
               textTransform: "uppercase",
               color: "#242628",
-              flex: 1,
+              margin: 0,
             }}
           >
-            Achievements & Certifications
-          </span>
+            Achievements
+          </h1>
         </div>
         <div className="grid grid-3">
           {achievements.map((achievement, index) => (

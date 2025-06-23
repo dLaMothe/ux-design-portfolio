@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { PortfolioManager } from "../models/PortfolioManager";
 import SkillCard from "./SkillCard";
 import SkillsIcon from "./SkillsIcon";
@@ -11,17 +10,8 @@ interface SkillsProps {
 const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
   const skills = portfolioManager.getAllSkills();
 
-  // Group skills by category
-  const skillsByCategory = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, typeof skills>);
-
   return (
-    <div className="section bg-case-study-tile">
+    <div className="bg-case-study-tile">
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -29,11 +19,11 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            padding: 0,
+            justifyContent: "flex-start",
+            padding: "2rem 0",
             gap: 24,
             width: "100%",
             maxWidth: 1200,
-            height: 100,
             marginBottom: 32,
           }}
         >
@@ -53,7 +43,7 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
             <SkillsIcon />
           </div>
           {/* Headline */}
-          <span
+          <h1
             style={{
               fontFamily: "'Jersey 10', sans-serif",
               fontWeight: 400,
@@ -62,11 +52,12 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
               letterSpacing: "0.06em",
               textTransform: "uppercase",
               color: "#242628",
-              flex: 1,
+              margin: 0,
+              padding: 0,
             }}
           >
-            Skills & Expertise
-          </span>
+            Skills
+          </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((skill, skillIndex) => (

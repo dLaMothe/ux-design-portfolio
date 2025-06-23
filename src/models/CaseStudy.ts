@@ -23,9 +23,11 @@ export class CaseStudy extends PortfolioItem {
   private _skillIds: string[];
   private _phases: CaseStudyPhase[];
   private _images: string[];
+  private _images2: string[];
   private _liveUrl?: string;
   private _prototypeUrl?: string;
   private _learnings: string;
+  private _gradient: string;
   // Additional fields from JSON
   private _hmwQuestion?: string;
   private _problem?: string;
@@ -35,6 +37,7 @@ export class CaseStudy extends PortfolioItem {
   private _userFeedback?: string;
   private _funFact?: string;
   private _lessonLearned?: string;
+  private _previewImage: string;
 
   constructor(
     id: string,
@@ -47,11 +50,14 @@ export class CaseStudy extends PortfolioItem {
     challenge: string,
     solution: string,
     outcome: string,
+    previewImage: string,
     tools: string[] = [],
     skillIds: string[] = [],
     phases: CaseStudyPhase[] = [],
     images: string[] = [],
+    images2: string[] = [],
     learnings: string = "",
+    gradient: string = "linear-gradient(157.13deg, #53FEA6 -13.87%, #90CBFF 48.8%, #B9B3FF 112.68%)",
     hmwQuestion?: string,
     problem?: string,
     goal?: string,
@@ -73,7 +79,9 @@ export class CaseStudy extends PortfolioItem {
     this._skillIds = skillIds;
     this._phases = phases;
     this._images = images;
+    this._images2 = images2;
     this._learnings = learnings;
+    this._gradient = gradient;
     this._hmwQuestion = hmwQuestion;
     this._problem = problem;
     this._goal = goal;
@@ -82,6 +90,7 @@ export class CaseStudy extends PortfolioItem {
     this._userFeedback = userFeedback;
     this._funFact = funFact;
     this._lessonLearned = lessonLearned;
+    this._previewImage = previewImage;
   }
 
   // Getters
@@ -117,6 +126,9 @@ export class CaseStudy extends PortfolioItem {
   }
   get images(): string[] {
     return [...this._images];
+  }
+  get images2(): string[] {
+    return [...this._images2];
   }
   get liveUrl(): string | undefined {
     return this._liveUrl;
@@ -159,6 +171,14 @@ export class CaseStudy extends PortfolioItem {
 
   get lessonLearned(): string | undefined {
     return this._lessonLearned;
+  }
+
+  get gradient(): string {
+    return this._gradient;
+  }
+
+  get previewImage(): string {
+    return this._previewImage;
   }
 
   // Setters
@@ -283,6 +303,7 @@ export class CaseStudy extends PortfolioItem {
       skillIds: this._skillIds,
       phases: this._phases,
       images: this._images,
+      images2: this._images2,
       liveUrl: this._liveUrl,
       prototypeUrl: this._prototypeUrl,
       learnings: this._learnings,

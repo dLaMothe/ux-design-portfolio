@@ -14,12 +14,8 @@ interface BooksProps {
 const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-  const handleBookClick = (book: Book) => {
-    setSelectedBook(book);
-  };
-
   return (
-    <div className="section">
+    <div>
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -27,11 +23,11 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            padding: 0,
+            justifyContent: "flex-start",
+            padding: "2rem 0",
             gap: 24,
             width: "100%",
             maxWidth: 1200,
-            height: 100,
             marginBottom: 32,
           }}
         >
@@ -51,7 +47,7 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
             <BooksIcon />
           </div>
           {/* Headline */}
-          <span
+          <h1
             style={{
               fontFamily: "'Jersey 10', sans-serif",
               fontWeight: 400,
@@ -60,11 +56,12 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
               letterSpacing: "0.06em",
               textTransform: "uppercase",
               color: "#242628",
-              flex: 1,
+              margin: 0,
+              padding: 0,
             }}
           >
-            Books
-          </span>
+            Inventory
+          </h1>
         </div>
         <div className="overflow-x-auto w-full pb-4">
           <div

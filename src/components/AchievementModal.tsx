@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
 import { Achievement } from "../models/Achievement";
+import Close100 from "./Close100";
 
 interface AchievementModalProps {
   achievement: Achievement;
@@ -33,7 +33,6 @@ const AchievementModal: React.FC<AchievementModalProps> = ({
 
   // Prevent body scroll when modal is open
   useEffect(() => {
-    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
@@ -84,7 +83,7 @@ const AchievementModal: React.FC<AchievementModalProps> = ({
       >
         {/* Close Button */}
         <button onClick={onClose} className="achievement-modal-close">
-          <X size={24} />
+          <Close100 />
         </button>
         <div className="achievement-modal-content">
           {/* Type tag */}
@@ -103,6 +102,7 @@ const AchievementModal: React.FC<AchievementModalProps> = ({
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
+                  objectPosition: "top",
                   borderRadius: 2,
                 }}
               />

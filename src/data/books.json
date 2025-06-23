@@ -25,7 +25,11 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "user-research"],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -111,7 +115,10 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "user-research", "ux-writing"],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -185,7 +192,11 @@
       "user-research",
       "workshop-facilitation"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -272,7 +283,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["user-research", "ux-user-experience-design", "ux-writing"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["oouxing-my-portfolio"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -300,7 +311,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-writing", "ux-user-experience-design", "user-research"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["effortless-onboarding-with-a-personalised-reward"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -333,7 +344,11 @@
       "ux-writing",
       "ui-user-interface-design"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -393,7 +408,10 @@
       "ux-user-experience-design",
       "workshop-facilitation"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -412,7 +430,11 @@
     "quotes": [],
     "tags": ["done"],
     "skillIds": ["user-research", "ux-user-experience-design"],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -450,7 +472,10 @@
     "quotes": [],
     "tags": ["done"],
     "skillIds": ["ux-writing", "user-research", "ux-user-experience-design"],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -481,7 +506,11 @@
       "user-research",
       "workshop-facilitation"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "a-filter-for-every-yogi",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -550,7 +579,11 @@
       "user-research",
       "workshop-facilitation"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -572,7 +605,11 @@
       "ux-user-experience-design",
       "ooux-object-oriented-user-experience"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation",
+      "oouxing-my-portfolio"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -596,7 +633,12 @@
       "ui-user-interface-design",
       "user-research"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": [
+      "effortless-onboarding-with-a-personalised-reward",
+      "a-filter-for-every-yogi",
+      "custom-lists-for-self-organisation",
+      "easy-ordering-for-every-diet"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -641,7 +683,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "workshop-facilitation"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["oouxing-my-portfolio"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,

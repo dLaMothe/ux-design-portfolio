@@ -57,49 +57,49 @@ const Home: React.FC<HomeProps> = ({ portfolioManager }) => {
       {/* About me section removed */}
 
       {/* Case Studies Section */}
-      <section id="case-studies" className="section">
+      <section id="case-studies" style={{ padding: "2rem 0" }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="section-title">Case Studies</h2>
+            <h2 className="section-title">Quests</h2>
             <CaseStudies portfolioManager={portfolioManager} />
           </motion.div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="section">
+      <section id="skills" style={{ padding: "2rem 0" }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="section-title">Skills & Expertise</h2>
+            <h2 className="section-title">Skills</h2>
             <Skills portfolioManager={portfolioManager} />
           </motion.div>
         </div>
       </section>
 
       {/* Reading List Section */}
-      <section id="reading-list" className="section">
+      <section id="reading-list" style={{ padding: "2rem 0" }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="section-title">Reading List</h2>
+            <h2 className="section-title">Inventory</h2>
             <Books portfolioManager={portfolioManager} />
           </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section">
+      <section id="contact" style={{ padding: "2rem 0" }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

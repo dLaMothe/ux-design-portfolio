@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, ReadingStatus } from "../models/Book";
+import { Book } from "../models/Book";
 import { useModal } from "../App";
 
 interface BookCardProps {
@@ -10,12 +10,7 @@ interface BookCardProps {
 const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
   const { openBookModal } = useModal();
   const imageUrl =
-    (book as any).coverImageUrl ||
-    "https://placehold.co/166x255?text=Book+Cover";
-
-  // Tag label (use first tag if available)
-  const tagLabel =
-    Array.isArray(book.tags) && book.tags.length > 0 ? book.tags[0] : "";
+    book.coverImageUrl || "https://placehold.co/166x255?text=Book+Cover";
 
   return (
     <div

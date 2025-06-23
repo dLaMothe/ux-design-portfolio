@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
 import { CaseStudy } from "../models/CaseStudy";
 import { PortfolioManager } from "../models/PortfolioManager";
 import SkillCard from "./SkillCard";
+import Close100 from "./Close100";
 
 interface CaseStudyModalProps {
   caseStudy: CaseStudy;
@@ -69,7 +69,7 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 transition-colors"
           >
-            <X size={24} />
+            <Close100 />
           </button>
         </div>
 

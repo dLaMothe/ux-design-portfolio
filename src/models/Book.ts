@@ -67,7 +67,8 @@ export class Book extends PortfolioItem {
     toolIds: string[] = [],
     achievementIds: string[] = [],
     hasNotes: boolean = false,
-    thoughts?: string
+    thoughts?: string,
+    coverImageUrl?: string
   ) {
     super(id, title, description);
     this._author = author;
@@ -84,6 +85,7 @@ export class Book extends PortfolioItem {
     this._achievementIds = achievementIds;
     this._hasNotes = hasNotes;
     this._thoughts = thoughts;
+    this._coverImageUrl = coverImageUrl;
   }
 
   // Getters

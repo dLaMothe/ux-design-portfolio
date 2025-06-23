@@ -731,11 +731,6 @@ p,
   align-items: flex-end;
   padding: 56px 88px 80px;
   gap: 48px;
-  background: linear-gradient(
-    135deg,
-    #b0ffb0 0%,
-    #7ee7f7 100%
-  ); /* Placeholder gradient */
 }
 
 .case-study-title {
@@ -805,7 +800,7 @@ p,
   width: 283px;
   height: 200px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: #b9b3ff;
   border-radius: 2px;
@@ -908,13 +903,13 @@ p,
 .achievement-modal-image {
   width: 780px;
   max-width: 100vw;
-  height: 55vh;
+  height: fit-content;
   max-height: 551px;
   background: #fff;
   border: 1px solid #242628;
   border-radius: 2px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
 }
@@ -1158,38 +1153,76 @@ p,
   width: auto;
   height: 418px;
   box-sizing: border-box;
-  margin-bottom: 88px;
+  margin-bottom: 0;
   padding-bottom: 0;
 }
 .book-modal-cover {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 8px 0;
-  width: 241px;
-  height: 370px;
-  background: #fff;
-  border: 1px solid #242628;
-  border-radius: 2px;
-  overflow: hidden;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  padding: 0 !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  background: transparent !important;
+  border: 1px solid #242628 !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
 }
 .book-modal-cover img {
-  width: 241px;
-  height: 354px;
-  object-fit: cover;
-  border-radius: 2px;
-  display: block;
+  width: 271px !important;
+  height: 370px !important;
+  object-fit: cover !important;
+  border-radius: 2px !important;
+  display: block !important;
 }
+
+/* More specific rule to ensure container consistency */
+div.book-modal-cover {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  padding: 0 !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  background: transparent !important;
+  border: 1px solid #242628 !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* More specific rule to ensure image consistency */
+div.book-modal-cover > img {
+  width: 271px !important;
+  height: 370px !important;
+  object-fit: cover !important;
+  border-radius: 2px !important;
+  display: block !important;
+  max-width: 271px !important;
+  max-height: 370px !important;
+  min-width: 271px !important;
+  min-height: 370px !important;
+}
+
 .book-modal-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px 0;
+  justify-content: flex-end;
+  padding: 0;
   gap: 16px;
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
+  width: fit-content;
 }
 .book-modal-tags {
   display: flex;
@@ -1245,6 +1278,7 @@ p,
   line-height: 23px;
   color: #242628;
   margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1252,7 +1286,7 @@ p,
 .book-modal-quotes-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   padding: 0;
   padding-top: 0;
   gap: 24px;
@@ -1272,25 +1306,22 @@ p,
   /* background: none; */
 }
 .book-modal-quotes-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: 100%;
-  margin-top: 0;
-  padding-top: 0;
+  margin: 0;
+  padding: 0;
 }
 .book-modal-quote-card {
-  background: #efefef;
-  padding: 8px;
-  width: 100%;
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 23px;
-  color: #242628;
-  border-radius: 2px;
+  background: none;
+  border-radius: 0;
   box-sizing: border-box;
-  margin-top: 0;
+  color: #242628;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  margin-top: 1rem;
+  padding: 0;
+  width: 100%;
 }
 .book-modal-quote-card:first-child {
   margin-top: 0 !important;
@@ -1385,12 +1416,6 @@ p,
   box-sizing: border-box;
   width: 100%;
   height: 254px;
-  background: linear-gradient(
-    157.13deg,
-    #fcfe53 -13.87%,
-    #53fea6 48.8%,
-    #90cbff 112.68%
-  );
   border: 1px solid #242628;
   border-radius: 2px;
   object-fit: cover;

@@ -1,12 +1,16 @@
 import React, { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X, Star, BookOpen, Quote } from "lucide-react";
-import { Book, ReadingStatus } from "../models/Book";
+import { Star } from "lucide-react";
+import { Book } from "../models/Book";
 import { PortfolioManager } from "../models/PortfolioManager";
 import SkillCard from "./SkillCard";
 import BookCard from "./BookCard";
 import { books } from "../data/books";
 import SkillModal from "./SkillModal";
+import StarSmall from "./StarSmall";
+import BookSmall from "./BookSmall";
+import { motion } from "framer-motion";
+import Close100 from "./Close100";
 
 interface BookModalProps {
   book: Book;
@@ -41,7 +45,6 @@ const BookModal: React.FC<BookModalProps> = ({
 
   // Prevent body scroll when modal is open
   useEffect(() => {
-    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
@@ -101,7 +104,7 @@ const BookModal: React.FC<BookModalProps> = ({
             zIndex: 1,
           }}
         >
-          <X size={24} />
+          <Close100 />
         </button>
         <div
           style={{
@@ -123,15 +126,9 @@ const BookModal: React.FC<BookModalProps> = ({
                 <img
                   src={
                     book.coverImageUrl ||
-                    "https://placehold.co/241x370?text=Book+Cover"
+                    "https://placehold.co/271x370?text=Book+Cover"
                   }
                   alt={book.title}
-                  style={{
-                    width: 225,
-                    height: 354,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                  }}
                 />
               </div>
               {/* Book Info */}
@@ -143,26 +140,28 @@ const BookModal: React.FC<BookModalProps> = ({
                 </div>
                 <div className="book-modal-title">{book.title}</div>
                 <div className="book-modal-author">{book.author}</div>
-                {book.thoughts && (
-                  <div className="book-modal-thoughts">{book.thoughts}</div>
-                )}
-                {book.rating !== undefined && (
-                  <div className="book-modal-rating">
-                    My Rating:
-                    {[...Array(10)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={16}
-                        className={
-                          i < (book.rating || 0)
-                            ? "text-yellow-400 fill-current"
-                            : "text-gray-300"
-                        }
-                      />
-                    ))}
-                    <span style={{ marginLeft: 4 }}>{book.rating}/10</span>
-                  </div>
-                )}
+                <div className="book-modal-thoughts">{book.thoughts || ""}</div>
+                <div className="book-modal-rating">
+                  {book.rating !== undefined ? (
+                    <>
+                      My Rating:
+                      {[...Array(10)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={16}
+                          className={
+                            i < (book.rating || 0)
+                              ? "text-yellow-400 fill-current"
+                              : "text-gray-300"
+                          }
+                        />
+                      ))}
+                      <span style={{ marginLeft: 4 }}>{book.rating}/10</span>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
 
@@ -170,7 +169,12 @@ const BookModal: React.FC<BookModalProps> = ({
             {book.quotes && book.quotes.length > 0 && (
               <div
                 className="book-modal-quotes-section"
-                style={{ padding: 0, margin: 0 }}
+                style={{
+                  backgroundColor: "#F9F9F9",
+                  padding: "64px 90px",
+                  margin: "24px -90px",
+                  width: "calc(100% + 180px)",
+                }}
               >
                 <div
                   className="book-modal-quotes-header"
@@ -196,11 +200,18 @@ const BookModal: React.FC<BookModalProps> = ({
               <>
                 <div
                   className="book-modal-skills-section"
-                  style={{ padding: 0, margin: 0 }}
+                  style={{ padding: 0, margin: "129px 0 0 0" }}
                 >
                   <div
                     className="book-modal-skills-header"
-                    style={{ margin: 0, padding: 0 }}
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: "24px",
+                    }}
                   >
                     <span
                       className="book-modal-skills-star"
@@ -211,28 +222,14 @@ const BookModal: React.FC<BookModalProps> = ({
                         alignItems: "center",
                       }}
                     >
-                      {/* SVG star icon for best match to Figma */}
-                      <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <polygon
-                          points="20,3 24.755,14.511 37,15.27 27.5,23.489 30.51,35.73 20,28.5 9.49,35.73 12.5,23.489 3,15.27 15.245,14.511"
-                          fill="#FCFE53"
-                          stroke="#242628"
-                          strokeWidth="2"
-                        />
-                      </svg>
+                      <StarSmall width={40} height={40} />
                     </span>
-                    <span
+                    <h2
                       className="book-modal-skills-title"
                       style={{ margin: 0, padding: 0 }}
                     >
                       For what I am reading this
-                    </span>
+                    </h2>
                   </div>
                   <div className="book-modal-skills-grid">
                     {book.skillIds.map((skillId, idx) => {
@@ -250,69 +247,79 @@ const BookModal: React.FC<BookModalProps> = ({
                     })}
                   </div>
                 </div>
-                {/* DEBUG: Show skillIds, found skills, and all loaded skills */}
-                <div
-                  style={{
-                    marginTop: 24,
-                    background: "#fffbe6",
-                    padding: 16,
-                    border: "1px solid #f5c542",
-                    borderRadius: 4,
-                  }}
-                >
-                  <strong>DEBUG: Book Skill Connections</strong>
-                  <div style={{ fontFamily: "monospace", marginTop: 8 }}>
-                    <div>
-                      <b>book.skillIds:</b> [{book.skillIds.join(", ")}]
-                    </div>
-                    <div>
-                      <b>Found skills for this book:</b>
-                      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
-                        {book.skillIds.map((skillId) => {
-                          const skill = portfolioManager.getSkill(skillId);
-                          return (
-                            <li key={skillId}>
-                              {skillId}:{" "}
-                              {skill ? (
-                                skill.title
-                              ) : (
-                                <span style={{ color: "red" }}>NOT FOUND</span>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                    <div>All loaded skills:</div>
-                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
-                      {portfolioManager.getAllSkills().map((skill) => (
-                        <li key={skill.id}>
-                          <b>{skill.id}</b>: {skill.title}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
               </>
             )}
 
             {/* Other Books Section */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Other Books
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {books
-                  .filter((b) => b.id !== book.id)
-                  .map((otherBook) => (
-                    <BookCard
-                      key={otherBook.id}
-                      book={otherBook}
-                      onClick={() => {
-                        // Optionally, you could open this book in the modal
-                      }}
-                    />
-                  ))}
+            <div style={{ marginTop: "129px" }}>
+              <div
+                className="book-modal-skills-header"
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  gap: "24px",
+                }}
+              >
+                <span
+                  className="book-modal-skills-star"
+                  style={{
+                    fontSize: 40,
+                    color: "#FCFE53",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <BookSmall width={40} height={40} />
+                </span>
+                <h2
+                  className="book-modal-skills-title"
+                  style={{ margin: 0, padding: 0 }}
+                >
+                  Other Books
+                </h2>
+              </div>
+              <div
+                className="overflow-x-auto w-full pb-4"
+                style={{ marginTop: "48px" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 24,
+                    minWidth: 1200,
+                    alignItems: "stretch",
+                  }}
+                >
+                  {books
+                    .filter((b) => b.id !== book.id)
+                    .map((otherBook, index) => (
+                      <motion.div
+                        key={otherBook.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        whileHover={{ y: -8 }}
+                        className="flex-shrink-0"
+                        style={{
+                          width: 174,
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "stretch",
+                        }}
+                      >
+                        <BookCard
+                          book={otherBook}
+                          onClick={() => {
+                            // Optionally, you could open this book in the modal
+                          }}
+                        />
+                      </motion.div>
+                    ))}
+                </div>
               </div>
             </div>
           </div>

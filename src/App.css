@@ -125,7 +125,7 @@ p {
 }
 
 .section-title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
   position: relative;
 }
@@ -140,7 +140,7 @@ p {
     var(--primary-color),
     var(--secondary-color)
   );
-  margin: 1rem auto;
+  margin: 1rem 0;
   border-radius: 2px;
 }
 
@@ -398,4 +398,158 @@ p {
 
 .app {
   background: #efefef;
+}
+
+/* Footer Styles */
+.footer {
+  position: relative;
+  width: 100%;
+  background: #242628;
+  color: #efefef;
+  padding: 72px 96px;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  max-width: 1088px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.footer-top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 64px;
+}
+
+.footer-headline {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 69px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #efefef;
+  margin: 0;
+}
+
+.btn-action {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 8px;
+  height: 40px;
+  background: #efefef;
+  border: 1px solid #242628;
+  border-radius: 2px;
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #242628;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-action .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-bottom-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  gap: 64px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  background: #c7c7c7;
+  flex-shrink: 0;
+}
+
+.footer-contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-name {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #efefef;
+}
+
+.footer-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-details span {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 27px;
+  color: #efefef;
+}
+
+.footer-legal {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  color: #efefef;
+}
+
+.achievement-modal-type {
+  text-align: center;
+  width: 100%;
+}
+
+.achievement-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #242628;
+}
+
+.achievement-modal-content {
+  width: 100%;
+  padding: 32px 96px;
+  box-sizing: border-box;
 }
