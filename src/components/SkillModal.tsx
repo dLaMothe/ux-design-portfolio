@@ -160,7 +160,8 @@ const SkillModal: React.FC<SkillModalProps> = ({
           alignItems: "center",
           padding: 0,
           gap: 64,
-          overflow: "auto",
+          overflowY: "auto",
+          overflowX: "hidden",
           border: "none",
         }}
       >
@@ -439,9 +440,11 @@ const SkillModal: React.FC<SkillModalProps> = ({
               {booksForSkill.length > 0 && (
                 <div
                   style={{
-                    padding: "0 96px",
                     width: "100%",
-                    overflow: "hidden",
+                    position: "relative",
+                    paddingTop: "34px",
+                    paddingBottom: "24px",
+                    minHeight: "495px",
                   }}
                 >
                   <div
@@ -451,6 +454,8 @@ const SkillModal: React.FC<SkillModalProps> = ({
                       justifyContent: "flex-start",
                       gap: "24px",
                       marginBottom: "24px",
+                      paddingLeft: "96px",
+                      paddingRight: "96px",
                     }}
                   >
                     <BookSmall width={40} height={40} />
@@ -461,13 +466,45 @@ const SkillModal: React.FC<SkillModalProps> = ({
                       How to Self Improve
                     </h2>
                   </div>
-                  <div className="books-container">
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      right: 0,
+                      overflowX: "auto",
+                      overflowY: "hidden",
+                      paddingLeft: "96px",
+                      paddingRight: "96px",
+                      paddingTop: "10px",
+                      paddingBottom: "20px",
+                      height: "440px",
+                      msOverflowStyle: "none",
+                      scrollbarWidth: "none",
+                    }}
+                  >
                     <div
-                      className="books-scroll-area"
-                      style={{ display: "flex", flexDirection: "row" }}
+                      style={{
+                        display: "inline-flex",
+                        gap: "24px",
+                        minWidth: "min-content",
+                        height: "410px",
+                      }}
                     >
                       {booksForSkill.map((book, index) => (
-                        <motion.div key={book.id} className="book-item">
+                        <motion.div
+                          key={book.id}
+                          className="book-item"
+                          style={{
+                            width: "174px",
+                            height: "410px",
+                            margin: 0,
+                            padding: 0,
+                          }}
+                          whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.2 },
+                          }}
+                        >
                           <BookCard book={book} />
                         </motion.div>
                       ))}

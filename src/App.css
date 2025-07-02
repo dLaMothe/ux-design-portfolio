@@ -553,3 +553,57 @@ p {
   padding: 32px 96px;
   box-sizing: border-box;
 }
+
+/* Modal Books styles */
+.modal-books-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-books-scroll-area {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #242628 transparent;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.modal-books-scroll-area:active {
+  cursor: grabbing;
+}
+
+.modal-books-scroll-area::-webkit-scrollbar {
+  height: 8px;
+}
+
+.modal-books-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-books-scroll-area::-webkit-scrollbar-thumb {
+  background-color: #242628;
+  border-radius: 4px;
+}
+
+.modal-book-item {
+  flex: 0 0 253px;
+  min-width: 253px;
+  width: 253px;
+  user-select: none;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.skill-modal [style*="overflow-x: auto"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.skill-modal .books-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
