@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ux-design-portfolio/static/css/main.d9a013ca.css",
-    "main.js": "/ux-design-portfolio/static/js/main.2d6f7781.js",
+    "main.css": "/ux-design-portfolio/static/css/main.11406223.css",
+    "main.js": "/ux-design-portfolio/static/js/main.3e08c26c.js",
     "static/media/a-design-system-for-all-teams_01.png": "/ux-design-portfolio/static/media/a-design-system-for-all-teams_01.adb01bd1409472d4b541.png",
     "static/media/A Theory of Fun.png": "/ux-design-portfolio/static/media/A Theory of Fun.c7e3ddeb571c09b404a7.png",
     "static/media/easy-ordering-for-every-diet_02.png": "/ux-design-portfolio/static/media/easy-ordering-for-every-diet_02.cb7e883d422d5d084ad9.png",
@@ -66,11 +66,11 @@
     "static/media/profilPicture.png": "/ux-design-portfolio/static/media/profilPicture.f9d4797c976d98819741.png",
     "index.html": "/ux-design-portfolio/index.html",
     "static/media/case-study-tile-bg.svg": "/ux-design-portfolio/static/media/case-study-tile-bg.ef32354bf422af28ea74.svg",
-    "main.d9a013ca.css.map": "/ux-design-portfolio/static/css/main.d9a013ca.css.map",
-    "main.2d6f7781.js.map": "/ux-design-portfolio/static/js/main.2d6f7781.js.map"
+    "main.11406223.css.map": "/ux-design-portfolio/static/css/main.11406223.css.map",
+    "main.3e08c26c.js.map": "/ux-design-portfolio/static/js/main.3e08c26c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9a013ca.css",
-    "static/js/main.2d6f7781.js"
+    "static/css/main.11406223.css",
+    "static/js/main.3e08c26c.js"
   ]
 }
