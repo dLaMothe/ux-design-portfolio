@@ -451,9 +451,9 @@ function App() {
         <div className="app">
           <main>
             <Routes>
-              <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/" element={<Navigate to="home" />} />
               <Route
-                path="/home"
+                path="home"
                 element={<Home portfolioManager={portfolioManager} />}
               >
                 <Route
@@ -461,9 +461,9 @@ function App() {
                   element={<MainObjects portfolioManager={portfolioManager} />}
                 />
               </Route>
-              <Route path="/about" element={<About />} />
+              <Route path="about" element={<About />} />
               <Route
-                path="/case-study/:id"
+                path="case-study/:id"
                 element={
                   <CaseStudyDetail portfolioManager={portfolioManager} />
                 }

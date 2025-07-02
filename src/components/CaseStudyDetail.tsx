@@ -89,7 +89,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
   // If case study not found, redirect to home
   useEffect(() => {
     if (!caseStudy) {
-      navigate("/");
+      navigate("..");
     }
   }, [caseStudy, navigate]);
 
@@ -112,9 +112,17 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       >
         <div className="max-w-4xl mx-auto" style={{ width: "100%" }}>
           <a
-            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("..");
+            }}
+            href=".."
             className="custom-link"
-            style={{ display: "inline-block", marginBottom: "32px" }}
+            style={{
+              display: "inline-block",
+              marginBottom: "32px",
+              cursor: "pointer",
+            }}
           >
             ← Home
           </a>
