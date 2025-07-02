@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A modern UX design portfolio showcasing case studies, skills, tools, books, and achievements",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://dlamothe.github.io/ux-design-portfolio",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
