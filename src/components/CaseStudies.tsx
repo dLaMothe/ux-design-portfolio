@@ -12,6 +12,23 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
   const navigate = useNavigate();
   const caseStudies = portfolioManager.getAllCaseStudies();
 
+  // Define the desired order of case studies
+  const caseStudyOrder = [
+    "effortless-onboarding-with-a-personalised-reward",
+    "a-filter-for-every-yogi",
+    "custom-lists-for-self-organisation",
+    "easy-ordering-for-every-diet",
+    "a-design-system-for-all-teams",
+    "oouxing-my-portfolio",
+  ];
+
+  // Sort case studies according to the defined order
+  const sortedCaseStudies = [...caseStudies].sort((a, b) => {
+    const indexA = caseStudyOrder.indexOf(a.id);
+    const indexB = caseStudyOrder.indexOf(b.id);
+    return indexA - indexB;
+  });
+
   const handleCaseStudyClick = (caseStudyId: string) => {
     // Scroll to top before navigating
     window.scrollTo(0, 0);
@@ -19,7 +36,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
   };
 
   return (
-    <div className="bg-case-study-tile">
+    <div>
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -28,11 +45,9 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "flex-start",
-            padding: "2rem 0",
-            gap: 24,
             width: "100%",
             maxWidth: 1200,
-            marginBottom: 32,
+            gap: 24,
           }}
         >
           {/* Case Studies SVG Icon */}
@@ -67,8 +82,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
             Quests
           </h1>
         </div>
-        <div className="case-study-grid">
-          {caseStudies.map((caseStudy, index) => (
+        <div className="case-study-grid" style={{ marginTop: 48 }}>
+          {sortedCaseStudies.map((caseStudy, index) => (
             <CaseStudyCard
               key={caseStudy.id}
               caseStudy={caseStudy}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PortfolioManager } from "../models/PortfolioManager";
 import SkillCard from "./SkillCard";
 import CaseStudyCard from "./CaseStudyCard";
@@ -12,6 +11,7 @@ import StarSmall from "./StarSmall";
 import BookSmall from "./BookSmall";
 import SwordSmall from "./SwordSmall";
 import BackPrevious100 from "./BackPrevious100";
+import CaseStudyHeroTransition from "./CaseStudyHeroTransition";
 
 interface CaseStudyDetailProps {
   portfolioManager: PortfolioManager;
@@ -25,6 +25,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [secondGalleryImageIndex, setSecondGalleryImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [direction2, setDirection2] = useState(0);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -33,46 +35,98 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
 
   const caseStudy = id ? portfolioManager.getCaseStudy(id) : null;
 
+  // Define the desired order of case studies
+  const caseStudyOrder = [
+    "effortless-onboarding-with-a-personalised-reward",
+    "a-filter-for-every-yogi",
+    "custom-lists-for-self-organisation",
+    "easy-ordering-for-every-diet",
+    "a-design-system-for-all-teams",
+    "oouxing-my-portfolio",
+  ];
+
+  // Add animation variants
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection: number, isSecondGallery: boolean = false) => {
+    if (!caseStudy) return;
+
+    if (isSecondGallery && caseStudy.images2) {
+      const nextIndex = secondGalleryImageIndex + newDirection;
+      if (nextIndex < 0 || nextIndex >= caseStudy.images2.length) return;
+
+      setDirection2(newDirection);
+      setSecondGalleryImageIndex(nextIndex);
+    } else if (caseStudy.images) {
+      const nextIndex = currentImageIndex + newDirection;
+      if (nextIndex < 0 || nextIndex >= caseStudy.images.length) return;
+
+      setDirection(newDirection);
+      setCurrentImageIndex(nextIndex);
+    }
+  };
+
+  // If case study not found, redirect to home
+  useEffect(() => {
+    if (!caseStudy) {
+      navigate("/");
+    }
+  }, [caseStudy, navigate]);
+
   if (!caseStudy) {
-    return (
-      <div className="min-h-screen pt-20 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Case Study Not Found
-          </h1>
-          <button
-            onClick={() => navigate("/")}
-            className="btn btn-primary flex items-center gap-2"
-          >
-            <BackPrevious100 />
-            Back to Portfolio
-          </button>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div className="min-h-screen" style={{ marginBottom: "129px" }}>
+    <div
+      className="min-h-screen case-study-detail"
+      style={{ marginBottom: "129px" }}
+    >
       {/* Hero Section */}
       <section
         className="case-study-hero"
         style={{
           background: caseStudy.gradient,
+          position: "relative",
         }}
       >
-        <div>
-          <a href="/" className="custom-link">
+        <div className="max-w-4xl mx-auto" style={{ width: "100%" }}>
+          <a
+            href="/"
+            className="custom-link"
+            style={{ display: "inline-block", marginBottom: "32px" }}
+          >
             ← Home
           </a>
           <h1 className="case-study-title">{caseStudy.title}</h1>
         </div>
+        <CaseStudyHeroTransition caseStudy={caseStudy} />
       </section>
 
       {/* How might we question */}
       <section className="py-8" style={{ marginTop: 129, marginBottom: 129 }}>
         <div className="container">
-          <div>
+          <div className="max-w-4xl mx-auto">
             <h2
               style={{
                 fontFamily: "'Jersey 10', sans-serif",
@@ -96,87 +150,89 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       {/* Three columns: Problem, Goal, Challenge */}
       <section className="py-8">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <h3
-                style={{
-                  fontFamily: "'Ubuntu Sans Mono', monospace",
-                  fontWeight: 700,
-                  fontSize: "20px",
-                  lineHeight: "34px",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "#242628",
-                  marginBottom: "16px",
-                }}
-              >
-                Problem
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'Ubuntu Mono', monospace",
-                  fontSize: "16px",
-                  lineHeight: "23px",
-                  color: "#242628",
-                  margin: 0,
-                }}
-              >
-                {caseStudy.problem || caseStudy.challenge}
-              </p>
-            </div>
-            <div>
-              <h3
-                style={{
-                  fontFamily: "'Ubuntu Sans Mono', monospace",
-                  fontWeight: 700,
-                  fontSize: "20px",
-                  lineHeight: "34px",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "#242628",
-                  marginBottom: "16px",
-                }}
-              >
-                Goal
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'Ubuntu Mono', monospace",
-                  fontSize: "16px",
-                  lineHeight: "23px",
-                  color: "#242628",
-                  margin: 0,
-                }}
-              >
-                {caseStudy.goal || caseStudy.solution}
-              </p>
-            </div>
-            <div>
-              <h3
-                style={{
-                  fontFamily: "'Ubuntu Sans Mono', monospace",
-                  fontWeight: 700,
-                  fontSize: "20px",
-                  lineHeight: "34px",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "#242628",
-                  marginBottom: "16px",
-                }}
-              >
-                Challenge
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'Ubuntu Mono', monospace",
-                  fontSize: "16px",
-                  lineHeight: "23px",
-                  color: "#242628",
-                  margin: 0,
-                }}
-              >
-                {caseStudy.challenge || caseStudy.outcome}
-              </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Ubuntu Sans Mono', monospace",
+                    fontWeight: 700,
+                    fontSize: "20px",
+                    lineHeight: "34px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    marginBottom: "16px",
+                  }}
+                >
+                  Problem
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Ubuntu Mono', monospace",
+                    fontSize: "16px",
+                    lineHeight: "23px",
+                    color: "#242628",
+                    margin: 0,
+                  }}
+                >
+                  {caseStudy.problem || caseStudy.challenge}
+                </p>
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Ubuntu Sans Mono', monospace",
+                    fontWeight: 700,
+                    fontSize: "20px",
+                    lineHeight: "34px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    marginBottom: "16px",
+                  }}
+                >
+                  Goal
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Ubuntu Mono', monospace",
+                    fontSize: "16px",
+                    lineHeight: "23px",
+                    color: "#242628",
+                    margin: 0,
+                  }}
+                >
+                  {caseStudy.goal || caseStudy.solution}
+                </p>
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Ubuntu Sans Mono', monospace",
+                    fontWeight: 700,
+                    fontSize: "20px",
+                    lineHeight: "34px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    marginBottom: "16px",
+                  }}
+                >
+                  Challenge
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Ubuntu Mono', monospace",
+                    fontSize: "16px",
+                    lineHeight: "23px",
+                    color: "#242628",
+                    margin: 0,
+                  }}
+                >
+                  {caseStudy.challenge || caseStudy.outcome}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -243,11 +299,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       {/* Story Section */}
       <section
         style={{
-          backgroundColor: "#F9F9F9",
           paddingTop: "96px",
           paddingBottom: "96px",
           marginTop: "96px",
         }}
+        className="background-tile-pattern"
       >
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -289,7 +345,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                           display: "flex",
                           flexDirection: "row",
                           alignItems: "flex-start",
-                          gap: "16px",
+                          gap: "48px",
                           width: "100%",
                           padding: "24px 0",
                         }}
@@ -312,7 +368,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         <div
                           style={{
                             flexGrow: 1,
-                            padding: "8px",
+                            padding: "24px",
+                            backgroundColor: "#EFEFEF",
                           }}
                         >
                           <p
@@ -380,18 +437,43 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     overflow: "hidden",
                   }}
                 >
-                  <img
-                    src={caseStudy.images[currentImageIndex]}
-                    alt={`${caseStudy.title} gallery item ${
-                      currentImageIndex + 1
-                    }`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      objectPosition: "bottom",
-                    }}
-                  />
+                  <AnimatePresence initial={false} custom={direction}>
+                    <motion.img
+                      key={currentImageIndex}
+                      src={caseStudy.images[currentImageIndex]}
+                      alt={`${caseStudy.title} gallery item ${
+                        currentImageIndex + 1
+                      }`}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 },
+                      }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={1}
+                      onDragEnd={(e, { offset, velocity }) => {
+                        const swipe = swipePower(offset.x, velocity.x);
+
+                        if (swipe < -swipeConfidenceThreshold) {
+                          paginate(1);
+                        } else if (swipe > swipeConfidenceThreshold) {
+                          paginate(-1);
+                        }
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        objectPosition: "bottom",
+                        position: "absolute",
+                      }}
+                    />
+                  </AnimatePresence>
                 </div>
 
                 {/* Controls */}
@@ -406,19 +488,17 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 >
                   {/* Left Arrow */}
                   <button
-                    onClick={() =>
-                      setCurrentImageIndex((prev) =>
-                        prev > 0 ? prev - 1 : caseStudy.images.length - 1
-                      )
-                    }
+                    onClick={() => paginate(-1)}
                     aria-label="Previous image"
+                    disabled={currentImageIndex === 0}
                     style={{
                       background: "none",
                       border: "none",
-                      cursor: "pointer",
+                      cursor: currentImageIndex === 0 ? "default" : "pointer",
                       padding: 0,
                       display: "flex",
                       alignItems: "center",
+                      opacity: currentImageIndex === 0 ? 0.3 : 1,
                     }}
                   >
                     <BackPrevious100 />
@@ -428,7 +508,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   {caseStudy.images.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentImageIndex(index)}
+                      onClick={() => {
+                        const newDirection = index > currentImageIndex ? 1 : -1;
+                        setDirection(newDirection);
+                        setCurrentImageIndex(index);
+                      }}
                       style={{
                         width: "8px",
                         height: "8px",
@@ -447,22 +531,27 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
 
                   {/* Right Arrow */}
                   <button
-                    onClick={() =>
-                      setCurrentImageIndex((prev) =>
-                        prev < caseStudy.images.length - 1 ? prev + 1 : 0
-                      )
-                    }
+                    onClick={() => paginate(1)}
                     aria-label="Next image"
+                    disabled={currentImageIndex === caseStudy.images.length - 1}
                     style={{
                       background: "none",
                       border: "none",
-                      cursor: "pointer",
+                      cursor:
+                        currentImageIndex === caseStudy.images.length - 1
+                          ? "default"
+                          : "pointer",
                       padding: 0,
                       display: "flex",
                       alignItems: "center",
+                      opacity:
+                        currentImageIndex === caseStudy.images.length - 1
+                          ? 0.3
+                          : 1,
+                      transform: "rotate(180deg)",
                     }}
                   >
-                    <ChevronRight size={24} color="#242628" />
+                    <BackPrevious100 />
                   </button>
                 </div>
               </motion.div>
@@ -534,7 +623,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       <div
                         style={{
                           flexGrow: 1,
-                          padding: "8px",
+                          padding: "24px",
+                          backgroundColor: "#EFEFEF",
                         }}
                       >
                         <p
@@ -555,7 +645,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               ) : (
                 <div
                   style={{
-                    padding: "8px",
+                    padding: "24px",
+                    backgroundColor: "#EFEFEF",
                   }}
                 >
                   <p
@@ -609,18 +700,43 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     overflow: "hidden",
                   }}
                 >
-                  <img
-                    src={caseStudy.images2[secondGalleryImageIndex]}
-                    alt={`${caseStudy.title} gallery item ${
-                      secondGalleryImageIndex + 1
-                    }`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      objectPosition: "bottom",
-                    }}
-                  />
+                  <AnimatePresence initial={false} custom={direction2}>
+                    <motion.img
+                      key={secondGalleryImageIndex}
+                      src={caseStudy.images2[secondGalleryImageIndex]}
+                      alt={`${caseStudy.title} gallery item ${
+                        secondGalleryImageIndex + 1
+                      }`}
+                      custom={direction2}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 },
+                      }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={1}
+                      onDragEnd={(e, { offset, velocity }) => {
+                        const swipe = swipePower(offset.x, velocity.x);
+
+                        if (swipe < -swipeConfidenceThreshold) {
+                          paginate(1, true);
+                        } else if (swipe > swipeConfidenceThreshold) {
+                          paginate(-1, true);
+                        }
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                        objectPosition: "bottom",
+                        position: "absolute",
+                      }}
+                    />
+                  </AnimatePresence>
                 </div>
 
                 {/* Controls */}
@@ -635,19 +751,18 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 >
                   {/* Left Arrow */}
                   <button
-                    onClick={() =>
-                      setSecondGalleryImageIndex((prev) =>
-                        prev > 0 ? prev - 1 : caseStudy.images2.length - 1
-                      )
-                    }
+                    onClick={() => paginate(-1, true)}
                     aria-label="Previous image"
+                    disabled={secondGalleryImageIndex === 0}
                     style={{
                       background: "none",
                       border: "none",
-                      cursor: "pointer",
+                      cursor:
+                        secondGalleryImageIndex === 0 ? "default" : "pointer",
                       padding: 0,
                       display: "flex",
                       alignItems: "center",
+                      opacity: secondGalleryImageIndex === 0 ? 0.3 : 1,
                     }}
                   >
                     <BackPrevious100 />
@@ -657,7 +772,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   {caseStudy.images2.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setSecondGalleryImageIndex(index)}
+                      onClick={() => {
+                        const newDirection =
+                          index > secondGalleryImageIndex ? 1 : -1;
+                        setDirection2(newDirection);
+                        setSecondGalleryImageIndex(index);
+                      }}
                       style={{
                         width: "8px",
                         height: "8px",
@@ -676,22 +796,29 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
 
                   {/* Right Arrow */}
                   <button
-                    onClick={() =>
-                      setSecondGalleryImageIndex((prev) =>
-                        prev < caseStudy.images2.length - 1 ? prev + 1 : 0
-                      )
-                    }
+                    onClick={() => paginate(1, true)}
                     aria-label="Next image"
+                    disabled={
+                      secondGalleryImageIndex === caseStudy.images2.length - 1
+                    }
                     style={{
                       background: "none",
                       border: "none",
-                      cursor: "pointer",
+                      cursor:
+                        secondGalleryImageIndex === caseStudy.images2.length - 1
+                          ? "default"
+                          : "pointer",
                       padding: 0,
                       display: "flex",
                       alignItems: "center",
+                      opacity:
+                        secondGalleryImageIndex === caseStudy.images2.length - 1
+                          ? 0.3
+                          : 1,
+                      transform: "rotate(180deg)",
                     }}
                   >
-                    <ChevronRight size={24} color="#242628" />
+                    <BackPrevious100 />
                   </button>
                 </div>
               </motion.div>
@@ -723,7 +850,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 >
                   User Feedback
                 </h3>
-                <div style={{ padding: "8px" }}>
+                <div
+                  style={{
+                    padding: "24px",
+                    backgroundColor: "#EFEFEF",
+                  }}
+                >
                   <p
                     style={{
                       fontFamily: "'Ubuntu Mono', monospace",
@@ -772,7 +904,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     >
                       Lesson Learned
                     </h3>
-                    <div style={{ padding: "8px" }}>
+                    <div
+                      style={{
+                        padding: "24px",
+                        backgroundColor: "#EFEFEF",
+                      }}
+                    >
                       <p
                         style={{
                           fontFamily: "'Ubuntu Mono', monospace",
@@ -789,7 +926,26 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 )}
                 {caseStudy.funFact && (
                   <div style={{ width: "100%" }}>
-                    <div style={{ padding: "8px" }}>
+                    <h3
+                      style={{
+                        fontFamily: "'Ubuntu Sans Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: "20px",
+                        lineHeight: "34px",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "#242628",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Fun Fact
+                    </h3>
+                    <div
+                      style={{
+                        padding: "24px",
+                        backgroundColor: "#EFEFEF",
+                      }}
+                    >
                       <p
                         style={{
                           fontFamily: "'Ubuntu Mono', monospace",
@@ -799,14 +955,6 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                           margin: 0,
                         }}
                       >
-                        <strong
-                          style={{
-                            fontFamily: "'Ubuntu Sans Mono', monospace",
-                            fontWeight: 700,
-                          }}
-                        >
-                          Fun Fact:{" "}
-                        </strong>
                         {caseStudy.funFact}
                       </p>
                     </div>
@@ -830,7 +978,10 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              style={{ marginTop: "96px" }}
+              style={{
+                marginTop: "96px",
+                overflow: "visible",
+              }}
             >
               <div
                 style={{
@@ -839,6 +990,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   justifyContent: "flex-start",
                   gap: "24px",
                   marginBottom: "32px",
+                  overflow: "visible",
                 }}
               >
                 <BookSmall width={40} height={40} />
@@ -849,43 +1001,24 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   These came in helpful
                 </h2>
               </div>
-              <div className="overflow-x-auto w-full pb-4">
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 24,
-                    minWidth: 1200,
-                    alignItems: "stretch",
-                  }}
-                >
-                  {portfolioManager
-                    .getAllBooks()
-                    .filter((book) => {
-                      // Show books that are directly related to this case study
-                      return book.caseStudyIds.includes(caseStudy.id);
-                    })
-                    .map((book, index) => (
-                      <motion.div
-                        key={book.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        whileHover={{ y: -8 }}
-                        className="flex-shrink-0"
-                        style={{
-                          width: 174,
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "stretch",
-                        }}
-                      >
-                        <BookCard
-                          book={book}
-                          onClick={() => setSelectedBook(book)}
-                        />
-                      </motion.div>
-                    ))}
+              <div style={{ overflow: "visible", position: "relative" }}>
+                <div className="books-container">
+                  <div className="books-scroll-area">
+                    {portfolioManager
+                      .getAllBooks()
+                      .filter((book) => {
+                        // Show books that are directly related to this case study
+                        return book.caseStudyIds.includes(caseStudy.id);
+                      })
+                      .map((book, index) => (
+                        <motion.div key={book.id} className="book-item">
+                          <BookCard
+                            book={book}
+                            onClick={() => setSelectedBook(book)}
+                          />
+                        </motion.div>
+                      ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -954,6 +1087,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
             <div className="case-study-grid">
               {portfolioManager
                 .getAllCaseStudies()
+                .sort((a, b) => {
+                  const indexA = caseStudyOrder.indexOf(a.id);
+                  const indexB = caseStudyOrder.indexOf(b.id);
+                  return indexA - indexB;
+                })
                 .filter((cs) => cs.id !== caseStudy.id)
                 .slice(0, 5) // Limit to 5 cards as per the layout
                 .map((cs, index) => (

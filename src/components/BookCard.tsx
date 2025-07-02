@@ -33,6 +33,10 @@ const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
         cursor: "pointer",
         gap: 0,
         justifyContent: "flex-start",
+        position: "relative",
+        transform: "translate3d(0, 0, 0)",
+        willChange: "transform",
+        zIndex: 1,
       }}
     >
       {/* Picture */}

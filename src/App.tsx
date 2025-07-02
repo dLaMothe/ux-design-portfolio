@@ -25,6 +25,7 @@ import { getGradientByCaseStudyId } from "./utils/gradients";
 
 // Import components
 import Hero from "./components/Hero";
+import Home from "./components/Home";
 import CaseStudies from "./components/CaseStudies";
 import CaseStudyDetail from "./components/CaseStudyDetail";
 import Skills from "./components/Skills";
@@ -32,7 +33,6 @@ import Tools from "./components/Tools";
 import Books from "./components/Books";
 import Achievements from "./components/Achievements";
 import About from "./components/About";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { books } from "./data/books";
 import skillsData from "./data/skills.json";
@@ -241,7 +241,7 @@ const ModalProvider: React.FC<{
 };
 
 // Replace PixelHeart SVG component
-const PixelHeart: React.FC = () => (
+export const PixelHeart: React.FC = () => (
   <svg
     width="26"
     height="22"
@@ -297,6 +297,24 @@ const PixelHeart: React.FC = () => (
     </defs>
   </svg>
 );
+
+const MainObjects: React.FC<{ portfolioManager: PortfolioManager }> = ({
+  portfolioManager,
+}) => {
+  return (
+    <div
+      className="background-tile-pattern"
+      style={{ paddingTop: 160, paddingBottom: 160 }}
+    >
+      <div>
+        <CaseStudies portfolioManager={portfolioManager} />
+      </div>
+      <div style={{ marginTop: 160 }}>
+        <Skills portfolioManager={portfolioManager} />
+      </div>
+    </div>
+  );
+};
 
 function App() {
   const [portfolioManager] = useState(() => new PortfolioManager());
@@ -433,108 +451,23 @@ function App() {
         <div className="app">
           <main>
             <Routes>
+              <Route path="/" element={<Navigate to="/home" />} />
               <Route
-                path="/"
-                element={
-                  <>
-                    <Hero style={{ marginBottom: 129 }} />
-                    <section
-                      id="my-values"
-                      className="my-values-section"
-                      style={{ marginBottom: 129 }}
-                    >
-                      <div className="my-values-headline">My values</div>
-                      <div className="my-values-row">
-                        {/* Value 1 */}
-                        <div className="my-values-card">
-                          <div className="my-values-hearts">
-                            <PixelHeart />
-                          </div>
-                          <div className="my-values-title">
-                            Learning from Users
-                          </div>
-                          <div className="my-values-body">
-                            Research a crucial part of the process to me and
-                            listening to actual users is the best time
-                            investment.
-                          </div>
-                        </div>
-                        {/* Value 2 */}
-                        <div className="my-values-card">
-                          <div className="my-values-hearts">
-                            <PixelHeart />
-                            <PixelHeart />
-                          </div>
-                          <div className="my-values-title">
-                            Learning from Peers
-                          </div>
-                          <div className="my-values-body">
-                            Collaborating with my team and other experts is
-                            important to me. No one knows everything.
-                          </div>
-                        </div>
-                        {/* Value 3 */}
-                        <div className="my-values-card">
-                          <div className="my-values-hearts">
-                            <PixelHeart />
-                            <PixelHeart />
-                            <PixelHeart />
-                          </div>
-                          <div className="my-values-title">
-                            Learning from Media
-                          </div>
-                          <div className="my-values-body">
-                            Books and podcasts inspire and excite me to try out
-                            new things. It feels wrong to not have a book I'm
-                            currently reading.
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                    <section id="case-studies" style={{ marginBottom: 129 }}>
-                      <CaseStudies portfolioManager={portfolioManager} />
-                    </section>
-                    <section id="skills" style={{ marginBottom: 129 }}>
-                      <Skills portfolioManager={portfolioManager} />
-                    </section>
-                    <section id="books" style={{ marginBottom: 129 }}>
-                      <Books portfolioManager={portfolioManager} />
-                    </section>
-                    <section id="achievements" style={{ marginBottom: 129 }}>
-                      <Achievements portfolioManager={portfolioManager} />
-                    </section>
-                  </>
-                }
-              />
-              <Route
-                path="/case-studies"
-                element={<CaseStudies portfolioManager={portfolioManager} />}
-              />
+                path="/home"
+                element={<Home portfolioManager={portfolioManager} />}
+              >
+                <Route
+                  index
+                  element={<MainObjects portfolioManager={portfolioManager} />}
+                />
+              </Route>
+              <Route path="/about" element={<About />} />
               <Route
                 path="/case-study/:id"
                 element={
                   <CaseStudyDetail portfolioManager={portfolioManager} />
                 }
               />
-              <Route
-                path="/skills"
-                element={<Skills portfolioManager={portfolioManager} />}
-              />
-              <Route
-                path="/tools"
-                element={<Tools portfolioManager={portfolioManager} />}
-              />
-              <Route
-                path="/books"
-                element={<Books portfolioManager={portfolioManager} />}
-              />
-              <Route
-                path="/achievements"
-                element={<Achievements portfolioManager={portfolioManager} />}
-              />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />

@@ -168,9 +168,8 @@ const BookModal: React.FC<BookModalProps> = ({
             {/* Favorite Quotes Section */}
             {book.quotes && book.quotes.length > 0 && (
               <div
-                className="book-modal-quotes-section"
+                className="book-modal-quotes-section background-tile-pattern"
                 style={{
-                  backgroundColor: "#F9F9F9",
                   padding: "64px 90px",
                   margin: "24px -90px",
                   width: "calc(100% + 180px)",
@@ -281,40 +280,17 @@ const BookModal: React.FC<BookModalProps> = ({
                   Other Books
                 </h2>
               </div>
-              <div
-                className="overflow-x-auto w-full pb-4"
-                style={{ marginTop: "48px" }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 24,
-                    minWidth: 1200,
-                    alignItems: "stretch",
-                  }}
-                >
+              <div className="books-container">
+                <div className="books-scroll-area">
                   {books
                     .filter((b) => b.id !== book.id)
                     .map((otherBook, index) => (
-                      <motion.div
-                        key={otherBook.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        whileHover={{ y: -8 }}
-                        className="flex-shrink-0"
-                        style={{
-                          width: 174,
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "stretch",
-                        }}
-                      >
+                      <motion.div key={otherBook.id} className="book-item">
                         <BookCard
                           book={otherBook}
                           onClick={() => {
-                            // Optionally, you could open this book in the modal
+                            onClose();
+                            setSelectedSkill(otherBook);
                           }}
                         />
                       </motion.div>

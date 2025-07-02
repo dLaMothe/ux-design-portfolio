@@ -11,7 +11,7 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
   const skills = portfolioManager.getAllSkills();
 
   return (
-    <div className="bg-case-study-tile">
+    <div>
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div
@@ -20,14 +20,12 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "flex-start",
-            padding: "2rem 0",
-            gap: 24,
             width: "100%",
             maxWidth: 1200,
-            marginBottom: 32,
+            gap: 24,
           }}
         >
-          {/* Skills Icon */}
+          {/* Skills SVG Icon */}
           <div
             style={{
               width: 100,
@@ -59,14 +57,17 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
             Skills
           </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skills.map((skill, skillIndex) => (
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          style={{ marginTop: 48 }}
+        >
+          {skills.map((skill, index) => (
             <SkillCard
               key={skill.id}
               skill={skill}
-              index={skillIndex}
-              showCaseStudies={true}
               portfolioManager={portfolioManager}
+              index={index}
+              showCaseStudies={true}
             />
           ))}
         </div>

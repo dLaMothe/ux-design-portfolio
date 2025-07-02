@@ -5,13 +5,15 @@ const HeroTransition: React.FC = () => {
     <div
       style={{
         position: "absolute",
-        bottom: "-1px",
+        bottom: "0",
         left: "50%",
         transform: "translateX(-50%)",
         width: "2560px",
-        height: "50px",
+        height: "51px",
+        marginTop: "-1px",
+        marginBottom: "-1px",
         zIndex: 1,
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
       <svg
@@ -23,8 +25,14 @@ const HeroTransition: React.FC = () => {
         preserveAspectRatio="none"
       >
         <defs>
+          <linearGradient id="heroGradient" gradientTransform="rotate(157.13)">
+            <stop offset="-13.87%" stopColor="#53FEA6" />
+            <stop offset="48.8%" stopColor="#90CBFF" />
+            <stop offset="112.68%" stopColor="#B9B3FF" />
+          </linearGradient>
           <mask id="pixelMask">
             <rect width="100%" height="100%" fill="white" />
+            <rect x="0" y="0" width="100%" height="1" fill="black" />
             <path
               fillRule="evenodd"
               clipRule="evenodd"

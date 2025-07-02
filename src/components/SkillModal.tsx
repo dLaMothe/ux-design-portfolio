@@ -19,6 +19,7 @@ import Ooux100 from "./Ooux100";
 import Writing100 from "./Writing100";
 import Facilitation100 from "./Facilitation100";
 import Drawing50 from "./Drawing50";
+import backgroundTile from "../assets/other/backgroundTile.png";
 
 interface SkillModalProps {
   skill: Skill;
@@ -139,6 +140,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
       {/* Modal Card */}
       <div
         ref={modalRef}
+        className="skill-modal"
         style={{
           position: "fixed",
           top: "50%",
@@ -285,15 +287,15 @@ const SkillModal: React.FC<SkillModalProps> = ({
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            padding: "0px 96px 80px",
-            gap: 129,
+            padding: "0px 96px 0",
+            gap: 0,
             width: "100%",
             boxSizing: "border-box",
           }}
         >
           {/* Tools Section */}
           {relatedTools.length > 0 && (
-            <div>
+            <div style={{ paddingBottom: 80 }}>
               {/* Headline */}
               <div
                 style={{
@@ -423,97 +425,110 @@ const SkillModal: React.FC<SkillModalProps> = ({
             </div>
           )}
 
-          {/* How to Self Improve Section */}
-          {booksForSkill.length > 0 && (
-            <div className="skill-modal-section">
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: "24px",
-                  marginBottom: "24px",
-                }}
-              >
-                <BookSmall width={40} height={40} />
-                <h2
-                  className="skill-modal-section-title"
-                  style={{ padding: 0, margin: 0 }}
-                >
-                  How to Self Improve
-                </h2>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  gap: 24,
-                  flexWrap: "wrap",
-                  alignItems: "stretch",
-                  width: "100%",
-                }}
-              >
-                {booksForSkill.map((book, index) => (
-                  <motion.div
-                    key={book.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ y: -8 }}
-                    className="flex-shrink-0"
-                    style={{
-                      width: 174,
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "stretch",
-                    }}
-                  >
-                    <BookCard book={book} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Related Case Studies Section */}
-          {relatedCaseStudies.length > 0 && (
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: 24,
-                  marginBottom: 24,
-                }}
-              >
-                <SwordSmall width={40} height={40} />
-                <h2
+          {/* Skill Add-Ons Section */}
+          {(booksForSkill.length > 0 || relatedCaseStudies.length > 0) && (
+            <div
+              className="background-tile-pattern"
+              style={{
+                margin: "-1px -96px 0",
+                background: `url(${backgroundTile}) repeat`,
+                padding: "80px 0",
+              }}
+            >
+              {/* How to Self Improve Section */}
+              {booksForSkill.length > 0 && (
+                <div
                   style={{
-                    fontFamily: "'Jersey 10', sans-serif",
-                    fontWeight: 400,
-                    fontSize: 32,
-                    lineHeight: "34px",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "#242628",
-                    margin: 0,
-                    padding: 0,
+                    padding: "0 96px",
+                    width: "100%",
+                    overflow: "hidden",
                   }}
                 >
-                  Used In these Quests
-                </h2>
-              </div>
-              <div className="case-study-grid">
-                {relatedCaseStudies.map((caseStudy) => (
-                  <CaseStudyCard
-                    key={caseStudy.id}
-                    caseStudy={caseStudy}
-                    portfolioManager={portfolioManager}
-                    onClick={() => handleCaseStudyClick(caseStudy.id)}
-                  />
-                ))}
-              </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: "24px",
+                      marginBottom: "24px",
+                    }}
+                  >
+                    <BookSmall width={40} height={40} />
+                    <h2
+                      className="skill-modal-section-title"
+                      style={{ padding: 0, margin: 0 }}
+                    >
+                      How to Self Improve
+                    </h2>
+                  </div>
+                  <div className="books-container">
+                    <div
+                      className="books-scroll-area"
+                      style={{ display: "flex", flexDirection: "row" }}
+                    >
+                      {booksForSkill.map((book, index) => (
+                        <motion.div key={book.id} className="book-item">
+                          <BookCard book={book} />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Used In these Quests Section */}
+              {relatedCaseStudies.length > 0 && (
+                <div style={{ padding: "80px 96px 0" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: 24,
+                      marginBottom: 24,
+                    }}
+                  >
+                    <SwordSmall width={40} height={40} />
+                    <h2
+                      style={{
+                        fontFamily: "'Jersey 10', sans-serif",
+                        fontWeight: 400,
+                        fontSize: 36,
+                        lineHeight: "39px",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "#242628",
+                        margin: 0,
+                      }}
+                    >
+                      Used In these Quests
+                    </h2>
+                  </div>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns:
+                        "repeat(auto-fill, minmax(250px, 1fr))",
+                      gap: 32,
+                      width: "100%",
+                    }}
+                  >
+                    {relatedCaseStudies.map((caseStudy) => (
+                      <div
+                        key={caseStudy.id}
+                        onClick={() => handleCaseStudyClick(caseStudy.id)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <CaseStudyCard
+                          caseStudy={caseStudy}
+                          portfolioManager={portfolioManager}
+                          onClick={() => handleCaseStudyClick(caseStudy.id)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

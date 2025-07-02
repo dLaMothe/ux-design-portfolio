@@ -15,80 +15,75 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   return (
-    <div>
+    <div style={{ paddingTop: 192 }}>
       <div className="container">
-        {/* Section Header with Icon and Big Headline */}
+        <div style={{ width: "100%", maxWidth: 1200 }}>
+          {/* Section Header with Icon and Big Headline */}
+          <div className="books-header">
+            {/* Books Icon */}
+            <div
+              style={{
+                width: 100,
+                height: 100,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flex: "none",
+                order: 0,
+                flexGrow: 0,
+              }}
+            >
+              <BooksIcon />
+            </div>
+            {/* Headline */}
+            <h1
+              style={{
+                fontFamily: "'Jersey 10', sans-serif",
+                fontWeight: 400,
+                fontSize: 64,
+                lineHeight: "69px",
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                color: "#242628",
+                margin: 0,
+                padding: 0,
+              }}
+            >
+              Inventory
+            </h1>
+          </div>
+        </div>
+
+        {/* Book Section */}
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            padding: "2rem 0",
-            gap: 24,
-            width: "100%",
-            maxWidth: 1200,
-            marginBottom: 32,
+            width: "100vw",
+            marginLeft: "calc(-50vw + 50%)",
+            marginRight: "calc(-50vw + 50%)",
+            position: "relative",
+            overflow: "visible",
           }}
         >
-          {/* Books Icon */}
           <div
-            style={{
-              width: 100,
-              height: 100,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flex: "none",
-              order: 0,
-              flexGrow: 0,
-            }}
-          >
-            <BooksIcon />
-          </div>
-          {/* Headline */}
-          <h1
-            style={{
-              fontFamily: "'Jersey 10', sans-serif",
-              fontWeight: 400,
-              fontSize: 64,
-              lineHeight: "69px",
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              color: "#242628",
-              margin: 0,
-              padding: 0,
-            }}
-          >
-            Inventory
-          </h1>
-        </div>
-        <div className="overflow-x-auto w-full pb-4">
-          <div
+            className="books-scroll-area"
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: 24,
-              minWidth: 1200,
-              alignItems: "stretch",
+              gap: "24px",
+              overflowX: "auto",
+              scrollBehavior: "smooth",
+              WebkitOverflowScrolling: "touch",
+              paddingTop: "20px",
+              paddingBottom: "20px",
+              paddingLeft: "calc((100vw - 1200px) / 2 + 16px)",
+              paddingRight: "calc((100vw - 1200px) / 2 + 16px)",
+              marginTop: "-20px",
+              marginBottom: "-20px",
             }}
           >
             {books.map((book, index) => (
-              <motion.div
-                key={book.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="flex-shrink-0"
-                style={{
-                  width: 174,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "stretch",
-                }}
-              >
-                <BookCard book={book} />
+              <motion.div key={book.id} className="book-item">
+                <BookCard book={book} onClick={() => setSelectedBook(book)} />
               </motion.div>
             ))}
           </div>

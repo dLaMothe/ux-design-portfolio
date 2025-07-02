@@ -7,6 +7,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overflow-y: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
 }
 
 code {
@@ -215,6 +218,9 @@ p,
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+  overflow: visible !important;
+  position: relative;
+  clip-path: none;
 }
 .mb-1 {
   margin-bottom: 0.25rem;
@@ -729,8 +735,9 @@ p,
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  padding: 56px 88px 80px;
+  padding: 56px calc((100vw - 1200px) / 2) 80px;
   gap: 48px;
+  position: relative;
 }
 
 .case-study-title {
@@ -742,7 +749,10 @@ p,
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
-  margin: 32px 0 0 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  max-width: 900px;
 }
 
 .custom-link {
@@ -1310,18 +1320,15 @@ div.book-modal-cover > img {
   padding: 0;
 }
 .book-modal-quote-card {
-  background: none;
-  border-radius: 0;
-  box-sizing: border-box;
-  color: #242628;
   font-family: "Ubuntu Mono", monospace;
-  font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  font-size: 16px;
   line-height: 23px;
-  margin-top: 1rem;
-  padding: 0;
-  width: 100%;
+  color: #242628;
+  margin-bottom: 24px;
+  padding: 24px;
+  background-color: #efefef;
 }
 .book-modal-quote-card:first-child {
   margin-top: 0 !important;
@@ -1401,7 +1408,7 @@ div.book-modal-cover > img {
 }
 .case-study-card:hover {
   transform: scale(1.02);
-  box-shadow: 0px 8px 8px #00000022;
+  box-shadow: 0px 8px 0px #000000;
 }
 .case-study-card-header {
   display: flex;
@@ -1557,5 +1564,243 @@ div.book-modal-cover > img {
 @media (min-width: 768px) {
   .case-study-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.background-tile-pattern {
+  background-image: url("../src/assets/other/backgroundTile.png");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+/* Book section specific styles */
+.book-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.book-section::-webkit-scrollbar {
+  display: none;
+}
+
+/* Book list container */
+.book-section > .overflow-x-auto {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 24px;
+  width: max-content;
+}
+
+/* Book card container */
+.book-section > .overflow-x-auto > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Container for the entire books section to allow scrolling */
+.container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  overflow: visible;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  clip-path: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Container specifically for book sections */
+.container > .overflow-x-auto {
+  overflow: visible;
+}
+
+/* Make the book section container scrollable */
+.container > .overflow-x-auto {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.container > .overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reset container default styles */
+.container {
+  overflow: visible;
+}
+
+/* Books section styles */
+.books-section-layout {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.books-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.books-container {
+  grid-column: 1 / -1;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  overflow: visible;
+}
+
+.books-scroll-area {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: calc((100vw - 1200px) / 2);
+  padding-right: calc((100vw - 1200px) / 2);
+  margin-top: -20px;
+  margin-bottom: -20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Case study detail page specific padding */
+.min-h-screen .books-scroll-area {
+  padding-left: calc((100vw - 900px) / 2);
+  padding-right: calc((100vw - 900px) / 2);
+}
+
+@media (max-width: 900px) {
+  .min-h-screen .books-scroll-area {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.books-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+.book-item {
+  flex: 0 0 174px;
+  width: 174px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.book-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 0px #000000;
+}
+
+.book-item > div {
+  position: fixed;
+  left: auto;
+  right: auto;
+  transform: translate3d(0, 0, 0);
+  width: 174px;
+}
+
+/* Remove old book section styles */
+.book-section,
+.book-section::-webkit-scrollbar,
+.book-section > .overflow-x-auto,
+.book-section > .overflow-x-auto > div {
+  all: unset;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Override any potential clipping */
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+@media (max-width: 1200px) {
+  .books-scroll-area {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .case-study-hero {
+    padding-left: 88px;
+    padding-right: 88px;
+  }
+}
+
+.skill-modal {
+  overflow-x: hidden !important;
+}
+
+.skill-modal .books-container {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.skill-modal .books-scroll-area {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  position: relative;
+  overflow-x: auto;
+}
+
+.skill-modal .book-item {
+  margin-right: 24px;
+}
+
+.skill-modal .book-item:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .skill-modal .books-scroll-area {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
