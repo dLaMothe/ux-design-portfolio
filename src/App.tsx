@@ -451,9 +451,8 @@ function App() {
         <div className="app">
           <main>
             <Routes>
-              <Route path="/" element={<Navigate to="home" />} />
               <Route
-                path="home"
+                path="/"
                 element={<Home portfolioManager={portfolioManager} />}
               >
                 <Route
@@ -461,6 +460,7 @@ function App() {
                   element={<MainObjects portfolioManager={portfolioManager} />}
                 />
               </Route>
+              <Route path="/home" element={<Navigate to="/" replace />} />
               <Route path="about" element={<About />} />
               <Route
                 path="case-study/:id"
