@@ -446,7 +446,7 @@ function App() {
   }
 
   return (
-    <Router basename="/ux-design-portfolio">
+    <Router>
       <ModalProvider portfolioManager={portfolioManager}>
         <div className="app">
           <main>
