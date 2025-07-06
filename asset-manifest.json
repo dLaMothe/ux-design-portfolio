@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.6ae5dfff.css",
+    "main.css": "/static/css/main.25b7b88e.css",
     "main.js": "/static/js/main.a304e214.js",
     "static/media/a-design-system-for-all-teams_01.png": "/static/media/a-design-system-for-all-teams_01.adb01bd1409472d4b541.png",
     "static/media/A Theory of Fun.png": "/static/media/A Theory of Fun.c7e3ddeb571c09b404a7.png",
@@ -66,11 +66,11 @@
     "static/media/profilPicture.png": "/static/media/profilPicture.f9d4797c976d98819741.png",
     "index.html": "/index.html",
     "static/media/case-study-tile-bg.svg": "/static/media/case-study-tile-bg.ef32354bf422af28ea74.svg",
-    "main.6ae5dfff.css.map": "/static/css/main.6ae5dfff.css.map",
+    "main.25b7b88e.css.map": "/static/css/main.25b7b88e.css.map",
     "main.a304e214.js.map": "/static/js/main.a304e214.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ae5dfff.css",
+    "static/css/main.25b7b88e.css",
     "static/js/main.a304e214.js"
   ]
 }
