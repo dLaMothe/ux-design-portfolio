@@ -498,7 +498,7 @@ p {
 }
 
 .footer-name {
-  font-family: "Ubuntu Sans Mono", monospace;
+  font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -514,12 +514,48 @@ p {
 }
 
 .footer-details span {
-  font-family: "Ubuntu Sans Mono", monospace;
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Ubuntu Mono", monospace;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 27px;
+  line-height: 1.5;
+  color: rgba(239, 239, 239, 0.5);
+}
+
+.footer-details a {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
   color: #efefef;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.footer-details a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #efefef;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.footer-details a:hover {
+  color: #ffffff;
+}
+
+.footer-details a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .footer-legal {
