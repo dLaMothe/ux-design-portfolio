@@ -25,7 +25,16 @@ const Footer: React.FC = () => {
             <div className="footer-contact-text">
               <div className="footer-name">CARINA LEA MEYER</div>
               <div className="footer-details">
-                <span>Email: carina.meyer@coloredreality.com</span>
+                <span>
+                  Email:{" "}
+                  <a
+                    href="mailto:carina.lea.meyer@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    carina.lea.meyer@gmail.com
+                  </a>
+                </span>
                 <span>
                   LinkedIn:{" "}
                   <a

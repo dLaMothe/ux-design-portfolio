@@ -96,7 +96,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       {/* Content */}
       <div className="case-study-card-content">
         {/* Title */}
-        <div className="case-study-card-title">#{caseStudy.title}</div>
+        <div className="case-study-card-title">{caseStudy.title}</div>
         {/* Skills Used as tags */}
         <div className="case-study-card-skills">
           {skillsUsed.map((skill, idx) => (
