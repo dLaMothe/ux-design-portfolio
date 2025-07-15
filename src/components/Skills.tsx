@@ -54,7 +54,7 @@ const Skills: React.FC<SkillsProps> = ({ portfolioManager }) => {
               padding: 0,
             }}
           >
-            Skills
+            Discover My Skills
           </h1>
         </div>
         <div

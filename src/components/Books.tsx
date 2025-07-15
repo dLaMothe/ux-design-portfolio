@@ -5,7 +5,6 @@ import { PortfolioManager } from "../models/PortfolioManager";
 import BookModal from "./BookModal";
 import BookCard from "./BookCard";
 import BooksIcon from "./BooksIcon";
-import { books } from "../data/books";
 
 interface BooksProps {
   portfolioManager: PortfolioManager;
@@ -13,6 +12,7 @@ interface BooksProps {
 
 const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const books = portfolioManager.getAllBooks();
 
   return (
     <div style={{ paddingTop: 192 }}>
@@ -49,7 +49,7 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
                 padding: 0,
               }}
             >
-              Inventory
+              Browse My Library
             </h1>
           </div>
         </div>

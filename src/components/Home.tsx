@@ -26,6 +26,8 @@ const Home: React.FC<HomeProps> = ({ portfolioManager }) => {
           <div className="my-values-card">
             <div className="my-values-hearts">
               <PixelHeart />
+              <PixelHeart />
+              <PixelHeart />
             </div>
             <div className="my-values-title">Learning from Users</div>
             <div className="my-values-body">
@@ -36,6 +38,7 @@ const Home: React.FC<HomeProps> = ({ portfolioManager }) => {
           {/* Value 2 */}
           <div className="my-values-card">
             <div className="my-values-hearts">
+              <PixelHeart />
               <PixelHeart />
               <PixelHeart />
             </div>

@@ -55,7 +55,7 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
               margin: 0,
             }}
           >
-            Achievements
+            View My Achievements
           </h1>
         </div>
         <div className="grid grid-3">

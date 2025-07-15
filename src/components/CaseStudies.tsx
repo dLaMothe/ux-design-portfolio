@@ -79,7 +79,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
               padding: 0,
             }}
           >
-            Quests
+            Explore My Quests
           </h1>
         </div>
         <div className="case-study-grid" style={{ marginTop: 48 }}>
