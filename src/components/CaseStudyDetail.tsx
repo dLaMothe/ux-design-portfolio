@@ -132,41 +132,22 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
         <CaseStudyHeroTransition caseStudy={caseStudy} />
       </section>
 
-      {/* How might we question */}
-      <section className="py-8" style={{ marginTop: 129, marginBottom: 129 }}>
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2
-              style={{
-                fontFamily: "'Jersey 10', sans-serif",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "32px",
-                lineHeight: "34px",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                color: "#242628",
-                marginBottom: "16px",
-              }}
-            >
-              {caseStudy.hmwQuestion ||
-                "How might we improve the user experience for this project?"}
-            </h2>
-          </div>
-        </div>
-      </section>
-
-      {/* Three columns: Problem, Goal, Challenge */}
-      <section className="py-8">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <h3
+      {/* How might we question and Problem/Goal/Challenge sections - hide for checkout case study */}
+      {caseStudy.id !== "improving-marketplace-checkout-experience" && (
+        <>
+          {/* How might we question */}
+          <section
+            className="py-8"
+            style={{ marginTop: 129, marginBottom: 129 }}
+          >
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2
                   style={{
-                    fontFamily: "'Ubuntu Sans Mono', monospace",
-                    fontWeight: 700,
-                    fontSize: "20px",
+                    fontFamily: "'Jersey 10', sans-serif",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    fontSize: "32px",
                     lineHeight: "34px",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
@@ -174,78 +155,105 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     marginBottom: "16px",
                   }}
                 >
-                  Problem
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Ubuntu Mono', monospace",
-                    fontSize: "16px",
-                    lineHeight: "23px",
-                    color: "#242628",
-                    margin: 0,
-                  }}
-                >
-                  {caseStudy.problem || caseStudy.challenge}
-                </p>
-              </div>
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "'Ubuntu Sans Mono', monospace",
-                    fontWeight: 700,
-                    fontSize: "20px",
-                    lineHeight: "34px",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "#242628",
-                    marginBottom: "16px",
-                  }}
-                >
-                  Goal
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Ubuntu Mono', monospace",
-                    fontSize: "16px",
-                    lineHeight: "23px",
-                    color: "#242628",
-                    margin: 0,
-                  }}
-                >
-                  {caseStudy.goal || caseStudy.solution}
-                </p>
-              </div>
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "'Ubuntu Sans Mono', monospace",
-                    fontWeight: 700,
-                    fontSize: "20px",
-                    lineHeight: "34px",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "#242628",
-                    marginBottom: "16px",
-                  }}
-                >
-                  Challenge
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Ubuntu Mono', monospace",
-                    fontSize: "16px",
-                    lineHeight: "23px",
-                    color: "#242628",
-                    margin: 0,
-                  }}
-                >
-                  {caseStudy.challenge || caseStudy.outcome}
-                </p>
+                  {caseStudy.hmwQuestion ||
+                    "How might we improve the user experience for this project?"}
+                </h2>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+
+          {/* Three columns: Problem, Goal, Challenge */}
+          <section className="py-8">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Ubuntu Sans Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: "20px",
+                        lineHeight: "34px",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "#242628",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Problem
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "16px",
+                        lineHeight: "23px",
+                        color: "#242628",
+                        margin: 0,
+                      }}
+                    >
+                      {caseStudy.problem || caseStudy.challenge}
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Ubuntu Sans Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: "20px",
+                        lineHeight: "34px",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "#242628",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Goal
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "16px",
+                        lineHeight: "23px",
+                        color: "#242628",
+                        margin: 0,
+                      }}
+                    >
+                      {caseStudy.goal || caseStudy.solution}
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Ubuntu Sans Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: "20px",
+                        lineHeight: "34px",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        color: "#242628",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      Challenge
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "16px",
+                        lineHeight: "23px",
+                        color: "#242628",
+                        margin: 0,
+                      }}
+                    >
+                      {caseStudy.challenge || caseStudy.outcome}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Main Content container for Skills */}
       <div className="container" style={{ marginTop: "129px" }}>
