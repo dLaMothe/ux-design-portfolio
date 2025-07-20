@@ -76,6 +76,15 @@
       "process": "We learned about this issue by looking at customer complaints and implemented a tag that showsthat a shop will soon be closed for vacation. This way users can check the exact dates to decide if they want to use this or another shop as a delivery address.",
       "impact": "Less frustration and reduction of negative reviews which can impact potential customers.",
       "imagePath": ""
+    },
+    {
+      "id": "appointment-scheduling",
+      "title": "Appointment Scheduling for Large Shipments",
+      "tags": ["Transparency", "Feature Completion"],
+      "goal": "Being able to choose an appointment for large shipments was a feature that existed but had severe deficiencies due to an older implementation with outdated UI elements.",
+      "process": "This redesign was a great opportunity to reduce some usability issues that customers had especially on mobile as the feature was not designed with responsiveness in mind. We tested several options of different ways to communicate and select dates. Although there was a design that performed better in regards to \"how visually pleasing\" it was described as, we did go for a more simple UI. It performed just as well and was more easily to implement from a technical point of view.",
+      "impact": "The customers are more likely to be home when the packages are delivered which saved money due to reduced failed deliveries that had to be re-delivered.",
+      "imagePath": ""
     }
   ]
 }
