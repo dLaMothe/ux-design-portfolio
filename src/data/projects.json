@@ -35,6 +35,15 @@
       "process": "My PO and I introduced the opportunity solution tree to our team during a team day which we started afterwards to use as a structure to figure out and decide what our users need most and what we as a team should focus on. I also started to introduce the method to bigger and bigger rounds within the organisation.",
       "impact": "In our team, the method created a shared understanding about our goal, strategy and rationals. As I started to carry it in other teams as well I got to see more, always slightly different implementations of the method as well as hear about success stories which made me very happy!",
       "imagePath": ""
+    },
+    {
+      "id": "object-oriented-ux",
+      "title": "Method Introduction: Object Oriented User Experience",
+      "tags": ["Internal Improvements"],
+      "goal": "Thinking more holistically about our platform to reduce inconsistencies and move away from thinking in screens.",
+      "process": "A design college and I realised that we were both fans of object oriented thinking and started a biweekly meeting to align on the subject and work out ways to introduce more people to the framework. I also started to document all objects I learned about over time to gain a better understanding about our system for myself. After presenting OOUX in a couple of different rounds I started to gain some traction especially with developers and tech writers.",
+      "impact": "Once the framework was better understood by more people, I was invited to facilitate several workshops in teams outside my own. This of course led to the spread of framework but also helped me to gain a more complete understanding about our system which I can carry back in my team again.",
+      "imagePath": ""
     }
   ]
 }
