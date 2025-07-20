@@ -825,13 +825,13 @@ p {
 
 .project-tags {
   position: absolute;
-  top: calc(2rem + 8px); /* Align with title text, accounting for line height */
+  top: calc(2rem + 8px);
   right: 2rem;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
-  max-width: 40%;
+  max-width: 50%;
 }
 
 .project-tag {
@@ -851,9 +851,9 @@ p {
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: calc(35% + 1rem);
+  padding-right: calc(45% + 1rem);
   width: 100%;
-  line-height: 1.2; /* Add consistent line height */
+  line-height: 1.2;
 }
 
 .project-section {
