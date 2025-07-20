@@ -85,6 +85,15 @@
       "process": "This redesign was a great opportunity to reduce some usability issues that customers had especially on mobile as the feature was not designed with responsiveness in mind. We tested several options of different ways to communicate and select dates. Although there was a design that performed better in regards to \"how visually pleasing\" it was described as, we did go for a more simple UI. It performed just as well and was more easily to implement from a technical point of view.",
       "impact": "The customers are more likely to be home when the packages are delivered which saved money due to reduced failed deliveries that had to be re-delivered.",
       "imagePath": ""
+    },
+    {
+      "id": "making-checkout-accessible",
+      "title": "Making the Checkout Accessible",
+      "tags": ["Transparency", "Feature Completion"],
+      "goal": "Making the checkout process follow the new accessibility guidelines.",
+      "process": "As the guidlines are plentiful and complex we broke down the process in several steps. First, understand the guidlines. Legal text are more often than not daunting and unclear, so in the beginning we spent a good amount of time translating them so everyone can understand them. Second, we wanted to reach 100% light house score. This was done by implementing new components, as our design system team created new UI components that provide sufficiant contrast and html structure. Third, fixing the tab order so the pages can be navigated in a logical order. Last, (this is work in progress) making sure everything has ARIA lables, that sound natural and easy to understand. To learn about what works and what does not we started to invite visually impaired impaired customers for regular testing.",
+      "impact": "We were able to implement these changes in time for upcoming regulatory changes requiring them for organizations, preventing us from having to deal with fines and regulatory overhead. But the bigger impact is, as the name says, being more accessible and inclusive towards a large amount of users!",
+      "imagePath": ""
     }
   ]
 }
