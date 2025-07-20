@@ -57,12 +57,7 @@
     {
       "id": "shorter-article-names",
       "title": "Shorter Article Names",
-      "tags": [
-        "Money Maker",
-        "Transparency",
-        "Feature Completion",
-        "Internal Improvements"
-      ],
+      "tags": ["Transparency"],
       "goal": "Reduce the clutter on our article cards so that users can more easily scan the content of their cart.",
       "process": "The names of articles can get quite long as sellers like to use them as an SEO opportunity. I learned that a different team started to construct \"short names\" to go against that notion and make the article detail pages look more clean. The prototype tests were quick and successful but the biggest issue was to understand how names come into the system as articles can have several types of names that the article detail page was not effected by.",
       "impact": "Though not visible in KPI's the cart was now described with more positive adjectives compared to the old titles.",
