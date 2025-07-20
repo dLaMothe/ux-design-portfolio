@@ -819,6 +819,8 @@ p {
   flex: 1;
   padding: 2rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-tags {
@@ -827,6 +829,9 @@ p {
   right: 2rem;
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 60%;
 }
 
 .project-tag {
@@ -837,6 +842,7 @@ p {
   font-family: "Ubuntu Mono", monospace;
   font-size: 0.875rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .project-title {
@@ -845,7 +851,8 @@ p {
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: 12rem; /* Space for tags */
+  padding-right: calc(60% + 2rem); /* Space for tags plus padding */
+  width: 100%;
 }
 
 .project-section {
@@ -884,7 +891,7 @@ p {
 
   .project-title {
     padding-right: 0;
-    margin-top: 3rem;
+    margin-top: 0;
   }
 
   .project-tags {
@@ -892,5 +899,8 @@ p {
     top: 0;
     right: 0;
     margin-bottom: 1rem;
+    max-width: 100%;
+    justify-content: flex-start;
+    order: -1; /* Move tags above title on mobile */
   }
 }
