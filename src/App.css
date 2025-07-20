@@ -847,13 +847,11 @@ p {
 
 .project-title {
   font-family: "Jersey 10", sans-serif;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: calc(
-    35% + 1rem
-  ); /* Reduced padding to allow text to extend closer to tags */
+  padding-right: calc(35% + 1rem);
   width: 100%;
 }
 
