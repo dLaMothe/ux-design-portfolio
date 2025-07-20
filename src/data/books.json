@@ -26,6 +26,7 @@
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "user-research"],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation"
@@ -128,6 +129,7 @@
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "user-research", "ux-writing"],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "easy-ordering-for-every-diet"
     ],
@@ -334,7 +336,10 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-writing", "ux-user-experience-design", "user-research"],
-    "caseStudyIds": ["effortless-onboarding-with-a-personalised-reward"],
+    "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
+      "effortless-onboarding-with-a-personalised-reward"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -368,6 +373,7 @@
       "ui-user-interface-design"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation"
@@ -496,6 +502,7 @@
     "tags": ["done"],
     "skillIds": ["ux-writing", "user-research", "ux-user-experience-design"],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "easy-ordering-for-every-diet"
     ],
@@ -530,6 +537,7 @@
       "workshop-facilitation"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "a-filter-for-every-yogi",
       "easy-ordering-for-every-diet"
@@ -603,6 +611,7 @@
       "workshop-facilitation"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation"
@@ -657,6 +666,7 @@
       "user-research"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "effortless-onboarding-with-a-personalised-reward",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation",
