@@ -12,6 +12,26 @@ import Facilitation50 from "./Facilitation50";
 import Drawing50 from "./Drawing50";
 import { Skill } from "../models/Skill";
 
+// Import case study images
+import improvingMarketplaceCheckout from "../assets/caseStudy/preview/improving-marketplace-checkout-experience.png";
+import aDesignSystemForAllTeams from "../assets/caseStudy/preview/a-design-system-for-all-teams.png";
+import aFilterForEveryYogi from "../assets/caseStudy/preview/a-filter-for-every-yogi.png";
+import customListsForSelfOrganisation from "../assets/caseStudy/preview/custom-lists-for-self-organisation.png";
+import easyOrderingForEveryDiet from "../assets/caseStudy/preview/easy-ordering-for-every-diet.png";
+import effortlessOnboardingWithAPersonalisedReward from "../assets/caseStudy/preview/effortless-onboarding-with-a-personalised-reward.png";
+import oouxingMyPortfolio from "../assets/caseStudy/preview/oouxing-my-portfolio.png";
+
+const caseStudyImages: { [key: string]: string } = {
+  "improving-marketplace-checkout-experience": improvingMarketplaceCheckout,
+  "a-design-system-for-all-teams": aDesignSystemForAllTeams,
+  "a-filter-for-every-yogi": aFilterForEveryYogi,
+  "custom-lists-for-self-organisation": customListsForSelfOrganisation,
+  "easy-ordering-for-every-diet": easyOrderingForEveryDiet,
+  "effortless-onboarding-with-a-personalised-reward":
+    effortlessOnboardingWithAPersonalisedReward,
+  "oouxing-my-portfolio": oouxingMyPortfolio,
+};
+
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
   portfolioManager: PortfolioManager;
@@ -85,7 +105,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       </div>
       {/* Picture */}
       <img
-        src={caseStudy.previewImage}
+        src={caseStudyImages[caseStudy.id]}
         alt={caseStudy.title}
         className="case-study-card-image"
         style={{
