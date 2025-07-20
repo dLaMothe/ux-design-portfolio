@@ -851,7 +851,7 @@ p {
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: calc(45% + 1rem);
+  padding-right: 1rem; /* Minimal padding to let text extend closer to tags */
   width: 100%;
   line-height: 1.2;
 }
