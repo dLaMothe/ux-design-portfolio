@@ -50,6 +50,7 @@ import customListsForSelfOrganisation from "./assets/caseStudy/preview/custom-li
 import easyOrderingForEveryDiet from "./assets/caseStudy/preview/easy-ordering-for-every-diet.png";
 import effortlessOnboardingWithAPersonalisedReward from "./assets/caseStudy/preview/effortless-onboarding-with-a-personalised-reward.png";
 import oouxingMyPortfolio from "./assets/caseStudy/preview/oouxing-my-portfolio.png";
+import improvingMarketplaceCheckout from "./assets/caseStudy/preview/improving-marketplace-checkout-experience.png";
 
 // Case Study Gallery Images
 import galleryADesignSystemForAllTeams1 from "./assets/caseStudy/gallary1/a-design-system-for-all-teams_01.png";
@@ -63,6 +64,8 @@ import galleryEffortlessOnboardingWithAPersonalisedReward1 from "./assets/caseSt
 import galleryEffortlessOnboardingWithAPersonalisedReward2 from "./assets/caseStudy/gallary1/effortless-onboarding-with-a-personalised-reward_02.png";
 import galleryOouxingMyPortfolio1 from "./assets/caseStudy/gallary1/oouxing-my-portfolio_01.png";
 import galleryOouxingMyPortfolio2 from "./assets/caseStudy/gallary1/oouxing-my-portfolio_02.png";
+import galleryImprovingMarketplaceCheckout1 from "./assets/caseStudy/gallary1/improving-marketplace-checkout-experience_01.png";
+import galleryImprovingMarketplaceCheckout2 from "./assets/caseStudy/gallary1/improving-marketplace-checkout-experience_02.png";
 
 // Case Study Gallery 2 Images
 import galleryAFilterForEveryYogi3 from "./assets/caseStudy/gallary2/a-filter-for-every-yogi_03.png";
@@ -79,6 +82,9 @@ import galleryOouxingMyPortfolio4 from "./assets/caseStudy/gallary2/oouxing-my-p
 import galleryOouxingMyPortfolio5 from "./assets/caseStudy/gallary2/oouxing-my-portfolio_05.png";
 import galleryOouxingMyPortfolio6 from "./assets/caseStudy/gallary2/oouxing-my-portfolio_06.png";
 import galleryOouxingMyPortfolio7 from "./assets/caseStudy/gallary2/oouxing-my-portfolio_07.png";
+import galleryImprovingMarketplaceCheckout3 from "./assets/caseStudy/gallary2/improving-marketplace-checkout-experience_03.png";
+import galleryImprovingMarketplaceCheckout4 from "./assets/caseStudy/gallary2/improving-marketplace-checkout-experience_04.png";
+import galleryImprovingMarketplaceCheckout5 from "./assets/caseStudy/gallary2/improving-marketplace-checkout-experience_05.png";
 
 // Achievement Images
 import achievementHowToUseFocusState from "./assets/achievements/How to use the focus state to improve your TV App.png";
@@ -95,6 +101,7 @@ const caseStudyImages: { [key: string]: string } = {
   "effortless-onboarding-with-a-personalised-reward":
     effortlessOnboardingWithAPersonalisedReward,
   "oouxing-my-portfolio": oouxingMyPortfolio,
+  "improving-marketplace-checkout-experience": improvingMarketplaceCheckout,
 };
 
 const achievementImages: { [key: string]: string } = {
@@ -129,6 +136,10 @@ const caseStudyGalleries: { [key: string]: string[] } = {
     galleryOouxingMyPortfolio1,
     galleryOouxingMyPortfolio2,
   ],
+  "improving-marketplace-checkout-experience": [
+    galleryImprovingMarketplaceCheckout1,
+    galleryImprovingMarketplaceCheckout2,
+  ],
 };
 
 const caseStudyGalleries2: { [key: string]: string[] } = {
@@ -155,6 +166,11 @@ const caseStudyGalleries2: { [key: string]: string[] } = {
     galleryOouxingMyPortfolio5,
     galleryOouxingMyPortfolio6,
     galleryOouxingMyPortfolio7,
+  ],
+  "improving-marketplace-checkout-experience": [
+    galleryImprovingMarketplaceCheckout3,
+    galleryImprovingMarketplaceCheckout4,
+    galleryImprovingMarketplaceCheckout5,
   ],
 };
 

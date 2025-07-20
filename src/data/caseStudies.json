@@ -1,5 +1,82 @@
 [
   {
+    "id": "improving-marketplace-checkout-experience",
+    "title": "Improving the checkout experience for Germanys biggest Marketplace",
+    "skillIds": [
+      "ux-user-experience-design",
+      "user-research",
+      "prototyping",
+      "ux-writing"
+    ],
+    "duration": "3 Months",
+    "team": "2 Designers, 1 Product Owner, 4 Developers",
+    "toolIds": [
+      "user-interviews",
+      "user-testing",
+      "figma",
+      "miro",
+      "journey-mapping",
+      "behavioural-psychology"
+    ],
+    "hmwQuestion": "How might we streamline the checkout process to reduce cart abandonment and increase customer satisfaction?",
+    "problem": "The checkout process was causing friction for users, leading to a high cart abandonment rate. Users found the process confusing, especially when dealing with multiple sellers and shipping options.",
+    "goal": "Redesign the checkout experience to be more intuitive and efficient, reducing cart abandonment rates while maintaining necessary functionality for a complex marketplace system.",
+    "challenge": "Balance the complexity of a marketplace checkout (multiple sellers, various shipping options, different payment methods) with the need for a simple, straightforward user experience.",
+    "phases": [
+      {
+        "name": "User Research",
+        "description": "We conducted interviews with users who had both completed and abandoned purchases to understand pain points and expectations in the checkout process.",
+        "deliverables": []
+      },
+      {
+        "name": "Journey Mapping",
+        "description": "Created detailed journey maps to visualize the current checkout flow and identify opportunities for improvement at each step.",
+        "deliverables": []
+      },
+      {
+        "name": "Competitive Analysis",
+        "description": "Analyzed checkout processes of other major marketplaces to understand best practices and user expectations.",
+        "deliverables": []
+      },
+      {
+        "name": "Design Exploration",
+        "description": "Developed multiple concepts for the new checkout flow, focusing on clarity and efficiency while handling marketplace complexity.",
+        "deliverables": []
+      },
+      {
+        "name": "Prototyping & Testing",
+        "description": "Created interactive prototypes and conducted usability testing to validate our design decisions and gather user feedback.",
+        "deliverables": []
+      },
+      {
+        "name": "Implementation Support",
+        "description": "Worked closely with the development team to ensure the design was implemented accurately and efficiently.",
+        "deliverables": []
+      }
+    ],
+    "process": "User ResearchWe conducted interviews with users who had both completed and abandoned purchases to understand pain points and expectations in the checkout process.Journey MappingCreated detailed journey maps to visualize the current checkout flow and identify opportunities for improvement at each step.Competitive AnalysisAnalyzed checkout processes of other major marketplaces to understand best practices and user expectations.Design ExplorationDeveloped multiple concepts for the new checkout flow, focusing on clarity and efficiency while handling marketplace complexity.Prototyping & TestingCreated interactive prototypes and conducted usability testing to validate our design decisions and gather user feedback.Implementation SupportWorked closely with the development team to ensure the design was implemented accurately and efficiently.",
+    "learningsAndDecisions": [
+      {
+        "title": "Progressive Disclosure",
+        "content": "We implemented a step-by-step approach that revealed complexity only when necessary, making the process feel less overwhelming while still handling all required information."
+      },
+      {
+        "title": "Smart Defaults",
+        "content": "By analyzing user behavior, we identified and pre-selected the most common choices for shipping and payment, reducing cognitive load while maintaining flexibility."
+      },
+      {
+        "title": "Visual Organization",
+        "content": "We used visual hierarchy and grouping to clearly separate items from different sellers while maintaining a cohesive experience."
+      },
+      {
+        "title": "Clear Communication",
+        "content": "We improved messaging around delivery times and costs, especially for multi-seller orders, making it easier for users to understand exactly what to expect."
+      }
+    ],
+    "userFeedback": "The new checkout feels much more straightforward. I especially like how I can easily see delivery times for different items in my cart.",
+    "lessonLearned": "Sometimes the best solution isn't about removing complexity, but about presenting it in a way that feels simple and manageable to users."
+  },
+  {
     "id": "a-design-system-for-all-teams",
     "title": "A design system for all teams",
     "skillIds": ["ux-user-experience-design", "user-research", "ux-writing"],
