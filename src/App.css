@@ -774,7 +774,8 @@ p {
 }
 
 .project-filter-tag:hover {
-  background: #e5e5e5;
+  background: #242628;
+  color: white;
 }
 
 .project-filter-tag-selected {
