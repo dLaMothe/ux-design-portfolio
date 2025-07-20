@@ -33,7 +33,12 @@
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
-    "thoughts": "8/10 - Easy read, real interesting case studies, applicable to personal and professional life."
+    "thoughts": "8/10 - Easy read, real interesting case studies, applicable to personal and professional life.",
+    "relatedBookIds": [
+      "predictably-irrational",
+      "thinking-fast-and-slow",
+      "influence"
+    ]
   },
   {
     "id": "flow",
@@ -62,7 +67,8 @@
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
-    "thoughts": "7/10 - The middle part is a bit drawn out but the triggerd reflection and application on ones personal life I find quite valuable."
+    "thoughts": "7/10 - The middle part is a bit drawn out but the triggerd reflection and application on ones personal life I find quite valuable.",
+    "relatedBookIds": ["predictably-irrational", "thinking-fast-and-slow"]
   },
   {
     "id": "thinking-fast-and-slow",
@@ -91,7 +97,13 @@
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
-    "thoughts": "9/10 - A personal accomplishment but not a book for everyone. Powerful fundamentals but you gotta put in work to learn how to apply them best."
+    "thoughts": "9/10 - A personal accomplishment but not a book for everyone. Powerful fundamentals but you gotta put in work to learn how to apply them best.",
+    "relatedBookIds": [
+      "predictably-irrational",
+      "influence",
+      "the-tipping-point",
+      "flow"
+    ]
   },
   {
     "id": "predictably-irrational",
@@ -122,7 +134,13 @@
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
-    "thoughts": "10/10 - Very inspiring and interesting. Stuff makes ya think man."
+    "thoughts": "10/10 - Very inspiring and interesting. Stuff makes ya think man.",
+    "relatedBookIds": [
+      "thinking-fast-and-slow",
+      "influence",
+      "the-tipping-point",
+      "flow"
+    ]
   },
   {
     "id": "influence",
@@ -166,7 +184,12 @@
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
-    "thoughts": "100/10 - A chonker full of valuable insights and case studies. Easy to read, it just takes a while."
+    "thoughts": "100/10 - A chonker full of valuable insights and case studies. Easy to read, it just takes a while.",
+    "relatedBookIds": [
+      "predictably-irrational",
+      "thinking-fast-and-slow",
+      "the-tipping-point"
+    ]
   },
   {
     "id": "design-sprint",

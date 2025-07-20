@@ -49,6 +49,7 @@ export class Book extends PortfolioItem {
   private _achievementIds: string[];
   private _hasNotes: boolean;
   private _thoughts?: string;
+  private _relatedBookIds: string[];
 
   constructor(
     id: string,
@@ -68,7 +69,8 @@ export class Book extends PortfolioItem {
     achievementIds: string[] = [],
     hasNotes: boolean = false,
     thoughts?: string,
-    coverImageUrl?: string
+    coverImageUrl?: string,
+    relatedBookIds: string[] = []
   ) {
     super(id, title, description);
     this._author = author;
@@ -86,6 +88,7 @@ export class Book extends PortfolioItem {
     this._hasNotes = hasNotes;
     this._thoughts = thoughts;
     this._coverImageUrl = coverImageUrl;
+    this._relatedBookIds = relatedBookIds;
   }
 
   // Getters
@@ -152,6 +155,9 @@ export class Book extends PortfolioItem {
   get thoughts(): string | undefined {
     return this._thoughts;
   }
+  get relatedBookIds(): string[] {
+    return [...this._relatedBookIds];
+  }
 
   // Setters
   set author(value: string) {
@@ -188,6 +194,10 @@ export class Book extends PortfolioItem {
   }
   set hasNotes(value: boolean) {
     this._hasNotes = value;
+    this.updateTimestamp();
+  }
+  set relatedBookIds(value: string[]) {
+    this._relatedBookIds = [...value];
     this.updateTimestamp();
   }
 
@@ -403,6 +413,7 @@ export class Book extends PortfolioItem {
       achievementIds: this._achievementIds,
       hasNotes: this._hasNotes,
       thoughts: this._thoughts,
+      relatedBookIds: this._relatedBookIds,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };

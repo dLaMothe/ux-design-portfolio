@@ -73,6 +73,7 @@ export const books: Book[] = booksData.map((bookData) => {
     bookData.achievementIds,
     bookData.hasNotes,
     bookData.thoughts,
-    bookCoverImages[bookData.id]
+    bookCoverImages[bookData.id],
+    bookData.relatedBookIds ?? []
   );
 });

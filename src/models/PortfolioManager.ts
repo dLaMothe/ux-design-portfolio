@@ -324,6 +324,10 @@ export class PortfolioManager {
     return this._books.get(id);
   }
 
+  public getBookById(id: string): Book | undefined {
+    return this._books.get(id);
+  }
+
   public removeBook(id: string): boolean {
     return this._books.delete(id);
   }

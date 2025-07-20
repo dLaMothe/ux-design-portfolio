@@ -199,7 +199,7 @@ const BookModal: React.FC<BookModalProps> = ({
               <>
                 <div
                   className="book-modal-skills-section"
-                  style={{ padding: 0, margin: "129px 0 0 0" }}
+                  style={{ padding: 0, margin: "96px 0 0 0" }}
                 >
                   <div
                     className="book-modal-skills-header"
@@ -249,55 +249,86 @@ const BookModal: React.FC<BookModalProps> = ({
               </>
             )}
 
-            {/* Other Books Section */}
-            <div style={{ marginTop: "129px" }}>
+            {/* Related Books Section */}
+            {book.relatedBookIds && book.relatedBookIds.length > 0 && (
               <div
-                className="book-modal-skills-header"
                 style={{
-                  margin: 0,
-                  padding: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: "24px",
+                  width: "calc(100% + 180px)",
+                  position: "relative",
+                  paddingBottom: "24px",
+                  minHeight: "495px",
+                  margin: "96px -90px 0",
                 }}
               >
-                <span
-                  className="book-modal-skills-star"
+                <div
                   style={{
-                    fontSize: 40,
-                    color: "#FCFE53",
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: "24px",
+                    marginBottom: "24px",
+                    paddingLeft: "90px",
                   }}
                 >
                   <BookSmall width={40} height={40} />
-                </span>
-                <h2
-                  className="book-modal-skills-title"
-                  style={{ margin: 0, padding: 0 }}
+                  <h2
+                    className="book-modal-skills-title"
+                    style={{ padding: 0, margin: 0 }}
+                  >
+                    Related Books
+                  </h2>
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    overflowX: "auto",
+                    overflowY: "visible",
+                    paddingTop: "10px",
+                    paddingBottom: "20px",
+                    height: "440px",
+                    msOverflowStyle: "none",
+                    scrollbarWidth: "none",
+                  }}
                 >
-                  Other Books
-                </h2>
-              </div>
-              <div className="books-container">
-                <div className="books-scroll-area">
-                  {books
-                    .filter((b) => b.id !== book.id)
-                    .map((otherBook, index) => (
-                      <motion.div key={otherBook.id} className="book-item">
-                        <BookCard
-                          book={otherBook}
-                          onClick={() => {
-                            onClose();
-                            setSelectedSkill(otherBook);
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      gap: "24px",
+                      minWidth: "min-content",
+                      height: "410px",
+                      paddingLeft: "90px",
+                      paddingRight: "90px",
+                    }}
+                  >
+                    {book.relatedBookIds.map((relatedBookId) => {
+                      const relatedBook =
+                        portfolioManager.getBook(relatedBookId);
+                      if (!relatedBook) return null;
+                      return (
+                        <motion.div
+                          key={relatedBook.id}
+                          className="book-item"
+                          style={{
+                            width: "174px",
+                            height: "410px",
+                            margin: 0,
+                            padding: 0,
                           }}
-                        />
-                      </motion.div>
-                    ))}
+                          whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.2 },
+                          }}
+                        >
+                          <BookCard book={relatedBook} />
+                        </motion.div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
