@@ -17,6 +17,15 @@
       "process": "This was quite the endeavour as the project had a short timeline, was technically complex and involved many teams. As the lead UX Designer for the project, I designed and facilitated the workshops. The challenge was not only to communicate current state of a users progress towards the MOV but also to explain its conditions. Not every product on the platform contributes to the value and users have to be signed up to the benefit program.",
       "impact": "Not only did we hold the deadline, overshot the estimated revenue growth and the amount of users signing up for the benefits program, the project itself is still being brought up internally every so often as an example how a good discovery process should look like.",
       "imagePath": ""
+    },
+    {
+      "id": "payment-option-redesign",
+      "title": "Payment Option Redesign for Transparency",
+      "tags": ["Transparency"],
+      "goal": "Being more clear about the conditions of the offered payment options to reduce confusion and prevent cancellations.",
+      "process": "This was a small project I initiated based on the hypothesis that users might not understand our payment conditions. I created 3 versions for the new design with added micro copy which were quickly tested in interviews and also quickly implemented afterwards.",
+      "impact": "During the user tests we were quite surprised to learn about users misconception about how direct debit works. The new separation between payment options that are for paying now and paying later and the added micro copy was an easy but impactful fix for this. We were also surprised to see an unexpected rise in instalment payments which was a nice bonus.",
+      "imagePath": ""
     }
   ]
 }
