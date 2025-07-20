@@ -13,7 +13,7 @@ import Drawing50 from "./Drawing50";
 import { Skill } from "../models/Skill";
 
 // Import case study images
-import improvingMarketplaceCheckout from "../assets/caseStudy/preview/improving-marketplace-checkout-experience.png";
+import improvingMarketplaceCheckout from "../assets/caseStudy/preview/improving-checkout-process.png";
 import aDesignSystemForAllTeams from "../assets/caseStudy/preview/a-design-system-for-all-teams.png";
 import aFilterForEveryYogi from "../assets/caseStudy/preview/a-filter-for-every-yogi.png";
 import customListsForSelfOrganisation from "../assets/caseStudy/preview/custom-lists-for-self-organisation.png";
