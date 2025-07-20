@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9b6bec7d.css",
-    "main.js": "/static/js/main.27413940.js",
+    "main.css": "/static/css/main.70d01ab5.css",
+    "main.js": "/static/js/main.5f7eb2bf.js",
     "static/media/a-design-system-for-all-teams_01.png": "/static/media/a-design-system-for-all-teams_01.adb01bd1409472d4b541.png",
     "static/media/A Theory of Fun.png": "/static/media/A Theory of Fun.c7e3ddeb571c09b404a7.png",
     "static/media/easy-ordering-for-every-diet_02.png": "/static/media/easy-ordering-for-every-diet_02.cb7e883d422d5d084ad9.png",
@@ -53,6 +53,7 @@
     "static/media/Growth.Design.png": "/static/media/Growth.Design.0e296f269d25be18ab1c.png",
     "static/media/Service Design.png": "/static/media/Service Design.b84bb48d9beca4a28db8.png",
     "static/media/Lean UX.png": "/static/media/Lean UX.0e1930eeabb63cef9697.png",
+    "static/media/improving-checkout-process.png": "/static/media/improving-checkout-process.9c69c66d8310150d5c3e.png",
     "static/media/OOUX Podcast.png": "/static/media/OOUX Podcast.120dd03673b40d3c72f4.png",
     "static/media/UX Magic.png": "/static/media/UX Magic.6d152f3fc9a7dd402ad0.png",
     "static/media/a-filter-for-every-yogi.png": "/static/media/a-filter-for-every-yogi.6ef6a6d066961330ef25.png",
@@ -63,14 +64,20 @@
     "static/media/a-design-system-for-all-teams.png": "/static/media/a-design-system-for-all-teams.ec1f7425d3752dafa1b8.png",
     "static/media/How to use the focus state to improve your TV App.png": "/static/media/How to use the focus state to improve your TV App.4852d1298116bd1d77e2.png",
     "static/media/Tipping Point.png": "/static/media/Tipping Point.fa6004247ade55479dfa.png",
+    "static/media/improving-marketplace-checkout-experience_03.png": "/static/media/improving-marketplace-checkout-experience_03.71c278fbe34b54a1df8e.png",
+    "static/media/improving-marketplace-checkout-experience_05.png": "/static/media/improving-marketplace-checkout-experience_05.03056a26a6cf6a45a09f.png",
+    "static/media/improving-marketplace-checkout-experience_01.png": "/static/media/improving-marketplace-checkout-experience_01.f38dbdea5db17074b248.png",
+    "static/media/improving-marketplace-checkout-experience_02.png": "/static/media/improving-marketplace-checkout-experience_02.ffac407cc166b18197cd.png",
+    "static/media/improving-marketplace-checkout-experience_04.png": "/static/media/improving-marketplace-checkout-experience_04.b53dad4ec583a8fb5441.png",
+    "static/media/improving-marketplace-checkout-experience.png": "/static/media/improving-marketplace-checkout-experience.1e73197545fbbd63b8cf.png",
     "static/media/profilPicture.png": "/static/media/profilPicture.f9d4797c976d98819741.png",
     "index.html": "/index.html",
     "static/media/case-study-tile-bg.svg": "/static/media/case-study-tile-bg.ef32354bf422af28ea74.svg",
-    "main.9b6bec7d.css.map": "/static/css/main.9b6bec7d.css.map",
-    "main.27413940.js.map": "/static/js/main.27413940.js.map"
+    "main.70d01ab5.css.map": "/static/css/main.70d01ab5.css.map",
+    "main.5f7eb2bf.js.map": "/static/js/main.5f7eb2bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b6bec7d.css",
-    "static/js/main.27413940.js"
+    "static/css/main.70d01ab5.css",
+    "static/js/main.5f7eb2bf.js"
   ]
 }
