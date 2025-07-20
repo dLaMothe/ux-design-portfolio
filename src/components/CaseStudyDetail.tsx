@@ -1152,7 +1152,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   return indexA - indexB;
                 })
                 .filter((cs) => cs.id !== caseStudy.id)
-                .slice(0, 5) // Limit to 5 cards as per the layout
+                .slice(0, 6) // Show up to 6 case studies
                 .map((cs, index) => (
                   <div
                     key={cs.id}
