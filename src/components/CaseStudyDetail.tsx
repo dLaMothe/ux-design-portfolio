@@ -12,6 +12,7 @@ import BookSmall from "./BookSmall";
 import SwordSmall from "./SwordSmall";
 import BackPrevious100 from "./BackPrevious100";
 import CaseStudyHeroTransition from "./CaseStudyHeroTransition";
+import ProjectCard from "./ProjectCard";
 
 interface CaseStudyDetailProps {
   portfolioManager: PortfolioManager;
@@ -316,7 +317,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
         <div className="container">
           <div className="max-w-4xl mx-auto">
             {/* The Process Section */}
-            {caseStudy.phases.length > 0 && (
+            {caseStudy.id !== "improving-marketplace-checkout-experience" && (
               <motion.div
                 className="mb-16"
                 initial={{ opacity: 0, y: 20 }}
@@ -410,227 +411,552 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               </motion.div>
             )}
 
-            {/* Gallery Section */}
-            {caseStudy.images && caseStudy.images.length > 0 && (
+            {/* The Projects Section - Only for Checkout Case Study */}
+            {caseStudy.id === "improving-marketplace-checkout-experience" && (
               <motion.div
                 className="mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                style={{
-                  marginBottom: "129px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "24px",
-                  maxWidth: "1088px",
-                  width: "100%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                style={{ marginBottom: 129 }}
               >
-                {/* Image Container */}
-                <div
+                <h2
                   style={{
-                    boxSizing: "border-box",
-                    width: "100%",
-                    height: "500px",
-                    background: caseStudy.gradient,
-                    border: "1px solid #242628",
-                    borderRadius: "2px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                    overflow: "hidden",
+                    fontFamily: "'Jersey 10', sans-serif",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    fontSize: "64px",
+                    lineHeight: "69px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    marginBottom: "48px",
                   }}
                 >
-                  <AnimatePresence initial={false} custom={direction}>
-                    <motion.img
-                      key={currentImageIndex}
-                      src={caseStudy.images[currentImageIndex]}
-                      alt={`${caseStudy.title} gallery item ${
-                        currentImageIndex + 1
-                      }`}
-                      custom={direction}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 },
-                      }}
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={1}
-                      onDragEnd={(e, { offset, velocity }) => {
-                        const swipe = swipePower(offset.x, velocity.x);
-
-                        if (swipe < -swipeConfidenceThreshold) {
-                          paginate(1);
-                        } else if (swipe > swipeConfidenceThreshold) {
-                          paginate(-1);
-                        }
-                      }}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                        objectPosition: "bottom",
-                        position: "absolute",
-                      }}
-                    />
-                  </AnimatePresence>
-                </div>
-
-                {/* Controls */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "8px",
-                    height: "24px",
-                  }}
-                >
-                  {/* Left Arrow */}
-                  <button
-                    onClick={() => paginate(-1)}
-                    aria-label="Previous image"
-                    disabled={currentImageIndex === 0}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: currentImageIndex === 0 ? "default" : "pointer",
-                      padding: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      opacity: currentImageIndex === 0 ? 0.3 : 1,
-                    }}
-                  >
-                    <BackPrevious100 />
-                  </button>
-
-                  {/* Dots */}
-                  {caseStudy.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        const newDirection = index > currentImageIndex ? 1 : -1;
-                        setDirection(newDirection);
-                        setCurrentImageIndex(index);
-                      }}
-                      style={{
-                        width: "8px",
-                        height: "8px",
-                        background:
-                          currentImageIndex === index
-                            ? "#242628"
-                            : "rgba(36, 38, 40, 0.3)",
-                        border: "none",
-                        padding: 0,
-                        cursor: "pointer",
-                        borderRadius: "0px",
-                      }}
-                      aria-label={`Go to image ${index + 1}`}
-                    />
-                  ))}
-
-                  {/* Right Arrow */}
-                  <button
-                    onClick={() => paginate(1)}
-                    aria-label="Next image"
-                    disabled={currentImageIndex === caseStudy.images.length - 1}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor:
-                        currentImageIndex === caseStudy.images.length - 1
-                          ? "default"
-                          : "pointer",
-                      padding: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      opacity:
-                        currentImageIndex === caseStudy.images.length - 1
-                          ? 0.3
-                          : 1,
-                      transform: "rotate(180deg)",
-                    }}
-                  >
-                    <BackPrevious100 />
-                  </button>
-                </div>
+                  The Projects
+                </h2>
+                <ProjectCard caseStudyId={caseStudy.id} />
               </motion.div>
             )}
 
-            {/* Learnings & Decisions Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "stretch",
-                gap: "48px",
-                width: "100%",
-                maxWidth: "1088px",
-                margin: "0 auto 129px",
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: "'Jersey 10', sans-serif",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  fontSize: "64px",
-                  lineHeight: "69px",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "#242628",
-                  textAlign: "left",
-                }}
-              >
-                Learnings & Decisions
-              </h2>
-
-              {caseStudy.learningsAndDecisions &&
-              caseStudy.learningsAndDecisions.length > 0 ? (
-                <div
+            {/* Gallery Section - Hide for checkout case study */}
+            {caseStudy.id !== "improving-marketplace-checkout-experience" &&
+              caseStudy.images &&
+              caseStudy.images.length > 0 && (
+                <motion.div
+                  className="mb-16"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-                    gap: "48px 48px",
+                    marginBottom: "129px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "24px",
+                    maxWidth: "1088px",
                     width: "100%",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
-                  {caseStudy.learningsAndDecisions.map((learning, index) => (
-                    <div
-                      key={index}
+                  {/* Image Container */}
+                  <div
+                    style={{
+                      boxSizing: "border-box",
+                      width: "100%",
+                      height: "500px",
+                      background: caseStudy.gradient,
+                      border: "1px solid #242628",
+                      borderRadius: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <AnimatePresence initial={false} custom={direction}>
+                      <motion.img
+                        key={currentImageIndex}
+                        src={caseStudy.images[currentImageIndex]}
+                        alt={`${caseStudy.title} gallery item ${
+                          currentImageIndex + 1
+                        }`}
+                        custom={direction}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          x: { type: "spring", stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.2 },
+                        }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                          const swipe = swipePower(offset.x, velocity.x);
+
+                          if (swipe < -swipeConfidenceThreshold) {
+                            paginate(1);
+                          } else if (swipe > swipeConfidenceThreshold) {
+                            paginate(-1);
+                          }
+                        }}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          objectPosition: "bottom",
+                          position: "absolute",
+                        }}
+                      />
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Controls */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: "8px",
+                      height: "24px",
+                    }}
+                  >
+                    {/* Left Arrow */}
+                    <button
+                      onClick={() => paginate(-1)}
+                      aria-label="Previous image"
+                      disabled={currentImageIndex === 0}
                       style={{
+                        background: "none",
+                        border: "none",
+                        cursor: currentImageIndex === 0 ? "default" : "pointer",
+                        padding: 0,
                         display: "flex",
-                        flexDirection: "column",
-                        gap: "16px",
+                        alignItems: "center",
+                        opacity: currentImageIndex === 0 ? 0.3 : 1,
                       }}
                     >
+                      <BackPrevious100 />
+                    </button>
+
+                    {/* Dots */}
+                    {caseStudy.images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          const newDirection =
+                            index > currentImageIndex ? 1 : -1;
+                          setDirection(newDirection);
+                          setCurrentImageIndex(index);
+                        }}
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          background:
+                            currentImageIndex === index
+                              ? "#242628"
+                              : "rgba(36, 38, 40, 0.3)",
+                          border: "none",
+                          padding: 0,
+                          cursor: "pointer",
+                          borderRadius: "0px",
+                        }}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+
+                    {/* Right Arrow */}
+                    <button
+                      onClick={() => paginate(1)}
+                      aria-label="Next image"
+                      disabled={
+                        currentImageIndex === caseStudy.images.length - 1
+                      }
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor:
+                          currentImageIndex === caseStudy.images.length - 1
+                            ? "default"
+                            : "pointer",
+                        padding: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        opacity:
+                          currentImageIndex === caseStudy.images.length - 1
+                            ? 0.3
+                            : 1,
+                        transform: "rotate(180deg)",
+                      }}
+                    >
+                      <BackPrevious100 />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+            {/* Learnings & Decisions Section - Hide for checkout case study */}
+            {caseStudy.id !== "improving-marketplace-checkout-experience" && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "stretch",
+                  gap: "48px",
+                  width: "100%",
+                  maxWidth: "1088px",
+                  margin: "0 auto 129px",
+                }}
+              >
+                <h2
+                  style={{
+                    fontFamily: "'Jersey 10', sans-serif",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    fontSize: "64px",
+                    lineHeight: "69px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    textAlign: "left",
+                  }}
+                >
+                  Learnings & Decisions
+                </h2>
+
+                {caseStudy.learningsAndDecisions &&
+                caseStudy.learningsAndDecisions.length > 0 ? (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns:
+                        "repeat(auto-fit, minmax(400px, 1fr))",
+                      gap: "48px 48px",
+                      width: "100%",
+                    }}
+                  >
+                    {caseStudy.learningsAndDecisions.map((learning, index) => (
+                      <div
+                        key={index}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "16px",
+                        }}
+                      >
+                        <h3
+                          style={{
+                            fontFamily: "'Ubuntu Sans Mono', monospace",
+                            fontWeight: 700,
+                            fontSize: "20px",
+                            lineHeight: "24px",
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            color: "#242628",
+                          }}
+                        >
+                          {learning.title}
+                        </h3>
+                        <div
+                          style={{
+                            flexGrow: 1,
+                            padding: "24px",
+                            backgroundColor: "#EFEFEF",
+                          }}
+                        >
+                          <p
+                            style={{
+                              fontFamily: "'Ubuntu Mono', monospace",
+                              fontSize: "16px",
+                              lineHeight: "23px",
+                              color: "#242628",
+                              margin: 0,
+                            }}
+                          >
+                            {learning.content}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      padding: "24px",
+                      backgroundColor: "#EFEFEF",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "16px",
+                        lineHeight: "23px",
+                        color: "#242628",
+                        margin: 0,
+                      }}
+                    >
+                      {caseStudy.learnings ||
+                        "No learnings and decisions have been documented for this case study yet."}
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            )}
+
+            {/* Second Gallery Section - Hide for checkout case study */}
+            {caseStudy.id !== "improving-marketplace-checkout-experience" &&
+              caseStudy.images2 &&
+              caseStudy.images2.length > 0 && (
+                <motion.div
+                  className="mb-16"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  style={{
+                    marginBottom: "129px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "24px",
+                    maxWidth: "1088px",
+                    width: "100%",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  {/* Image Container */}
+                  <div
+                    style={{
+                      boxSizing: "border-box",
+                      width: "100%",
+                      height: "500px",
+                      background: caseStudy.gradient,
+                      border: "1px solid #242628",
+                      borderRadius: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <AnimatePresence initial={false} custom={direction2}>
+                      <motion.img
+                        key={secondGalleryImageIndex}
+                        src={caseStudy.images2[secondGalleryImageIndex]}
+                        alt={`${caseStudy.title} gallery item ${
+                          secondGalleryImageIndex + 1
+                        }`}
+                        custom={direction2}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          x: { type: "spring", stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.2 },
+                        }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                          const swipe = swipePower(offset.x, velocity.x);
+
+                          if (swipe < -swipeConfidenceThreshold) {
+                            paginate(1, true);
+                          } else if (swipe > swipeConfidenceThreshold) {
+                            paginate(-1, true);
+                          }
+                        }}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          objectPosition: "bottom",
+                          position: "absolute",
+                        }}
+                      />
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Controls */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: "8px",
+                      height: "24px",
+                    }}
+                  >
+                    {/* Left Arrow */}
+                    <button
+                      onClick={() => paginate(-1, true)}
+                      aria-label="Previous image"
+                      disabled={secondGalleryImageIndex === 0}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor:
+                          secondGalleryImageIndex === 0 ? "default" : "pointer",
+                        padding: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        opacity: secondGalleryImageIndex === 0 ? 0.3 : 1,
+                      }}
+                    >
+                      <BackPrevious100 />
+                    </button>
+
+                    {/* Dots */}
+                    {caseStudy.images2.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          const newDirection =
+                            index > secondGalleryImageIndex ? 1 : -1;
+                          setDirection2(newDirection);
+                          setSecondGalleryImageIndex(index);
+                        }}
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          background:
+                            secondGalleryImageIndex === index
+                              ? "#242628"
+                              : "rgba(36, 38, 40, 0.3)",
+                          border: "none",
+                          padding: 0,
+                          cursor: "pointer",
+                          borderRadius: "0px",
+                        }}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+
+                    {/* Right Arrow */}
+                    <button
+                      onClick={() => paginate(1, true)}
+                      aria-label="Next image"
+                      disabled={
+                        secondGalleryImageIndex === caseStudy.images2.length - 1
+                      }
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor:
+                          secondGalleryImageIndex ===
+                          caseStudy.images2.length - 1
+                            ? "default"
+                            : "pointer",
+                        padding: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        opacity:
+                          secondGalleryImageIndex ===
+                          caseStudy.images2.length - 1
+                            ? 0.3
+                            : 1,
+                        transform: "rotate(180deg)",
+                      }}
+                    >
+                      <BackPrevious100 />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+            {/* User Feedback Section - Hide for checkout case study */}
+            {caseStudy.id !== "improving-marketplace-checkout-experience" &&
+              caseStudy.userFeedback && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  style={{
+                    width: "100%",
+                    maxWidth: "1088px",
+                    margin: "0 auto 129px",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontFamily: "'Ubuntu Sans Mono', monospace",
+                      fontWeight: 700,
+                      fontSize: "20px",
+                      lineHeight: "34px",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      color: "#242628",
+                      marginBottom: "16px",
+                    }}
+                  >
+                    User Feedback
+                  </h3>
+                  <div
+                    style={{
+                      padding: "24px",
+                      backgroundColor: "#EFEFEF",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "16px",
+                        lineHeight: "23px",
+                        color: "#242628",
+                        margin: 0,
+                        fontStyle: "italic",
+                      }}
+                    >
+                      "{caseStudy.userFeedback}"
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+            {/* Lesson Learned and Fun Fact Section - Hide for checkout case study */}
+            {caseStudy.id !== "improving-marketplace-checkout-experience" &&
+              (caseStudy.lessonLearned || caseStudy.funFact) && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "24px",
+                    width: "100%",
+                    maxWidth: "1088px",
+                    margin: "0 auto",
+                  }}
+                >
+                  {caseStudy.lessonLearned && (
+                    <div style={{ width: "100%" }}>
                       <h3
                         style={{
                           fontFamily: "'Ubuntu Sans Mono', monospace",
                           fontWeight: 700,
                           fontSize: "20px",
-                          lineHeight: "24px",
+                          lineHeight: "34px",
                           letterSpacing: "0.06em",
                           textTransform: "uppercase",
                           color: "#242628",
+                          marginBottom: "16px",
                         }}
                       >
-                        {learning.title}
+                        Lesson Learned
                       </h3>
                       <div
                         style={{
-                          flexGrow: 1,
                           padding: "24px",
                           backgroundColor: "#EFEFEF",
                         }}
@@ -644,332 +970,49 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                             margin: 0,
                           }}
                         >
-                          {learning.content}
+                          {caseStudy.lessonLearned}
                         </p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div
-                  style={{
-                    padding: "24px",
-                    backgroundColor: "#EFEFEF",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "'Ubuntu Mono', monospace",
-                      fontSize: "16px",
-                      lineHeight: "23px",
-                      color: "#242628",
-                      margin: 0,
-                    }}
-                  >
-                    {caseStudy.learnings ||
-                      "No learnings and decisions have been documented for this case study yet."}
-                  </p>
-                </div>
+                  )}
+                  {caseStudy.funFact && (
+                    <div style={{ width: "100%" }}>
+                      <h3
+                        style={{
+                          fontFamily: "'Ubuntu Sans Mono', monospace",
+                          fontWeight: 700,
+                          fontSize: "20px",
+                          lineHeight: "34px",
+                          letterSpacing: "0.06em",
+                          textTransform: "uppercase",
+                          color: "#242628",
+                          marginBottom: "16px",
+                        }}
+                      >
+                        Fun Fact
+                      </h3>
+                      <div
+                        style={{
+                          padding: "24px",
+                          backgroundColor: "#EFEFEF",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "'Ubuntu Mono', monospace",
+                            fontSize: "16px",
+                            lineHeight: "23px",
+                            color: "#242628",
+                            margin: 0,
+                          }}
+                        >
+                          {caseStudy.funFact}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
               )}
-            </motion.div>
-
-            {/* Second Gallery Section */}
-            {caseStudy.images2 && caseStudy.images2.length > 0 && (
-              <motion.div
-                className="mb-16"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                style={{
-                  marginBottom: "129px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "24px",
-                  maxWidth: "1088px",
-                  width: "100%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                {/* Image Container */}
-                <div
-                  style={{
-                    boxSizing: "border-box",
-                    width: "100%",
-                    height: "500px",
-                    background: caseStudy.gradient,
-                    border: "1px solid #242628",
-                    borderRadius: "2px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <AnimatePresence initial={false} custom={direction2}>
-                    <motion.img
-                      key={secondGalleryImageIndex}
-                      src={caseStudy.images2[secondGalleryImageIndex]}
-                      alt={`${caseStudy.title} gallery item ${
-                        secondGalleryImageIndex + 1
-                      }`}
-                      custom={direction2}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 },
-                      }}
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={1}
-                      onDragEnd={(e, { offset, velocity }) => {
-                        const swipe = swipePower(offset.x, velocity.x);
-
-                        if (swipe < -swipeConfidenceThreshold) {
-                          paginate(1, true);
-                        } else if (swipe > swipeConfidenceThreshold) {
-                          paginate(-1, true);
-                        }
-                      }}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                        objectPosition: "bottom",
-                        position: "absolute",
-                      }}
-                    />
-                  </AnimatePresence>
-                </div>
-
-                {/* Controls */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "8px",
-                    height: "24px",
-                  }}
-                >
-                  {/* Left Arrow */}
-                  <button
-                    onClick={() => paginate(-1, true)}
-                    aria-label="Previous image"
-                    disabled={secondGalleryImageIndex === 0}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor:
-                        secondGalleryImageIndex === 0 ? "default" : "pointer",
-                      padding: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      opacity: secondGalleryImageIndex === 0 ? 0.3 : 1,
-                    }}
-                  >
-                    <BackPrevious100 />
-                  </button>
-
-                  {/* Dots */}
-                  {caseStudy.images2.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        const newDirection =
-                          index > secondGalleryImageIndex ? 1 : -1;
-                        setDirection2(newDirection);
-                        setSecondGalleryImageIndex(index);
-                      }}
-                      style={{
-                        width: "8px",
-                        height: "8px",
-                        background:
-                          secondGalleryImageIndex === index
-                            ? "#242628"
-                            : "rgba(36, 38, 40, 0.3)",
-                        border: "none",
-                        padding: 0,
-                        cursor: "pointer",
-                        borderRadius: "0px",
-                      }}
-                      aria-label={`Go to image ${index + 1}`}
-                    />
-                  ))}
-
-                  {/* Right Arrow */}
-                  <button
-                    onClick={() => paginate(1, true)}
-                    aria-label="Next image"
-                    disabled={
-                      secondGalleryImageIndex === caseStudy.images2.length - 1
-                    }
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor:
-                        secondGalleryImageIndex === caseStudy.images2.length - 1
-                          ? "default"
-                          : "pointer",
-                      padding: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      opacity:
-                        secondGalleryImageIndex === caseStudy.images2.length - 1
-                          ? 0.3
-                          : 1,
-                      transform: "rotate(180deg)",
-                    }}
-                  >
-                    <BackPrevious100 />
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-            {/* User Feedback Section */}
-            {caseStudy.userFeedback && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                style={{
-                  width: "100%",
-                  maxWidth: "1088px",
-                  margin: "0 auto 129px",
-                }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "'Ubuntu Sans Mono', monospace",
-                    fontWeight: 700,
-                    fontSize: "20px",
-                    lineHeight: "34px",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "#242628",
-                    marginBottom: "16px",
-                  }}
-                >
-                  User Feedback
-                </h3>
-                <div
-                  style={{
-                    padding: "24px",
-                    backgroundColor: "#EFEFEF",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "'Ubuntu Mono', monospace",
-                      fontSize: "16px",
-                      lineHeight: "23px",
-                      color: "#242628",
-                      margin: 0,
-                      fontStyle: "italic",
-                    }}
-                  >
-                    "{caseStudy.userFeedback}"
-                  </p>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Lesson Learned and Fun Fact Section */}
-            {(caseStudy.lessonLearned || caseStudy.funFact) && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "24px",
-                  width: "100%",
-                  maxWidth: "1088px",
-                  margin: "0 auto",
-                }}
-              >
-                {caseStudy.lessonLearned && (
-                  <div style={{ width: "100%" }}>
-                    <h3
-                      style={{
-                        fontFamily: "'Ubuntu Sans Mono', monospace",
-                        fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "34px",
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        color: "#242628",
-                        marginBottom: "16px",
-                      }}
-                    >
-                      Lesson Learned
-                    </h3>
-                    <div
-                      style={{
-                        padding: "24px",
-                        backgroundColor: "#EFEFEF",
-                      }}
-                    >
-                      <p
-                        style={{
-                          fontFamily: "'Ubuntu Mono', monospace",
-                          fontSize: "16px",
-                          lineHeight: "23px",
-                          color: "#242628",
-                          margin: 0,
-                        }}
-                      >
-                        {caseStudy.lessonLearned}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                {caseStudy.funFact && (
-                  <div style={{ width: "100%" }}>
-                    <h3
-                      style={{
-                        fontFamily: "'Ubuntu Sans Mono', monospace",
-                        fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "34px",
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        color: "#242628",
-                        marginBottom: "16px",
-                      }}
-                    >
-                      Fun Fact
-                    </h3>
-                    <div
-                      style={{
-                        padding: "24px",
-                        backgroundColor: "#EFEFEF",
-                      }}
-                    >
-                      <p
-                        style={{
-                          fontFamily: "'Ubuntu Mono', monospace",
-                          fontSize: "16px",
-                          lineHeight: "23px",
-                          color: "#242628",
-                          margin: 0,
-                        }}
-                      >
-                        {caseStudy.funFact}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            )}
           </div>
         </div>
       </section>

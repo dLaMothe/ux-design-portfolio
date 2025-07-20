@@ -1,0 +1,13 @@
+{
+  "projects": [
+    {
+      "id": "low-stock-communication",
+      "title": "Low Stock Communication in the cart",
+      "tags": ["Money Maker", "Transparency"],
+      "goal": "Communication that an articles stock is under 10 units in the wearhouses, so users are more decisive about their purchase decisions.",
+      "process": "This information was included in all article representations throughout the platform. As our article cards can be quite complex, especially for larger items such as washing machines, we decided to not implement the same kind of tag as the rest of the shop (black) but give the information as a red text. The color was not used for anything else yet. In fact, besides the article picture it is the only color that can appear. This made it lighter in visual weight compared to a tag, and left the focus still on important product information while even at a glance giving the sentiment of urgency.",
+      "impact": "This was a fairly small change but the impact was impressive! The sold units went up immediately and consistently. It was quite the learning experience to see such a \"minor\" change to have such a big impact.",
+      "imagePath": ""
+    }
+  ]
+}
