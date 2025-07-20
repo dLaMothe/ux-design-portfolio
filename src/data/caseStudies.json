@@ -2,7 +2,7 @@
   {
     "id": "improving-marketplace-checkout-experience",
     "title": "Improving the checkout experience for Germanys biggest Marketplace",
-    "gradient": "linear-gradient(to bottom right, #b9b3ff, #b3d4ff)",
+    "gradient": "linear-gradient(to bottom right, #e2e0ff, #e5f0ff)",
     "skillIds": [
       "ux-user-experience-design",
       "user-research",
@@ -80,6 +80,7 @@
   {
     "id": "a-design-system-for-all-teams",
     "title": "A design system for all teams",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": ["ux-user-experience-design", "user-research", "ux-writing"],
     "duration": "6 Month",
     "team": "5 Designers, 1 Product Owner, 2 Developers",
@@ -165,6 +166,7 @@
   {
     "id": "easy-ordering-for-every-diet",
     "title": "Easy ordering for every diet",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": [
       "user-research",
       "ux-user-experience-design",
@@ -236,6 +238,7 @@
   {
     "id": "effortless-onboarding-with-a-personalised-reward",
     "title": "Effortless onboarding with a personalised reward",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": [
       "prototyping",
       "user-research",
@@ -337,6 +340,7 @@
   {
     "id": "custom-lists-for-self-organisation",
     "title": "Custom lists for self organisation",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": [
       "ux-user-experience-design",
       "user-research",
@@ -415,6 +419,7 @@
   {
     "id": "a-filter-for-every-yogi",
     "title": "A filter for every yogi",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": [
       "ux-user-experience-design",
       "user-research",
@@ -502,6 +507,7 @@
   {
     "id": "oouxing-my-portfolio",
     "title": "OOUXing my Portfolio",
+    "gradient": "linear-gradient(to bottom right, #d6d3ff, #d9e9ff)",
     "skillIds": [
       "ooux-object-oriented-user-experience",
       "ux-user-experience-design",
