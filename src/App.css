@@ -851,7 +851,9 @@ p {
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: 1rem; /* Minimal padding to let text extend closer to tags */
+  padding-right: calc(
+    52% + 1rem
+  ); /* Increased padding to maintain space between text and tags */
   width: 100%;
   line-height: 1.2;
 }
