@@ -643,3 +643,254 @@ p {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Featured Case Study Card */
+.featured-case-study-card {
+  display: flex;
+  background: var(--background-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.featured-case-study-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.featured-case-study-image-container {
+  flex: 0 0 40%;
+  background: var(--background-accent);
+}
+
+.featured-case-study-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-case-study-content {
+  flex: 1;
+  padding: 2rem;
+  position: relative;
+}
+
+.featured-case-study-tags {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.featured-tag {
+  background: #242628;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.featured-case-study-title {
+  font-family: "Jersey 10", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #242628;
+  margin-bottom: 2rem;
+  padding-right: 12rem; /* Space for tags */
+}
+
+.featured-case-study-section {
+  margin-bottom: 1.5rem;
+}
+
+.featured-section-title {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #242628;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.featured-section-text {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #242628;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .featured-case-study-card {
+    flex-direction: column;
+  }
+
+  .featured-case-study-image-container {
+    height: 300px;
+  }
+
+  .featured-case-study-title {
+    padding-right: 0;
+    margin-top: 3rem;
+  }
+
+  .featured-case-study-tags {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Project Section */
+.project-section {
+  width: 100%;
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.project-filter-tag {
+  padding: 0.5rem 1rem;
+  border: 2px solid #242628;
+  border-radius: 4px;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: #efefef;
+  color: #242628;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-filter-tag:hover {
+  background: #e5e5e5;
+}
+
+.project-filter-tag-selected {
+  background: #242628;
+  color: white;
+  border-color: #242628;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Project Card */
+.project-card {
+  display: flex;
+  background: var(--background-primary);
+  border-radius: 2px;
+  overflow: hidden;
+  border-bottom: 2px solid #242628;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.project-image-container {
+  flex: 0 0 40%;
+  background: var(--background-accent);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-content {
+  flex: 1;
+  padding: 2rem;
+  position: relative;
+}
+
+.project-tags {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  background: #242628;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.project-title {
+  font-family: "Jersey 10", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #242628;
+  margin-bottom: 2rem;
+  padding-right: 12rem; /* Space for tags */
+}
+
+.project-section {
+  margin-bottom: 1.5rem;
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-section-title {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #242628;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.project-section-text {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #242628;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-image-container {
+    height: 300px;
+  }
+
+  .project-title {
+    padding-right: 0;
+    margin-top: 3rem;
+  }
+
+  .project-tags {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+  }
+}
