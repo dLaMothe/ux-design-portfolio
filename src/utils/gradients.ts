@@ -1,5 +1,7 @@
 // Specific gradients for each case study
 export const CASE_STUDY_GRADIENTS: Record<string, string> = {
+  "improving-marketplace-checkout-experience":
+    "linear-gradient(157.13deg, #DFB7FF -13.87%, #A39AFF 48.8%, #90CBFF 112.68%)",
   "effortless-onboarding-with-a-personalised-reward":
     "linear-gradient(157.13deg, #FCFE53 -13.87%, #53FEA6 48.8%, #90CBFF 112.68%)",
   "a-filter-for-every-yogi":
