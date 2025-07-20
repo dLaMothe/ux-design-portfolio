@@ -844,6 +844,9 @@ p {
   font-size: 0.75rem;
   font-weight: 500;
   white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .project-title {
