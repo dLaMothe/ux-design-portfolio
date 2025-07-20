@@ -14,6 +14,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ portfolioManager }) => {
 
   // Define the desired order of case studies
   const caseStudyOrder = [
+    "improving-marketplace-checkout-experience",
     "effortless-onboarding-with-a-personalised-reward",
     "a-filter-for-every-yogi",
     "custom-lists-for-self-organisation",
