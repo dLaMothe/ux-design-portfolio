@@ -8,6 +8,15 @@
       "process": "This information was included in all article representations throughout the platform. As our article cards can be quite complex, especially for larger items such as washing machines, we decided to not implement the same kind of tag as the rest of the shop (black) but give the information as a red text. The color was not used for anything else yet. In fact, besides the article picture it is the only color that can appear. This made it lighter in visual weight compared to a tag, and left the focus still on important product information while even at a glance giving the sentiment of urgency.",
       "impact": "This was a fairly small change but the impact was impressive! The sold units went up immediately and consistently. It was quite the learning experience to see such a \"minor\" change to have such a big impact.",
       "imagePath": ""
+    },
+    {
+      "id": "minimum-order-value",
+      "title": "Minimum Order Value",
+      "tags": ["Money Maker", "Transparency"],
+      "goal": "Giving incentive to sign up for the shops benefit program (similar to amazon prime) through offering the option to save shipping costs when having reached a minimum order value.",
+      "process": "This was quite the endeavour as the project had a short timeline, was technically complex and involved many teams. As the lead UX Designer for the project, I designed and facilitated the workshops. The challenge was not only to communicate current state of a users progress towards the MOV but also to explain its conditions. Not every product on the platform contributes to the value and users have to be signed up to the benefit program.",
+      "impact": "Not only did we hold the deadline, overshot the estimated revenue growth and the amount of users signing up for the benefits program, the project itself is still being brought up internally every so often as an example how a good discovery process should look like.",
+      "imagePath": ""
     }
   ]
 }
