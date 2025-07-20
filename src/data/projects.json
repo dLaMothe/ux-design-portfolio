@@ -44,6 +44,15 @@
       "process": "A design college and I realised that we were both fans of object oriented thinking and started a biweekly meeting to align on the subject and work out ways to introduce more people to the framework. I also started to document all objects I learned about over time to gain a better understanding about our system for myself. After presenting OOUX in a couple of different rounds I started to gain some traction especially with developers and tech writers.",
       "impact": "Once the framework was better understood by more people, I was invited to facilitate several workshops in teams outside my own. This of course led to the spread of framework but also helped me to gain a more complete understanding about our system which I can carry back in my team again.",
       "imagePath": ""
+    },
+    {
+      "id": "insurance-for-installments",
+      "title": "Insurance for Installments",
+      "tags": ["Money Maker", "Transparency", "Feature Completion"],
+      "goal": "The online shop was not always a market place. It took a couple of years of foundational rework to be able to include different sellers on the platform and be able to offer more articles. The insurance for installment payments was a feature that needed to be implemented anew after that technical change.",
+      "process": "The biggest challenge was to balance the legal and the business side while making sure that the subject is well understood by the user. For that I focused on writing clear and easy to understand copy to explain how this type of insurance works and what the benefits are.",
+      "impact": "We were able to release this feature in a state where we took the users needs into account by purposely avoiding dark patterns. Instead, we clearly explained the value of the product to users, and is became a successful, and profitable feature.",
+      "imagePath": ""
     }
   ]
 }
