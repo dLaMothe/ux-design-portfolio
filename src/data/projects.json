@@ -26,6 +26,15 @@
       "process": "This was a small project I initiated based on the hypothesis that users might not understand our payment conditions. I created 3 versions for the new design with added micro copy which were quickly tested in interviews and also quickly implemented afterwards.",
       "impact": "During the user tests we were quite surprised to learn about users misconception about how direct debit works. The new separation between payment options that are for paying now and paying later and the added micro copy was an easy but impactful fix for this. We were also surprised to see an unexpected rise in instalment payments which was a nice bonus.",
       "imagePath": ""
+    },
+    {
+      "id": "opportunity-solution-tree",
+      "title": "Method Introduction: Opportunity Solution Tree",
+      "tags": ["Internal Improvements"],
+      "goal": "As a team we wanted to regain some autonomy about which projects we are working on as, for the past years, that was mostly push by the leadership.",
+      "process": "My PO and I introduced the opportunity solution tree to our team during a team day which we started afterwards to use as a structure to figure out and decide what our users need most and what we as a team should focus on. I also started to introduce the method to bigger and bigger rounds within the organisation.",
+      "impact": "In our team, the method created a shared understanding about our goal, strategy and rationals. As I started to carry it in other teams as well I got to see more, always slightly different implementations of the method as well as hear about success stories which made me very happy!",
+      "imagePath": ""
     }
   ]
 }
