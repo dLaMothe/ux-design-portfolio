@@ -763,7 +763,7 @@ p {
 .project-filter-tag {
   padding: 0.5rem 1rem;
   border: 2px solid #242628;
-  border-radius: 4px;
+  border-radius: 0;
   font-family: "Ubuntu Mono", monospace;
   font-size: 0.875rem;
   font-weight: 500;
@@ -794,7 +794,7 @@ p {
 .project-card {
   display: flex;
   background: #efefef;
-  border-radius: 2px;
+  border-radius: 0;
   overflow: hidden;
   border-bottom: 2px solid #242628;
   transition: transform 0.2s;
@@ -839,7 +839,7 @@ p {
   background: #242628;
   color: white;
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 0;
   font-family: "Ubuntu Mono", monospace;
   font-size: 0.75rem;
   font-weight: 500;
