@@ -825,13 +825,13 @@ p {
 
 .project-tags {
   position: absolute;
-  top: 2rem;
+  top: calc(2rem + 8px); /* Align with title text, accounting for line height */
   right: 2rem;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
-  max-width: 40%; /* Reduced from 60% to allow more space for title */
+  max-width: 40%;
 }
 
 .project-tag {
@@ -853,6 +853,7 @@ p {
   margin-bottom: 2rem;
   padding-right: calc(35% + 1rem);
   width: 100%;
+  line-height: 1.2; /* Add consistent line height */
 }
 
 .project-section {
