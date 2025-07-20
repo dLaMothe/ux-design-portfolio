@@ -831,7 +831,7 @@ p {
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
-  max-width: 60%;
+  max-width: 40%; /* Reduced from 60% to allow more space for title */
 }
 
 .project-tag {
@@ -851,7 +851,9 @@ p {
   font-weight: 400;
   color: #242628;
   margin-bottom: 2rem;
-  padding-right: calc(60% + 2rem); /* Space for tags plus padding */
+  padding-right: calc(
+    35% + 1rem
+  ); /* Reduced padding to allow text to extend closer to tags */
   width: 100%;
 }
 
