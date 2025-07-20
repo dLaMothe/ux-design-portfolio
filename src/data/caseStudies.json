@@ -2,6 +2,7 @@
   {
     "id": "improving-marketplace-checkout-experience",
     "title": "Improving the checkout experience for Germanys biggest Marketplace",
+    "gradient": "linear-gradient(to bottom right, #b9b3ff, #b3d4ff)",
     "skillIds": [
       "ux-user-experience-design",
       "user-research",
