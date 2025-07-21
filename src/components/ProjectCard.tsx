@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Project } from "../models/Project";
 import projectsData from "../data/projects.json";
 
 interface ProjectCardProps {
   caseStudyId: string;
+  onFilteredCountChange?: (count: number) => void;
 }
 
 const ALL_TAGS = Array.from(
   new Set(projectsData.projects.flatMap((project) => project.tags))
 ).sort();
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ caseStudyId }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  caseStudyId,
+  onFilteredCountChange,
+}) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const filteredProjects =
@@ -19,6 +23,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ caseStudyId }) => {
       : projectsData.projects.filter((project) =>
           selectedTags.some((tag) => project.tags.includes(tag))
         );
+
+  useEffect(() => {
+    onFilteredCountChange?.(filteredProjects.length);
+  }, [filteredProjects.length, onFilteredCountChange]);
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) =>
@@ -29,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ caseStudyId }) => {
   return (
     <div className="project-section">
       {/* Tag Filters */}
-      <div className="project-filters">
+      <div className="project-filters" style={{ marginBottom: "48px" }}>
         {ALL_TAGS.map((tag) => (
           <button
             key={tag}

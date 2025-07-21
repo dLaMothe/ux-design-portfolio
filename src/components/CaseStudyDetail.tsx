@@ -13,6 +13,7 @@ import SwordSmall from "./SwordSmall";
 import BackPrevious100 from "./BackPrevious100";
 import CaseStudyHeroTransition from "./CaseStudyHeroTransition";
 import ProjectCard from "./ProjectCard";
+import projectsData from "../data/projects.json";
 
 interface CaseStudyDetailProps {
   portfolioManager: PortfolioManager;
@@ -28,6 +29,9 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
   const [secondGalleryImageIndex, setSecondGalleryImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [direction2, setDirection2] = useState(0);
+  const [filteredProjectCount, setFilteredProjectCount] = useState(
+    projectsData.projects.length
+  );
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -131,6 +135,45 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
         </div>
         <CaseStudyHeroTransition caseStudy={caseStudy} />
       </section>
+
+      {/* Custom section for checkout case study */}
+      {caseStudy.id === "improving-marketplace-checkout-experience" && (
+        <section className="py-8" style={{ marginTop: 129, marginBottom: 129 }}>
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <h2
+                style={{
+                  fontFamily: "'Jersey 10', sans-serif",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  fontSize: "32px",
+                  lineHeight: "34px",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  color: "#242628",
+                  marginBottom: "16px",
+                }}
+              >
+                How might we create a Transparent, fast and trustworthy checkout
+                experience?
+              </h2>
+              <p
+                style={{
+                  fontFamily: "'Ubuntu Mono', monospace",
+                  fontSize: "16px",
+                  lineHeight: "23px",
+                  color: "#242628",
+                  margin: 0,
+                }}
+              >
+                This page contains several of my favourite projects I worked on
+                during my time at OTTO. As I wanted to give them all a place to
+                shine I've broken them down to their essentials.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* How might we question and Problem/Goal/Challenge sections - hide for checkout case study */}
       {caseStudy.id !== "improving-marketplace-checkout-experience" && (
@@ -428,22 +471,51 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 transition={{ duration: 0.6, delay: 0.4 }}
                 style={{ marginBottom: 129 }}
               >
-                <h2
+                <div
                   style={{
-                    fontFamily: "'Jersey 10', sans-serif",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    fontSize: "64px",
-                    lineHeight: "69px",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "#242628",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                     marginBottom: "48px",
+                    width: "100%",
                   }}
                 >
-                  The Projects
-                </h2>
-                <ProjectCard caseStudyId={caseStudy.id} />
+                  <h2
+                    style={{
+                      fontFamily: "'Jersey 10', sans-serif",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      fontSize: "64px",
+                      lineHeight: "69px",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      color: "#242628",
+                      margin: 0,
+                    }}
+                  >
+                    The Projects
+                  </h2>
+                  <div
+                    style={{
+                      fontFamily: "'Jersey 10', sans-serif",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      fontSize: "64px",
+                      lineHeight: "69px",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                      color: "#242628",
+                      opacity: 0.5,
+                      margin: 0,
+                    }}
+                  >
+                    ({filteredProjectCount})
+                  </div>
+                </div>
+                <ProjectCard
+                  caseStudyId={caseStudy.id}
+                  onFilteredCountChange={setFilteredProjectCount}
+                />
               </motion.div>
             )}
 
