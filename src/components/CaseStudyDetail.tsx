@@ -471,47 +471,21 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 transition={{ duration: 0.6, delay: 0.4 }}
                 style={{ marginBottom: 129 }}
               >
-                <div
+                <h2
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
+                    fontFamily: "'Jersey 10', sans-serif",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    fontSize: "64px",
+                    lineHeight: "69px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
                     marginBottom: "48px",
-                    width: "100%",
                   }}
                 >
-                  <h2
-                    style={{
-                      fontFamily: "'Jersey 10', sans-serif",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      fontSize: "64px",
-                      lineHeight: "69px",
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                      color: "#242628",
-                      margin: 0,
-                    }}
-                  >
-                    The Projects
-                  </h2>
-                  <div
-                    style={{
-                      fontFamily: "'Jersey 10', sans-serif",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      fontSize: "64px",
-                      lineHeight: "69px",
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                      color: "#242628",
-                      opacity: 0.5,
-                      margin: 0,
-                    }}
-                  >
-                    ({filteredProjectCount})
-                  </div>
-                </div>
+                  The Projects
+                </h2>
                 <ProjectCard
                   caseStudyId={caseStudy.id}
                   onFilteredCountChange={setFilteredProjectCount}

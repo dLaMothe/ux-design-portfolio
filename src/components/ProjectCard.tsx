@@ -36,19 +36,52 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div className="project-section">
-      {/* Tag Filters */}
-      <div className="project-filters" style={{ marginBottom: "48px" }}>
-        {ALL_TAGS.map((tag) => (
-          <button
-            key={tag}
-            onClick={() => toggleTag(tag)}
-            className={`project-filter-tag ${
-              selectedTags.includes(tag) ? "project-filter-tag-selected" : ""
-            }`}
-          >
-            {tag}
-          </button>
-        ))}
+      {/* Tag Filters and Counter */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "48px",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
+          {ALL_TAGS.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => toggleTag(tag)}
+              className={`project-filter-tag ${
+                selectedTags.includes(tag) ? "project-filter-tag-selected" : ""
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+        <div
+          style={{
+            fontFamily: "'Ubuntu Mono', monospace",
+            fontStyle: "normal",
+            fontWeight: 700,
+            fontSize: "14px",
+            lineHeight: "1",
+            color: "#242628",
+            marginLeft: "24px",
+            flexShrink: 0,
+            background: "#efefef",
+            borderRadius: 0,
+          }}
+        >
+          {filteredProjects.length}/{projectsData.projects.length}
+        </div>
       </div>
 
       {/* Projects Grid */}
