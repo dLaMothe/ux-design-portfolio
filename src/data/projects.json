@@ -1,6 +1,24 @@
 {
   "projects": [
     {
+      "id": "payment-pause",
+      "title": "100 Day Payment Pause",
+      "tags": ["Money Maker", "Feature Completion"],
+      "goal": "We wanted to re-introduce a highly requested feature to delay payments which was removed during our checkouts restructuring.",
+      "process": "The most important part here was to communicate the price calculation as well as how the feature works legally in a precise, but easily understandable way. So we focused on testing different wordings and on designing a price calculation that is clear and consistent with the calculation for installment payments.",
+      "impact": "This feature is a money maker and was therefore a push from the business side but after its release we did get many nice comments from customers who were happy to see its return.",
+      "imagePath": ""
+    },
+    {
+      "id": "add-to-basket-confirmation",
+      "title": "Redesigning the Add to Basket Confirmation",
+      "tags": ["Money Maker", "Transparency"],
+      "goal": "Replacing an old UI which was soon to be deprecated by the design system, while making sure that the cross selling is not impacted.",
+      "process": "We wanted to use this opportunity to not only redesign the status quo but to create a modular concept for the add to basket confirmation, so we can easily change out the cross selling options based on new partnerships and personalisation capabilities. From a users point of view the most important information is of course to communicate the success state of the add to basket action but from a business point of view this moment is the most crucial for selling insurance. In an earlier iteration we learned that having both in one view makes the number of sold units go down too much, so we decided on a two step confirmation to balance the different goals.",
+      "impact": "With this decision we were even able to raise the amount of sold insurances as we had now also more room to explain how it works. The new short, precise and simple copy was also rated highly by the users as they felt well informed during their decision making process.",
+      "imagePath": ""
+    },
+    {
       "id": "low-stock-communication",
       "title": "Low Stock Communication in the cart",
       "tags": ["Money Maker", "Transparency"],
