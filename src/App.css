@@ -247,7 +247,18 @@ p {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.5rem;
+}
+
+/* Desktop grid-3 */
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: stretch;
+    gap: 2rem;
+  }
 }
 
 .grid-4 {
