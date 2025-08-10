@@ -64,7 +64,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "user-research"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -94,7 +94,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-writing", "ux-user-experience-design", "user-research"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -182,7 +182,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-writing", "user-research", "ux-user-experience-design"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -218,6 +218,7 @@
       "workshop-facilitation"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation",
       "easy-ordering-for-every-diet"
@@ -255,7 +256,7 @@
       "ux-user-experience-design",
       "ux-writing"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -282,7 +283,7 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["ux-user-experience-design", "ux-writing", "user-research"],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -308,7 +309,10 @@
     ],
     "tags": ["done", "with notes"],
     "skillIds": ["user-research", "ux-user-experience-design", "ux-writing"],
-    "caseStudyIds": ["oouxing-my-portfolio"],
+    "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
+      "oouxing-my-portfolio"
+    ],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": true,
@@ -438,6 +442,7 @@
       "workshop-facilitation"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation"
     ],
@@ -460,6 +465,7 @@
     "tags": ["done"],
     "skillIds": ["user-research", "ux-user-experience-design"],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation",
       "easy-ordering-for-every-diet"
@@ -587,7 +593,7 @@
       "user-research",
       "workshop-facilitation"
     ],
-    "caseStudyIds": [],
+    "caseStudyIds": ["improving-marketplace-checkout-experience"],
     "toolIds": [],
     "achievementIds": [],
     "hasNotes": false,
@@ -638,6 +644,7 @@
       "ooux-object-oriented-user-experience"
     ],
     "caseStudyIds": [
+      "improving-marketplace-checkout-experience",
       "a-filter-for-every-yogi",
       "custom-lists-for-self-organisation",
       "oouxing-my-portfolio"

@@ -798,11 +798,10 @@ p {
   overflow: hidden;
   border-bottom: 2px solid #242628;
   transition: transform 0.2s;
-  cursor: pointer;
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: none;
 }
 
 .project-image-container {
