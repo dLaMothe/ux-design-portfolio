@@ -21,36 +21,11 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
           {/* Section Header with Icon and Big Headline */}
           <div className="books-header">
             {/* Books Icon */}
-            <div
-              style={{
-                width: 100,
-                height: 100,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flex: "none",
-                order: 0,
-                flexGrow: 0,
-              }}
-            >
+            <div className="books-icon">
               <BooksIcon />
             </div>
             {/* Headline */}
-            <h1
-              style={{
-                fontFamily: "'Jersey 10', sans-serif",
-                fontWeight: 400,
-                fontSize: 64,
-                lineHeight: "69px",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                color: "#242628",
-                margin: 0,
-                padding: 0,
-              }}
-            >
-              Browse My Library
-            </h1>
+            <h1 className="section-title-main">Browse My Library</h1>
           </div>
         </div>
 

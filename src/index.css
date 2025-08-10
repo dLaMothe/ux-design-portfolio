@@ -827,6 +827,8 @@ p,
   color: #242628;
   margin: 0;
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Desktop achievements title */
@@ -1608,12 +1610,38 @@ div.book-modal-cover > img {
   }
 }
 
+/* Unified section title styles */
+.section-title-main {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Desktop section title styles */
+@media (min-width: 768px) {
+  .section-title-main {
+    font-size: 64px;
+    line-height: 69px;
+    text-align: left;
+  }
+}
+
+/* Legacy class for My Values - maps to new unified styles */
 .my-values-headline {
   font-family: "Jersey 10", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 28px;
+  line-height: 32px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
@@ -1626,8 +1654,8 @@ div.book-modal-cover > img {
 /* Desktop headline styles */
 @media (min-width: 768px) {
   .my-values-headline {
-    font-size: 32px;
-    line-height: 34px;
+    font-size: 64px;
+    line-height: 69px;
     text-align: left;
   }
 }
@@ -1846,9 +1874,43 @@ div.book-modal-cover > img {
 .books-header {
   grid-column: 1 / -1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 32px;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Desktop books header */
+@media (min-width: 768px) {
+  .books-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+}
+
+.books-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Desktop books icon */
+@media (min-width: 768px) {
+  .books-icon {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .books-container {
@@ -1887,6 +1949,14 @@ div.book-modal-cover > img {
   .min-h-screen .books-scroll-area {
     padding-left: 48px;
     padding-right: 48px;
+  }
+}
+
+/* Mobile specific padding for case study books scroll area */
+@media (max-width: 768px) {
+  .min-h-screen .books-scroll-area {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }
 
@@ -1950,6 +2020,14 @@ body {
   }
 }
 
+/* Mobile specific padding for books scroll area */
+@media (max-width: 768px) {
+  .books-scroll-area {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .case-study-hero {
     padding-left: 88px;
@@ -1989,5 +2067,101 @@ body {
   .skill-modal .books-scroll-area {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+/* Mobile specific padding for skill modal books scroll area */
+@media (max-width: 768px) {
+  .skill-modal .books-scroll-area {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Skills section header styles */
+.skills-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Desktop skills header */
+@media (min-width: 768px) {
+  .skills-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+}
+
+.skills-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Desktop skills icon */
+@media (min-width: 768px) {
+  .skills-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Case studies section header styles */
+.case-studies-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Desktop case studies header */
+@media (min-width: 768px) {
+  .case-studies-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+}
+
+.case-studies-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Desktop case studies icon */
+@media (min-width: 768px) {
+  .case-studies-icon {
+    width: 100px;
+    height: 100px;
   }
 }

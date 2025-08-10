@@ -11,7 +11,7 @@ const Achievements: React.FC<AchievementsProps> = ({ portfolioManager }) => {
   const achievements = portfolioManager.getAllAchievements();
 
   return (
-    <div>
+    <div style={{ paddingTop: 192 }}>
       <div className="container">
         {/* Section Header with Icon and Big Headline */}
         <div className="achievements-header">
