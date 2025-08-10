@@ -1265,17 +1265,78 @@ p,
   align-items: center;
 }
 
+/* Book Modal Mobile Responsive Styles */
+
+/* Mobile book modal container */
+.book-modal-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #efefef !important;
+  border-radius: 2px !important;
+  width: calc(100vw - 20px) !important;
+  max-width: calc(100vw - 20px) !important;
+  height: 95vh !important;
+  max-height: 95vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: auto !important;
+  gap: 24px !important;
+}
+
+/* Desktop book modal container */
+@media (min-width: 768px) {
+  .book-modal-container {
+    width: 100% !important;
+    max-width: 1000px !important;
+    height: 90vh !important;
+    max-height: 90vh !important;
+    gap: 64px !important;
+  }
+}
+
+/* Mobile book modal content */
+.book-modal-content {
+  width: 100% !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overflow-x: hidden !important;
+  padding: 24px 20px 32px 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Desktop book modal content */
+@media (min-width: 768px) {
+  .book-modal-content {
+    padding: 0 90px 64px 90px !important;
+  }
+}
+
+/* Mobile book modal hero */
 .book-modal-hero {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  padding: 48px 96px 0 96px;
-  gap: 48px;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 0 20px;
+  gap: 24px;
   width: auto;
-  height: 418px;
+  height: auto;
   box-sizing: border-box;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+/* Desktop book modal hero */
+@media (min-width: 768px) {
+  .book-modal-hero {
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 48px 96px 0 96px;
+    gap: 48px;
+    height: 418px;
+  }
 }
 .book-modal-cover {
   box-sizing: border-box !important;
@@ -1291,12 +1352,21 @@ p,
   border-radius: 2px !important;
   overflow: hidden !important;
 }
+/* Mobile book cover */
 .book-modal-cover img {
-  width: 271px !important;
-  height: 370px !important;
+  width: 180px !important;
+  height: 245px !important;
   object-fit: cover !important;
   border-radius: 2px !important;
   display: block !important;
+}
+
+/* Desktop book cover */
+@media (min-width: 768px) {
+  .book-modal-cover img {
+    width: 271px !important;
+    height: 370px !important;
+  }
 }
 
 /* More specific rule to ensure container consistency */
@@ -1321,29 +1391,53 @@ div.book-modal-cover {
   flex-grow: 0 !important;
 }
 
-/* More specific rule to ensure image consistency */
+/* More specific rule to ensure image consistency - mobile */
 div.book-modal-cover > img {
-  width: 271px !important;
-  height: 370px !important;
+  width: 180px !important;
+  height: 245px !important;
   object-fit: cover !important;
   border-radius: 2px !important;
   display: block !important;
-  max-width: 271px !important;
-  max-height: 370px !important;
-  min-width: 271px !important;
-  min-height: 370px !important;
+  max-width: 180px !important;
+  max-height: 245px !important;
+  min-width: 180px !important;
+  min-height: 245px !important;
+}
+
+/* More specific rule for desktop */
+@media (min-width: 768px) {
+  div.book-modal-cover > img {
+    width: 271px !important;
+    height: 370px !important;
+    max-width: 271px !important;
+    max-height: 370px !important;
+    min-width: 271px !important;
+    min-height: 370px !important;
+  }
 }
 
 .book-modal-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 0;
-  gap: 16px;
+  gap: 12px;
   margin: 0;
   box-sizing: border-box;
-  width: fit-content;
+  width: 100%;
+  text-align: center;
+}
+
+/* Desktop book modal info */
+@media (min-width: 768px) {
+  .book-modal-info {
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+    width: fit-content;
+    text-align: left;
+  }
 }
 .book-modal-tags {
   display: flex;
@@ -1410,21 +1504,53 @@ div.book-modal-cover > img {
   align-items: stretch;
   padding: 0;
   padding-top: 0;
-  gap: 24px;
+  gap: 16px;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Desktop quotes section */
+@media (min-width: 768px) {
+  .book-modal-quotes-section {
+    gap: 24px;
+  }
+}
+
+/* Mobile book modal quotes with background */
+.book-modal-quotes-with-bg {
+  padding: 32px 20px !important;
+  margin: 16px -20px !important;
+  width: calc(100% + 40px) !important;
+}
+
+/* Desktop book modal quotes with background */
+@media (min-width: 768px) {
+  .book-modal-quotes-with-bg {
+    padding: 64px 90px !important;
+    margin: 24px -90px !important;
+    width: calc(100% + 180px) !important;
+  }
 }
 .book-modal-quotes-header {
   font-family: "Ubuntu Sans Mono", monospace;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
   width: 100%;
-  margin-bottom: 24px;
-  /* background: none; */
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Desktop quotes header */
+@media (min-width: 768px) {
+  .book-modal-quotes-header {
+    font-size: 20px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
 }
 .book-modal-quotes-list {
   margin: 0;
@@ -1434,12 +1560,22 @@ div.book-modal-cover > img {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 20px;
   color: #242628;
-  margin-bottom: 24px;
-  padding: 24px;
+  margin-bottom: 16px;
+  padding: 16px;
   background-color: #efefef;
+}
+
+/* Desktop quote cards */
+@media (min-width: 768px) {
+  .book-modal-quote-card {
+    font-size: 16px;
+    line-height: 23px;
+    margin-bottom: 24px;
+    padding: 24px;
+  }
 }
 .book-modal-quote-card:first-child {
   margin-top: 0 !important;
@@ -1450,19 +1586,38 @@ div.book-modal-cover > img {
   flex-direction: column;
   align-items: center;
   padding: 0;
-  gap: 48px;
+  gap: 24px;
   width: 100%;
-  height: 268px;
+  height: auto;
   box-sizing: border-box;
+}
+
+/* Desktop skills section */
+@media (min-width: 768px) {
+  .book-modal-skills-section {
+    gap: 48px;
+    height: 268px;
+  }
 }
 .book-modal-skills-header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   width: 100%;
   max-width: 1200px;
-  height: 40px;
+  height: auto;
+  text-align: center;
+}
+
+/* Desktop skills header */
+@media (min-width: 768px) {
+  .book-modal-skills-header {
+    flex-direction: row;
+    gap: 24px;
+    height: 40px;
+    text-align: left;
+  }
 }
 .book-modal-skills-star {
   width: 40px;
@@ -1475,31 +1630,66 @@ div.book-modal-cover > img {
   font-family: "Jersey 10", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 34px;
+  font-size: 24px;
+  line-height: 28px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
+  text-align: center;
+}
+
+/* Desktop skills title */
+@media (min-width: 768px) {
+  .book-modal-skills-title {
+    font-size: 32px;
+    line-height: 34px;
+    text-align: left;
+  }
 }
 .book-modal-skills-grid {
   display: flex;
-  flex-direction: row;
-  gap: 32px;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
   max-width: 1200px;
-  height: 180px;
+  height: auto;
 }
-/* Skill card override for book modal */
+
+/* Desktop skills grid */
+@media (min-width: 768px) {
+  .book-modal-skills-grid {
+    flex-direction: row;
+    gap: 32px;
+    height: 180px;
+  }
+}
+/* Skill card override for book modal - mobile responsive */
 .book-modal-skills-grid .skill-card {
-  width: 253.33px;
-  height: 180px;
-  min-width: 253.33px;
-  min-height: 180px;
-  max-width: 253.33px;
-  max-height: 180px;
-  padding: 24px;
-  gap: 16px;
+  width: 100%;
+  height: auto;
+  min-width: auto;
+  min-height: 160px;
+  max-width: none;
+  max-height: none;
+  padding: 20px;
+  gap: 12px;
   box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Desktop skill cards in book modal */
+@media (min-width: 768px) {
+  .book-modal-skills-grid .skill-card {
+    width: 253.33px;
+    height: 180px;
+    min-width: 253.33px;
+    min-height: 180px;
+    max-width: 253.33px;
+    max-height: 180px;
+    padding: 24px;
+    gap: 16px;
+    margin: 0;
+  }
 }
 
 .case-study-card {

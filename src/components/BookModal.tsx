@@ -67,26 +67,14 @@ const BookModal: React.FC<BookModalProps> = ({
       {/* Modal Card */}
       <div
         ref={modalRef}
+        className="book-modal-container"
         style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
           zIndex: 10000,
-          transform: "translate(-50%, -50%)",
-          background: "#EFEFEF",
-          borderRadius: 2,
           boxShadow:
             "0px 1497px 250px rgba(0, 0, 0, 0.01), 0px 842px 250px rgba(0, 0, 0, 0.05), 0px 374px 250px rgba(0, 0, 0, 0.09), 0px 94px 206px rgba(0, 0, 0, 0.1)",
-          width: "100%",
-          maxWidth: "1000px",
-          height: "90vh",
-          maxHeight: "90vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: 0,
-          gap: 64,
-          overflow: "auto",
           border: "none",
         }}
       >
@@ -107,14 +95,9 @@ const BookModal: React.FC<BookModalProps> = ({
           <Close100 />
         </button>
         <div
+          className="book-modal-content"
           style={{
-            width: "100%",
-            height: "100%",
-            overflowY: "auto",
             WebkitOverflowScrolling: "touch",
-            overflowX: "hidden",
-            padding: "0 90px 64px 90px",
-            boxSizing: "border-box",
           }}
         >
           <div style={{ padding: 0, margin: 0 }}>
@@ -167,14 +150,7 @@ const BookModal: React.FC<BookModalProps> = ({
 
             {/* Favorite Quotes Section */}
             {book.quotes && book.quotes.length > 0 && (
-              <div
-                className="book-modal-quotes-section background-tile-pattern"
-                style={{
-                  padding: "64px 90px",
-                  margin: "24px -90px",
-                  width: "calc(100% + 180px)",
-                }}
-              >
+              <div className="book-modal-quotes-section background-tile-pattern book-modal-quotes-with-bg">
                 <div
                   className="book-modal-quotes-header"
                   style={{ margin: 0, padding: 0 }}
