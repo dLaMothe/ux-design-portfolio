@@ -1060,6 +1060,89 @@ p {
   }
 }
 
+/* Hero text box responsive positioning */
+.hero-text-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 4px;
+  background: #efefef;
+  border: 1px solid #242628;
+  box-shadow: 4px 4px 0px #000000;
+  width: min(calc(100vw - 48px), 520px);
+  height: fit-content;
+  position: absolute;
+  bottom: clamp(20px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Desktop hero text box positioning */
+@media (min-width: 768px) {
+  .hero-text-box {
+    padding: 24px;
+    width: min(578px, 90vw);
+    bottom: clamp(24px, 8vh, 88px);
+    left: auto;
+    right: clamp(24px, 8vw, 88px);
+    transform: none;
+  }
+}
+
+/* Hero text content responsive styles */
+.hero-text-box h1 {
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(24px, 6vw, 40px);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #242628;
+  margin: 0;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* Desktop hero title */
+@media (min-width: 768px) {
+  .hero-text-box h1 {
+    font-size: clamp(32px, 4vw, 40px);
+    text-align: left;
+  }
+}
+
+.hero-text-box p {
+  font-family: "Ubuntu Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(12px, 3vw, 14px);
+  line-height: 1.4;
+  color: #242628;
+  margin: 0;
+  width: 100%;
+  white-space: normal;
+  position: relative;
+  word-break: normal;
+  overflow-wrap: normal;
+  text-align: center;
+}
+
+/* Desktop hero paragraph */
+@media (min-width: 768px) {
+  .hero-text-box p {
+    font-size: clamp(14px, 3vw, 16px);
+    text-align: left;
+  }
+}
+
 /* Typing animation */
 .typing-container {
   display: block;

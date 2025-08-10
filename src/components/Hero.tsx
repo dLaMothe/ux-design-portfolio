@@ -173,44 +173,9 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
         initial={{ y: 30 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
-        style={{
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          padding: 24,
-          gap: 4,
-          background: "#EFEFEF",
-          border: "1px solid #242628",
-          boxShadow: "4px 4px 0px #000000",
-          width: "min(578px, 90vw)",
-          height: "fit-content",
-          position: "absolute",
-          bottom: "clamp(24px, 8vh, 88px)",
-          right: "clamp(24px, 8vw, 88px)",
-          zIndex: 10,
-        }}
+        className="hero-text-box"
       >
-        <h1
-          style={{
-            fontFamily:
-              "'Jersey 10', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-            fontStyle: "normal",
-            fontWeight: 400,
-            fontSize: "clamp(32px, 8vw, 64px)",
-            lineHeight: "1.1",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            color: "#242628",
-            margin: 0,
-            marginBottom: 8,
-            width: "100%",
-            position: "relative",
-            wordBreak: "normal",
-            overflowWrap: "normal",
-          }}
-          className="typing-container"
-        >
+        <h1 className="typing-container">
           {title.split("").map((char, index) => (
             <React.Fragment key={index}>
               <span className={index < visibleChars ? "visible" : ""}>
@@ -227,20 +192,6 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
           ))}
         </h1>
         <p
-          style={{
-            fontFamily: "'Ubuntu Mono', monospace",
-            fontStyle: "normal",
-            fontWeight: 400,
-            fontSize: "clamp(14px, 3vw, 16px)",
-            lineHeight: "1.4",
-            color: "#242628",
-            margin: 0,
-            width: "100%",
-            whiteSpace: "normal",
-            position: "relative",
-            wordBreak: "normal",
-            overflowWrap: "normal",
-          }}
           className={`typing-container typing-paragraph ${
             visibleChars > title.length ? "visible" : ""
           }`}
