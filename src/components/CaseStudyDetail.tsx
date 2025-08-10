@@ -104,8 +104,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
 
   return (
     <div
-      className="min-h-screen case-study-detail"
-      style={{ marginBottom: "129px" }}
+      className="min-h-screen case-study-detail overflow-x-hidden"
+      style={{
+        marginBottom: "64px",
+        width: "100%",
+        maxWidth: "100vw",
+      }}
     >
       {/* Hero Section */}
       <section
@@ -113,9 +117,16 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
         style={{
           background: caseStudy.gradient,
           position: "relative",
+          padding: "32px 20px 48px", // Mobile padding - will be overridden by CSS class
         }}
       >
-        <div className="max-w-4xl mx-auto" style={{ width: "100%" }}>
+        <div
+          className="max-w-4xl mx-auto"
+          style={{
+            width: "100%",
+            padding: "0 4px", // Extra mobile padding
+          }}
+        >
           <a
             onClick={(e) => {
               e.preventDefault();
@@ -125,20 +136,36 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
             className="custom-link"
             style={{
               display: "inline-block",
-              marginBottom: "32px",
+              marginBottom: "24px", // Reduced margin for mobile
               cursor: "pointer",
             }}
           >
             ← Home
           </a>
-          <h1 className="case-study-title">{caseStudy.title}</h1>
+          <h1
+            className="case-study-title"
+            style={{
+              fontSize: "clamp(28px, 8vw, 64px)", // Responsive font size
+              lineHeight: "clamp(32px, 9vw, 69px)", // Responsive line height
+              marginBottom: "16px", // Add margin for mobile
+            }}
+          >
+            {caseStudy.title}
+          </h1>
         </div>
         <CaseStudyHeroTransition caseStudy={caseStudy} />
       </section>
 
       {/* Custom section for checkout case study */}
       {caseStudy.id === "improving-marketplace-checkout-experience" && (
-        <section className="py-8" style={{ marginTop: 129, marginBottom: 129 }}>
+        <section
+          className="py-8"
+          style={{
+            marginTop: "clamp(32px, 8vw, 129px)", // Responsive margin
+            marginBottom: "clamp(32px, 8vw, 129px)",
+            padding: "0 20px", // Mobile padding
+          }}
+        >
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <h2
@@ -146,8 +173,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   fontFamily: "'Jersey 10', sans-serif",
                   fontStyle: "normal",
                   fontWeight: 400,
-                  fontSize: "32px",
-                  lineHeight: "34px",
+                  fontSize: "clamp(24px, 6vw, 32px)", // Responsive font size
+                  lineHeight: "clamp(28px, 7vw, 34px)", // Responsive line height
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
                   color: "#242628",
@@ -160,8 +187,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               <p
                 style={{
                   fontFamily: "'Ubuntu Mono', monospace",
-                  fontSize: "16px",
-                  lineHeight: "23px",
+                  fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                  lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                   color: "#242628",
                   margin: 0,
                 }}
@@ -181,7 +208,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           {/* How might we question */}
           <section
             className="py-8"
-            style={{ marginTop: 129, marginBottom: 129 }}
+            style={{
+              marginTop: "clamp(32px, 8vw, 129px)", // Responsive margin
+              marginBottom: "clamp(32px, 8vw, 129px)",
+              padding: "0 20px", // Mobile padding
+            }}
           >
             <div className="container">
               <div className="max-w-4xl mx-auto">
@@ -190,8 +221,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     fontFamily: "'Jersey 10', sans-serif",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    fontSize: "32px",
-                    lineHeight: "34px",
+                    fontSize: "clamp(24px, 6vw, 32px)", // Responsive font size
+                    lineHeight: "clamp(28px, 7vw, 34px)", // Responsive line height
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     color: "#242628",
@@ -206,7 +237,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           </section>
 
           {/* Three columns: Problem, Goal, Challenge */}
-          <section className="py-8">
+          <section className="py-8" style={{ padding: "0 20px" }}>
             <div className="container">
               <div className="max-w-4xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -215,8 +246,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       style={{
                         fontFamily: "'Ubuntu Sans Mono', monospace",
                         fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "34px",
+                        fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                        lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         color: "#242628",
@@ -228,8 +259,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     <p
                       style={{
                         fontFamily: "'Ubuntu Mono', monospace",
-                        fontSize: "16px",
-                        lineHeight: "23px",
+                        fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                        lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                         color: "#242628",
                         margin: 0,
                       }}
@@ -242,8 +273,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       style={{
                         fontFamily: "'Ubuntu Sans Mono', monospace",
                         fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "34px",
+                        fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                        lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         color: "#242628",
@@ -255,8 +286,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     <p
                       style={{
                         fontFamily: "'Ubuntu Mono', monospace",
-                        fontSize: "16px",
-                        lineHeight: "23px",
+                        fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                        lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                         color: "#242628",
                         margin: 0,
                       }}
@@ -269,8 +300,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       style={{
                         fontFamily: "'Ubuntu Sans Mono', monospace",
                         fontWeight: 700,
-                        fontSize: "20px",
-                        lineHeight: "34px",
+                        fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                        lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         color: "#242628",
@@ -282,8 +313,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     <p
                       style={{
                         fontFamily: "'Ubuntu Mono', monospace",
-                        fontSize: "16px",
-                        lineHeight: "23px",
+                        fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                        lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                         color: "#242628",
                         margin: 0,
                       }}
@@ -299,7 +330,13 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       )}
 
       {/* Main Content container for Skills */}
-      <div className="container" style={{ marginTop: "129px" }}>
+      <div
+        className="container"
+        style={{
+          marginTop: "clamp(32px, 8vw, 129px)", // Responsive margin
+          padding: "0 20px",
+        }}
+      >
         <div className="max-w-4xl mx-auto">
           {/* Skills Applied Section - Prominent placement */}
           <motion.div
@@ -311,17 +348,20 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           >
             <div className="mb-8">
               <div
+                className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left"
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: "24px",
+                  gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                 }}
               >
                 <StarSmall width={40} height={40} />
                 <h2
                   className="text-3xl font-bold text-gray-900"
-                  style={{ padding: 0, margin: 0 }}
+                  style={{
+                    padding: 0,
+                    margin: 0,
+                    fontSize: "clamp(20px, 5vw, 30px)", // Responsive font size
+                    lineHeight: "clamp(24px, 6vw, 36px)", // Responsive line height
+                  }}
                 >
                   Skills & Expertise Applied
                 </h2>
@@ -329,7 +369,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
             </div>
 
             {portfolioManager.getSkillsForCaseStudy(caseStudy.id).length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {portfolioManager
                   .getSkillsForCaseStudy(caseStudy.id)
                   .map((skill, index) => (
@@ -359,9 +399,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
       {/* Story Section */}
       <section
         style={{
-          paddingTop: "96px",
-          paddingBottom: "96px",
-          marginTop: "96px",
+          paddingTop: "clamp(48px, 8vw, 96px)", // Responsive padding
+          paddingBottom: "clamp(48px, 8vw, 96px)",
+          marginTop: "clamp(48px, 8vw, 96px)", // Responsive margin
+          paddingLeft: "20px", // Mobile padding
+          paddingRight: "20px",
         }}
         className="background-tile-pattern"
       >
@@ -374,19 +416,19 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                style={{ marginBottom: 129 }}
+                style={{ marginBottom: "clamp(32px, 8vw, 129px)" }}
               >
                 <h2
                   style={{
                     fontFamily: "'Jersey 10', sans-serif",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    fontSize: "64px",
-                    lineHeight: "69px",
+                    fontSize: "clamp(32px, 8vw, 64px)", // Responsive font size
+                    lineHeight: "clamp(36px, 9vw, 69px)", // Responsive line height
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     color: "#242628",
-                    marginBottom: "48px",
+                    marginBottom: "clamp(24px, 6vw, 48px)", // Responsive margin
                   }}
                 >
                   The Process
@@ -401,26 +443,22 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   {caseStudy.phases.map((phase, index) => (
                     <React.Fragment key={index}>
                       <div
+                        className="flex flex-col md:flex-row items-start w-full"
                         style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          alignItems: "flex-start",
-                          gap: "48px",
-                          width: "100%",
-                          padding: "24px 0",
+                          gap: "clamp(16px, 4vw, 48px)", // Responsive gap
+                          padding: "clamp(12px, 3vw, 24px) 0", // Responsive padding
                         }}
                       >
                         <h3
+                          className="w-full md:w-96 flex-shrink-0"
                           style={{
                             fontFamily: "'Ubuntu Sans Mono', monospace",
                             fontWeight: 700,
-                            fontSize: "20px",
-                            lineHeight: "34px",
+                            fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                            lineHeight: "clamp(20px, 5vw, 34px)", // Responsive line height
                             letterSpacing: "0.06em",
                             textTransform: "uppercase",
                             color: "#242628",
-                            width: "400px",
-                            flexShrink: 0,
                           }}
                         >
                           {phase.name}
@@ -428,15 +466,16 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         <div
                           style={{
                             flexGrow: 1,
-                            padding: "24px",
+                            padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                             backgroundColor: "#EFEFEF",
+                            width: "100%",
                           }}
                         >
                           <p
                             style={{
                               fontFamily: "'Ubuntu Mono', monospace",
-                              fontSize: "16px",
-                              lineHeight: "23px",
+                              fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                              lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                               color: "#242628",
                               margin: 0,
                             }}
@@ -469,19 +508,19 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                style={{ marginBottom: 129 }}
+                style={{ marginBottom: "clamp(32px, 8vw, 129px)" }}
               >
                 <h2
                   style={{
                     fontFamily: "'Jersey 10', sans-serif",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    fontSize: "64px",
-                    lineHeight: "69px",
+                    fontSize: "clamp(32px, 8vw, 64px)", // Responsive font size
+                    lineHeight: "clamp(36px, 9vw, 69px)", // Responsive line height
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     color: "#242628",
-                    marginBottom: "48px",
+                    marginBottom: "clamp(24px, 6vw, 48px)", // Responsive margin
                   }}
                 >
                   The Projects
@@ -503,11 +542,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                   style={{
-                    marginBottom: "129px",
+                    marginBottom: "clamp(32px, 8vw, 129px)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: "24px",
+                    gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                     maxWidth: "1088px",
                     width: "100%",
                     marginLeft: "auto",
@@ -519,7 +558,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
-                      height: "500px",
+                      height: "clamp(250px, 50vw, 500px)", // Responsive height
                       background: caseStudy.gradient,
                       border: "1px solid #242628",
                       borderRadius: "2px",
@@ -663,10 +702,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "stretch",
-                  gap: "48px",
+                  gap: "clamp(24px, 6vw, 48px)", // Responsive gap
                   width: "100%",
                   maxWidth: "1088px",
-                  margin: "0 auto 129px",
+                  margin: "0 auto",
+                  marginBottom: "clamp(32px, 8vw, 129px)", // Responsive margin
                 }}
               >
                 <h2
@@ -674,8 +714,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     fontFamily: "'Jersey 10', sans-serif",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    fontSize: "64px",
-                    lineHeight: "69px",
+                    fontSize: "clamp(32px, 8vw, 64px)", // Responsive font size
+                    lineHeight: "clamp(36px, 9vw, 69px)", // Responsive line height
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     color: "#242628",
@@ -688,12 +728,9 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 {caseStudy.learningsAndDecisions &&
                 caseStudy.learningsAndDecisions.length > 0 ? (
                   <div
+                    className="grid grid-cols-1 md:grid-cols-2 w-full"
                     style={{
-                      display: "grid",
-                      gridTemplateColumns:
-                        "repeat(auto-fit, minmax(400px, 1fr))",
-                      gap: "48px 48px",
-                      width: "100%",
+                      gap: "clamp(24px, 6vw, 48px)", // Responsive gap
                     }}
                   >
                     {caseStudy.learningsAndDecisions.map((learning, index) => (
@@ -709,8 +746,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                           style={{
                             fontFamily: "'Ubuntu Sans Mono', monospace",
                             fontWeight: 700,
-                            fontSize: "20px",
-                            lineHeight: "24px",
+                            fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                            lineHeight: "clamp(20px, 5vw, 24px)", // Responsive line height
                             letterSpacing: "0.06em",
                             textTransform: "uppercase",
                             color: "#242628",
@@ -721,15 +758,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         <div
                           style={{
                             flexGrow: 1,
-                            padding: "24px",
+                            padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                             backgroundColor: "#EFEFEF",
                           }}
                         >
                           <p
                             style={{
                               fontFamily: "'Ubuntu Mono', monospace",
-                              fontSize: "16px",
-                              lineHeight: "23px",
+                              fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                              lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                               color: "#242628",
                               margin: 0,
                             }}
@@ -743,15 +780,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                 ) : (
                   <div
                     style={{
-                      padding: "24px",
+                      padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                       backgroundColor: "#EFEFEF",
                     }}
                   >
                     <p
                       style={{
                         fontFamily: "'Ubuntu Mono', monospace",
-                        fontSize: "16px",
-                        lineHeight: "23px",
+                        fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                        lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                         color: "#242628",
                         margin: 0,
                       }}
@@ -774,11 +811,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                   style={{
-                    marginBottom: "129px",
+                    marginBottom: "clamp(32px, 8vw, 129px)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: "24px",
+                    gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                     maxWidth: "1088px",
                     width: "100%",
                     marginLeft: "auto",
@@ -790,7 +827,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
-                      height: "500px",
+                      height: "clamp(250px, 50vw, 500px)", // Responsive height
                       background: caseStudy.gradient,
                       border: "1px solid #242628",
                       borderRadius: "2px",
@@ -937,15 +974,16 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   style={{
                     width: "100%",
                     maxWidth: "1088px",
-                    margin: "0 auto 129px",
+                    margin: "0 auto",
+                    marginBottom: "clamp(32px, 8vw, 129px)", // Responsive margin
                   }}
                 >
                   <h3
                     style={{
                       fontFamily: "'Ubuntu Sans Mono', monospace",
                       fontWeight: 700,
-                      fontSize: "20px",
-                      lineHeight: "34px",
+                      fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                      lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
                       color: "#242628",
@@ -956,15 +994,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   </h3>
                   <div
                     style={{
-                      padding: "24px",
+                      padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                       backgroundColor: "#EFEFEF",
                     }}
                   >
                     <p
                       style={{
                         fontFamily: "'Ubuntu Mono', monospace",
-                        fontSize: "16px",
-                        lineHeight: "23px",
+                        fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                        lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                         color: "#242628",
                         margin: 0,
                         fontStyle: "italic",
@@ -987,7 +1025,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    gap: "24px",
+                    gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                     width: "100%",
                     maxWidth: "1088px",
                     margin: "0 auto",
@@ -999,8 +1037,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         style={{
                           fontFamily: "'Ubuntu Sans Mono', monospace",
                           fontWeight: 700,
-                          fontSize: "20px",
-                          lineHeight: "34px",
+                          fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                          lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                           letterSpacing: "0.06em",
                           textTransform: "uppercase",
                           color: "#242628",
@@ -1011,15 +1049,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       </h3>
                       <div
                         style={{
-                          padding: "24px",
+                          padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                           backgroundColor: "#EFEFEF",
                         }}
                       >
                         <p
                           style={{
                             fontFamily: "'Ubuntu Mono', monospace",
-                            fontSize: "16px",
-                            lineHeight: "23px",
+                            fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                            lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                             color: "#242628",
                             margin: 0,
                           }}
@@ -1035,8 +1073,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         style={{
                           fontFamily: "'Ubuntu Sans Mono', monospace",
                           fontWeight: 700,
-                          fontSize: "20px",
-                          lineHeight: "34px",
+                          fontSize: "clamp(16px, 4vw, 20px)", // Responsive font size
+                          lineHeight: "clamp(24px, 5vw, 34px)", // Responsive line height
                           letterSpacing: "0.06em",
                           textTransform: "uppercase",
                           color: "#242628",
@@ -1047,15 +1085,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                       </h3>
                       <div
                         style={{
-                          padding: "24px",
+                          padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                           backgroundColor: "#EFEFEF",
                         }}
                       >
                         <p
                           style={{
                             fontFamily: "'Ubuntu Mono', monospace",
-                            fontSize: "16px",
-                            lineHeight: "23px",
+                            fontSize: "clamp(14px, 3vw, 16px)", // Responsive font size
+                            lineHeight: "clamp(20px, 4vw, 23px)", // Responsive line height
                             color: "#242628",
                             margin: 0,
                           }}
@@ -1071,7 +1109,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
         </div>
       </section>
 
-      <div className="container">
+      <div className="container" style={{ padding: "0 20px" }}>
         <div className="max-w-4xl mx-auto">
           {/* These came in helpful section */}
           {portfolioManager.getAllBooks().filter((book) => {
@@ -1084,24 +1122,26 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
               style={{
-                marginTop: "96px",
+                marginTop: "clamp(48px, 8vw, 96px)", // Responsive margin
                 overflow: "visible",
               }}
             >
               <div
+                className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left overflow-visible"
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: "24px",
-                  marginBottom: "32px",
-                  overflow: "visible",
+                  gap: "clamp(16px, 4vw, 24px)", // Responsive gap
+                  marginBottom: "clamp(16px, 4vw, 32px)", // Responsive margin
                 }}
               >
                 <BookSmall width={40} height={40} />
                 <h2
                   className="text-3xl font-bold text-gray-900"
-                  style={{ padding: 0, margin: 0 }}
+                  style={{
+                    padding: 0,
+                    margin: 0,
+                    fontSize: "clamp(20px, 5vw, 30px)", // Responsive font size
+                    lineHeight: "clamp(24px, 6vw, 36px)", // Responsive line height
+                  }}
                 >
                   These came in helpful
                 </h2>
@@ -1140,29 +1180,27 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               flexDirection: "column",
               alignItems: "center",
               padding: 0,
-              gap: 24,
+              gap: "clamp(16px, 4vw, 24px)", // Responsive gap
               position: "relative",
               width: "100%",
               maxWidth: 1200,
               margin: "0 auto",
               height: "fit-content",
-              marginTop: "129px",
+              marginTop: "clamp(32px, 8vw, 129px)", // Responsive margin
+              marginBottom: "clamp(48px, 8vw, 80px)", // Extra bottom margin for hover effects
+              overflow: "visible", // Ensure hover effects aren't clipped
             }}
           >
             {/* Header Section with Icon and Title */}
             <div
+              className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left self-stretch"
               style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "flex-start",
                 padding: 0,
-                gap: 24,
+                gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                 width: "100%",
                 maxWidth: 1200,
                 flex: "none",
                 order: 0,
-                alignSelf: "stretch",
                 flexGrow: 0,
               }}
             >
@@ -1182,7 +1220,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               {/* Title */}
               <h2
                 className="text-3xl font-bold text-gray-900"
-                style={{ padding: 0, margin: 0 }}
+                style={{
+                  padding: 0,
+                  margin: 0,
+                  fontSize: "clamp(20px, 5vw, 30px)", // Responsive font size
+                  lineHeight: "clamp(24px, 6vw, 36px)", // Responsive line height
+                }}
               >
                 Explore more Quests
               </h2>

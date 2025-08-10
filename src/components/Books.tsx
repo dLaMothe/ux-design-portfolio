@@ -15,7 +15,7 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
   const books = portfolioManager.getAllBooks();
 
   return (
-    <div style={{ paddingTop: 192 }}>
+    <div className="books-main-page" style={{ paddingTop: 192 }}>
       <div className="container">
         <div style={{ width: "100%", maxWidth: 1200 }}>
           {/* Section Header with Icon and Big Headline */}
@@ -30,32 +30,8 @@ const Books: React.FC<BooksProps> = ({ portfolioManager }) => {
         </div>
 
         {/* Book Section */}
-        <div
-          style={{
-            width: "100vw",
-            marginLeft: "calc(-50vw + 50%)",
-            marginRight: "calc(-50vw + 50%)",
-            position: "relative",
-            overflow: "visible",
-          }}
-        >
-          <div
-            className="books-scroll-area"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "24px",
-              overflowX: "auto",
-              scrollBehavior: "smooth",
-              WebkitOverflowScrolling: "touch",
-              paddingTop: "20px",
-              paddingBottom: "20px",
-              paddingLeft: "calc((100vw - 1200px) / 2 + 16px)",
-              paddingRight: "calc((100vw - 1200px) / 2 + 16px)",
-              marginTop: "-20px",
-              marginBottom: "-20px",
-            }}
-          >
+        <div className="books-container">
+          <div className="books-scroll-area">
             {books.map((book, index) => (
               <motion.div key={book.id} className="book-item">
                 <BookCard book={book} onClick={() => setSelectedBook(book)} />
