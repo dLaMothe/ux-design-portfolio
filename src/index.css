@@ -1483,67 +1483,147 @@ div.book-modal-cover > img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 96px;
-  gap: 56px;
-  width: 1280px;
-  height: 228px;
+  padding: 0 20px;
+  gap: 32px;
+  width: 100%;
+  max-width: 1280px;
+  min-height: auto;
   margin-left: auto;
   margin-right: auto;
+  overflow-y: auto;
 }
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .my-values-section {
+    padding: 0 96px;
+    gap: 56px;
+  }
+}
+
 .my-values-headline {
   font-family: "Jersey 10", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 34px;
+  font-size: 24px;
+  line-height: 28px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #242628;
-  width: 1088px;
+  width: 100%;
   max-width: 1200px;
-  height: 27px;
   margin: 0;
-  align-self: stretch;
+  text-align: center;
 }
+
+/* Desktop headline styles */
+@media (min-width: 768px) {
+  .my-values-headline {
+    font-size: 32px;
+    line-height: 34px;
+    text-align: left;
+  }
+}
+
 .my-values-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 32px;
-  width: 1088px;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
   max-width: 1200px;
-  height: 138px;
-  align-self: stretch;
 }
+
+/* Desktop row styles */
+@media (min-width: 768px) {
+  .my-values-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
+
 .my-values-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 346.67px;
-  height: 138px;
-  padding: 0;
+  width: 100%;
+  max-width: 400px;
+  min-height: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* Desktop card styles */
+@media (min-width: 768px) {
+  .my-values-card {
+    width: calc(33.333% - 22px);
+    max-width: 346.67px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    backdrop-filter: none;
+  }
 }
 .my-values-hearts {
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
+  justify-content: center !important;
+  align-items: center;
+  width: 100%;
 }
+
+/* Desktop hearts styles */
+@media (min-width: 768px) {
+  .my-values-hearts {
+    gap: 8px;
+    margin-bottom: 16px;
+    justify-content: flex-start !important;
+  }
+}
+
 .my-values-title {
   font-family: "Ubuntu Mono", monospace;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
+  font-size: 18px;
+  line-height: 24px;
   color: #242628;
   margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
 }
+
+/* Desktop title styles */
+@media (min-width: 768px) {
+  .my-values-title {
+    font-size: 20px;
+    line-height: 27px;
+    text-align: left;
+  }
+}
+
 .my-values-body {
   font-family: "Ubuntu Mono", monospace;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 27px;
+  font-size: 14px;
+  line-height: 22px;
   color: #242628;
+  text-align: center;
+  width: 100%;
+}
+
+/* Desktop body styles */
+@media (min-width: 768px) {
+  .my-values-body {
+    font-size: 16px;
+    line-height: 27px;
+    text-align: left;
+  }
 }
 
 .bg-case-study-tile {

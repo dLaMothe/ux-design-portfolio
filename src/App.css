@@ -406,8 +406,15 @@ p {
   width: 100%;
   background: #242628;
   color: #efefef;
-  padding: 72px 96px;
+  padding: 40px 20px;
   box-sizing: border-box;
+}
+
+/* Desktop footer styles */
+@media (min-width: 768px) {
+  .footer {
+    padding: 72px 96px;
+  }
 }
 
 .footer-content {
@@ -415,28 +422,57 @@ p {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 32px;
+}
+
+/* Desktop footer content */
+@media (min-width: 768px) {
+  .footer-content {
+    gap: 56px;
+  }
 }
 
 .footer-top-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 64px;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Desktop top section */
+@media (min-width: 768px) {
+  .footer-top-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 64px;
+    text-align: left;
+  }
 }
 
 .footer-headline {
   font-family: "Jersey 10", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 64px;
-  line-height: 69px;
+  font-size: 32px;
+  line-height: 36px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #efefef;
   margin: 0;
+  text-align: center;
+}
+
+/* Desktop headline */
+@media (min-width: 768px) {
+  .footer-headline {
+    font-size: 64px;
+    line-height: 69px;
+    text-align: left;
+  }
 }
 
 .btn-action {
@@ -445,21 +481,34 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+  padding: 10px 16px;
   gap: 8px;
-  height: 40px;
+  min-height: 44px;
   background: #efefef;
   border: 1px solid #242628;
   border-radius: 2px;
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   color: #242628;
   text-decoration: none;
   cursor: pointer;
   flex-shrink: 0;
+  width: auto;
+  min-width: 140px;
+}
+
+/* Desktop button */
+@media (min-width: 768px) {
+  .btn-action {
+    padding: 8px 12px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    min-width: auto;
+  }
 }
 
 .btn-action .icon {
@@ -469,48 +518,108 @@ p {
 
 .footer-bottom-section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  gap: 64px;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Desktop bottom section */
+@media (min-width: 768px) {
+  .footer-bottom-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 64px;
+    text-align: left;
+  }
 }
 
 .footer-contact {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+/* Desktop contact */
+@media (min-width: 768px) {
+  .footer-contact {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    text-align: left;
+  }
 }
 
 .footer-profile-pic {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 100px;
   background: #c7c7c7;
   flex-shrink: 0;
 }
 
+/* Desktop profile pic */
+@media (min-width: 768px) {
+  .footer-profile-pic {
+    width: 90px;
+    height: 90px;
+  }
+}
+
 .footer-contact-text {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Desktop contact text */
+@media (min-width: 768px) {
+  .footer-contact-text {
+    gap: 12px;
+    align-items: flex-start;
+  }
 }
 
 .footer-name {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 18px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #efefef;
+  text-align: center;
+}
+
+/* Desktop name */
+@media (min-width: 768px) {
+  .footer-name {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: left;
+  }
 }
 
 .footer-details {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Desktop details */
+@media (min-width: 768px) {
+  .footer-details {
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 .footer-details span {
@@ -519,21 +628,41 @@ p {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.4;
   color: rgba(239, 239, 239, 0.5);
+  text-align: center;
+}
+
+/* Desktop details span */
+@media (min-width: 768px) {
+  .footer-details span {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+  }
 }
 
 .footer-details a {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.4;
   color: #efefef;
   text-decoration: none;
   position: relative;
   transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+/* Desktop details links */
+@media (min-width: 768px) {
+  .footer-details a {
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: normal;
+  }
 }
 
 .footer-details a::after {
@@ -562,10 +691,21 @@ p {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-align: right;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
   color: #efefef;
+  margin-top: 8px;
+}
+
+/* Desktop legal */
+@media (min-width: 768px) {
+  .footer-legal {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    margin-top: 0;
+  }
 }
 
 .achievement-modal-type {
