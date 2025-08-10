@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import HeroTransition from "./HeroTransition";
 import FrameAnimation from "./FrameAnimation";
@@ -22,6 +22,49 @@ interface HeroProps {
 const star1Frames = [frame1, frame2, frame3, frame4, frame5, frame6, frame7];
 
 const Hero: React.FC<HeroProps> = ({ style }) => {
+  const [visibleChars, setVisibleChars] = useState<number>(0);
+
+  const title = "HEY THERE!";
+  const paragraph =
+    "I'm Carina an Interface… User Experience… Product Designer… I AM A DESIGNER! Over the past 10 years I have worked on cross platform SaaS and E-Commerce for both B2B and B2C. Design lets me help people and satisfies my curiosity along the way. Win win.";
+  const fullText = title + " " + paragraph;
+
+  useEffect(() => {
+    let currentChar = 0;
+    let timeout: NodeJS.Timeout;
+
+    const typeNextChar = () => {
+      if (currentChar < fullText.length) {
+        const char = fullText[currentChar];
+        const nextChar = fullText[currentChar + 1];
+
+        // Set the base delay
+        let delay = 80;
+
+        // Add extra pause after punctuation
+        if (
+          char === "." ||
+          char === "!" ||
+          (char === "…" && nextChar !== " ") ||
+          (char === "?" && nextChar !== " ")
+        ) {
+          delay = 1000; // Longer pause after sentences
+        } else if (char === "…") {
+          delay = 800; // Much longer pause during ellipsis (quadrupled from original 200ms)
+        }
+
+        setVisibleChars((prev) => prev + 1);
+        currentChar++;
+
+        timeout = setTimeout(typeNextChar, delay);
+      }
+    };
+
+    timeout = setTimeout(typeNextChar, 80);
+
+    return () => clearTimeout(timeout);
+  }, [fullText]);
+
   return (
     <section
       className="min-h-screen relative pt-16"
@@ -127,8 +170,8 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ y: 30 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
         style={{
           boxSizing: "border-box",
@@ -140,11 +183,11 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
           background: "#EFEFEF",
           border: "1px solid #242628",
           boxShadow: "4px 4px 0px #000000",
-          width: 578,
+          width: "min(578px, 90vw)",
           height: "fit-content",
           position: "absolute",
-          bottom: 88,
-          right: 88,
+          bottom: "clamp(24px, 8vh, 88px)",
+          right: "clamp(24px, 8vw, 88px)",
           zIndex: 10,
         }}
       >
@@ -154,35 +197,76 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
               "'Jersey 10', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
             fontStyle: "normal",
             fontWeight: 400,
-            fontSize: 64,
-            lineHeight: "69px",
+            fontSize: "clamp(32px, 8vw, 64px)",
+            lineHeight: "1.1",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
             color: "#242628",
-            width: "fit-content",
-            height: "fit-content",
             margin: 0,
+            marginBottom: 8,
+            width: "100%",
+            position: "relative",
+            wordBreak: "normal",
+            overflowWrap: "normal",
           }}
+          className="typing-container"
         >
-          HEY THERE!
+          {title.split("").map((char, index) => (
+            <React.Fragment key={index}>
+              <span className={index < visibleChars ? "visible" : ""}>
+                {char}
+              </span>
+              {index === Math.min(visibleChars - 1, title.length - 1) &&
+                visibleChars <= title.length && (
+                  <div
+                    className="cursor title"
+                    style={{ height: "clamp(32px, 8vw, 64px)" }}
+                  />
+                )}
+            </React.Fragment>
+          ))}
         </h1>
         <p
           style={{
             fontFamily: "'Ubuntu Mono', monospace",
             fontStyle: "normal",
             fontWeight: 400,
-            fontSize: 16,
-            lineHeight: "23px",
+            fontSize: "clamp(14px, 3vw, 16px)",
+            lineHeight: "1.4",
             color: "#242628",
-            width: 530,
-            height: "fit-content",
             margin: 0,
-            marginTop: 8,
-            whiteSpace: "pre-line",
+            width: "100%",
+            whiteSpace: "normal",
+            position: "relative",
+            wordBreak: "normal",
+            overflowWrap: "normal",
           }}
+          className={`typing-container typing-paragraph ${
+            visibleChars > title.length ? "visible" : ""
+          }`}
         >
-          {`I'm Carina an Interface… User Experience… Product…
-I AM A DESIGNER! Over the past 10 years I worked on cross platform SaaS and E-Commerce for both B2B and B2C. Design lets me help people and satisfies my curiosity along the way. Win win.`}
+          {paragraph.split("").map((char, index) => (
+            <React.Fragment key={index}>
+              <span
+                className={
+                  index < visibleChars - title.length - 1 ? "visible" : ""
+                }
+              >
+                {char}
+              </span>
+              {index ===
+                Math.min(
+                  visibleChars - title.length - 2,
+                  paragraph.length - 1
+                ) &&
+                visibleChars > title.length && (
+                  <div
+                    className="cursor paragraph"
+                    style={{ height: "clamp(14px, 3vw, 16px)" }}
+                  />
+                )}
+            </React.Fragment>
+          ))}
         </p>
       </motion.div>
       <HeroTransition />

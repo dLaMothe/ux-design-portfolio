@@ -908,3 +908,57 @@ p {
     order: -1; /* Move tags above title on mobile */
   }
 }
+
+/* Typing animation */
+.typing-container {
+  display: block;
+  position: relative;
+}
+
+.typing-container span {
+  display: inline;
+  visibility: hidden;
+  white-space: normal;
+  word-break: keep-all;
+  word-wrap: normal;
+}
+
+.typing-container .visible {
+  visibility: visible;
+}
+
+.typing-paragraph {
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+
+.typing-paragraph.visible {
+  max-height: 500px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 4px;
+  background: #242628;
+  margin-left: 2px;
+  animation: blink 1s steps(2) infinite;
+}
+
+.cursor.title {
+  height: 64px;
+}
+
+.cursor.paragraph {
+  height: 16px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
