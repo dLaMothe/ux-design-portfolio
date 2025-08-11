@@ -82,10 +82,10 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
         alt="Carina Working"
         style={{
           position: "absolute",
-          bottom: 0,
+          bottom: "-5%",
           right: "10%",
           width: "auto",
-          height: "65%",
+          height: "70%",
           zIndex: 1,
         }}
       />
