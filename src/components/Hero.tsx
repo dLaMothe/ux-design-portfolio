@@ -13,7 +13,7 @@ import frame6 from "../assets/animations/star1/frame-06.png";
 import frame7 from "../assets/animations/star1/frame-07.png";
 
 import star2 from "../assets/decorations/star2.png";
-import carinaMeyer from "../assets/decorations/carinaMeyer.png";
+import carinaWorking from "../assets/decorations/carinaWorking.gif";
 
 interface HeroProps {
   style?: React.CSSProperties;
@@ -78,8 +78,8 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       }}
     >
       <img
-        src={carinaMeyer}
-        alt="Carina Meyer"
+        src={carinaWorking}
+        alt="Carina Working"
         style={{
           position: "absolute",
           bottom: 0,
