@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
         style={{
           position: "absolute",
           bottom: 0,
-          left: "10%",
+          right: "10%",
           width: "auto",
           height: "65%",
           zIndex: 1,

@@ -1088,8 +1088,8 @@ p {
     padding: 24px;
     width: min(578px, 90vw);
     bottom: clamp(24px, 8vh, 88px);
-    left: auto;
-    right: clamp(24px, 2vw, 40px);
+    left: clamp(24px, 2vw, 40px);
+    right: auto;
     transform: none;
   }
 }
