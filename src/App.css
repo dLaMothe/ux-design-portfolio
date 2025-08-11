@@ -1133,7 +1133,7 @@ p {
     width: min(578px, 90vw);
     top: auto;
     bottom: clamp(24px, 8vh, 88px);
-    left: clamp(24px, 2vw, 40px);
+    left: clamp(80px, 8vw, 120px);
     right: auto;
     transform: none;
   }
