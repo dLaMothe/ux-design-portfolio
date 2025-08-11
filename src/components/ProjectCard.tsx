@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Project } from "../models/Project";
 import projectsData from "../data/projects.json";
 
 interface ProjectCardProps {
@@ -38,6 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className="project-section">
       {/* Tag Filters and Counter */}
       <div
+        className="project-filters-container"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -47,6 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         }}
       >
         <div
+          className="project-filters-tags"
           style={{
             display: "flex",
             alignItems: "center",
@@ -67,6 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
         <div
+          className="project-filters-counter"
           style={{
             fontFamily: "'Ubuntu Mono', monospace",
             fontStyle: "normal",

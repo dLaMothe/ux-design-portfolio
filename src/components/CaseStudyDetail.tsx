@@ -348,12 +348,17 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           >
             <div className="mb-8">
               <div
-                className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left"
+                className="skills-header"
                 style={{
-                  gap: "clamp(16px, 4vw, 24px)", // Responsive gap
+                  gap: "24px", // Gap between icon and title
                 }}
               >
-                <StarSmall width={40} height={40} />
+                <div
+                  className="skills-icon case-study-detail-icon"
+                  style={{ width: "40px", height: "40px" }}
+                >
+                  <StarSmall width={40} height={40} />
+                </div>
                 <h2
                   className="text-3xl font-bold text-gray-900"
                   style={{
@@ -446,7 +451,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         className="flex flex-col md:flex-row items-start w-full"
                         style={{
                           gap: "clamp(16px, 4vw, 48px)", // Responsive gap
-                          padding: "clamp(12px, 3vw, 24px) 0", // Responsive padding
+                          padding: "clamp(24px, 5vw, 48px) 0", // Increased vertical spacing
                         }}
                       >
                         <h3
@@ -1133,13 +1138,18 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               }}
             >
               <div
-                className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left overflow-visible"
+                className="books-header overflow-visible"
                 style={{
-                  gap: "clamp(16px, 4vw, 24px)", // Responsive gap
+                  gap: "24px", // Gap between icon and title
                   marginBottom: "clamp(16px, 4vw, 32px)", // Responsive margin
                 }}
               >
-                <BookSmall width={40} height={40} />
+                <div
+                  className="books-icon case-study-detail-icon"
+                  style={{ width: "40px", height: "40px" }}
+                >
+                  <BookSmall width={40} height={40} />
+                </div>
                 <h2
                   className="text-3xl font-bold text-gray-900"
                   style={{
@@ -1199,10 +1209,10 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           >
             {/* Header Section with Icon and Title */}
             <div
-              className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left self-stretch"
+              className="case-studies-header self-stretch"
               style={{
                 padding: 0,
-                gap: "clamp(16px, 4vw, 24px)", // Responsive gap
+                gap: "24px", // Gap between icon and title
                 width: "100%",
                 maxWidth: 1200,
                 flex: "none",
@@ -1212,13 +1222,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
             >
               {/* Icon */}
               <div
-                style={{
-                  width: 40,
-                  height: 40,
-                  flex: "none",
-                  order: 0,
-                  flexGrow: 0,
-                }}
+                className="case-studies-icon case-study-detail-icon"
+                style={{ width: "40px", height: "40px" }}
               >
                 <SwordSmall width={40} height={40} />
               </div>

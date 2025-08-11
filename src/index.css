@@ -2440,6 +2440,13 @@ div.book-modal-cover > img {
   }
 }
 
+/* Case study detail page - align icons flush left on desktop */
+@media (min-width: 768px) {
+  .case-study-detail-icon {
+    justify-content: flex-start !important;
+  }
+}
+
 .overflow-x-hidden {
   overflow-x: hidden !important;
 }
@@ -2530,26 +2537,18 @@ div {
     margin-bottom: 24px !important;
   }
 
-  /* Section headings mobile consistency */
-  .case-study-detail h2 {
-    text-align: center !important;
-    font-size: clamp(20px, 6vw, 32px) !important;
-    line-height: clamp(24px, 7vw, 36px) !important;
+  /* Specific section titles on mobile - let Tailwind handle alignment, just override size */
+  .case-study-detail .text-3xl.font-bold.text-gray-900 {
+    font-size: clamp(20px, 6vw, 24px) !important;
+    line-height: clamp(24px, 7vw, 28px) !important;
     margin-bottom: 24px !important;
   }
 
-  .case-study-detail h3 {
-    text-align: center !important;
-    font-size: clamp(16px, 4vw, 20px) !important;
-    line-height: clamp(20px, 5vw, 24px) !important;
-    margin-bottom: 16px !important;
-  }
-
-  /* Body text mobile consistency - but not inside content cards or project cards */
+  /* Body text mobile consistency - but not inside cards */
   .case-study-detail
     p:not([style*="backgroundColor"]):not([style*="background-color"]):not(
       .project-section-text
-    ) {
+    ):not(.skill-card-description):not(.case-study-card-description) {
     text-align: center !important;
     font-size: clamp(14px, 3.5vw, 16px) !important;
     line-height: clamp(20px, 4.5vw, 23px) !important;
@@ -2574,12 +2573,6 @@ div {
   .case-study-detail .flex.flex-col.md\\:flex-row {
     text-align: center;
     gap: 24px !important;
-  }
-
-  /* Skills section mobile */
-  .case-study-detail .flex.flex-col.sm\\:flex-row {
-    text-align: center !important;
-    justify-content: center !important;
   }
 
   /* Learnings & Decisions mobile */
@@ -2672,9 +2665,23 @@ div {
     text-align: left !important;
   }
 
-  /* Override center alignment for specific checkout content */
+  /* Project Filters - Mobile-only overrides */
+  .case-study-detail .project-filters-container {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .case-study-detail .project-filters-tags {
+    justify-content: center !important;
+  }
+
   .case-study-detail .project-filter-tag {
-    text-align: center !important; /* Keep filter tags centered */
+    min-height: 44px; /* Better touch target for mobile */
+  }
+
+  .case-study-detail .project-filters-counter {
+    margin-left: 0 !important;
+    align-self: center;
   }
 
   /* Skill cards on case study detail pages - left align content */
@@ -2696,6 +2703,47 @@ div {
   }
 
   .case-study-detail .skill-card-arrow {
+    text-align: left !important;
+  }
+}
+
+/* Desktop Case Study Detail - Specific section titles */
+@media (min-width: 769px) {
+  /* Specific section titles that should be 30px and left-aligned */
+  .case-study-detail .text-3xl.font-bold.text-gray-900 {
+    text-align: left !important;
+    font-size: 30px !important;
+    line-height: 36px !important;
+  }
+
+  /* Main case study title on desktop */
+  .case-study-title {
+    text-align: left !important;
+    font-size: clamp(48px, 8vw, 64px) !important;
+    line-height: clamp(52px, 9vw, 69px) !important;
+  }
+
+  /* Desktop body text - left aligned, but not inside cards */
+  .case-study-detail
+    p:not([style*="backgroundColor"]):not([style*="background-color"]):not(
+      .project-section-text
+    ):not(.skill-card-description):not(.case-study-card-description) {
+    text-align: left !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
+    line-height: clamp(23px, 3vw, 26px) !important;
+  }
+
+  /* Hero section desktop alignment */
+  .case-study-hero {
+    text-align: left !important;
+  }
+
+  .case-study-hero .max-w-4xl {
+    text-align: left !important;
+  }
+
+  /* Desktop container alignment */
+  .case-study-detail .container {
     text-align: left !important;
   }
 }

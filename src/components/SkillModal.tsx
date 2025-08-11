@@ -21,6 +21,21 @@ import Facilitation100 from "./Facilitation100";
 import Drawing50 from "./Drawing50";
 import backgroundTile from "../assets/other/backgroundTile.png";
 
+// Hook for responsive design
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return isMobile;
+};
+
 interface SkillModalProps {
   skill: Skill;
   portfolioManager: PortfolioManager;
@@ -36,6 +51,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   // Handle click outside
   useEffect(() => {
@@ -151,17 +167,17 @@ const SkillModal: React.FC<SkillModalProps> = ({
           borderRadius: 2,
           boxShadow:
             "0px 1497px 250px rgba(0, 0, 0, 0.01), 0px 842px 250px rgba(0, 0, 0, 0.05), 0px 374px 250px rgba(0, 0, 0, 0.09), 0px 94px 206px rgba(0, 0, 0, 0.1)",
-          width: "100%",
+          width: "calc(100vw - 20px)",
           maxWidth: "1000px",
-          height: "90vh",
-          maxHeight: "90vh",
+          height: "95vh",
+          maxHeight: "95vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           padding: 0,
-          gap: 64,
+          gap: isMobile ? 24 : 64,
           overflowY: "auto",
-          overflowX: "hidden",
+          overflowX: "visible",
           border: "none",
         }}
       >
@@ -172,7 +188,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            padding: "56px 96px",
+            padding: isMobile ? "32px 20px" : "56px 96px",
             gap: 16,
             width: "100%",
             background: color,
@@ -246,9 +262,9 @@ const SkillModal: React.FC<SkillModalProps> = ({
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
-              alignItems: "flex-end",
-              gap: 96,
+              flexDirection: isMobile ? "column" : "row",
+              alignItems: isMobile ? "flex-start" : "flex-end",
+              gap: isMobile ? 24 : 96,
               width: "100%",
               marginTop: 24,
             }}
@@ -288,10 +304,11 @@ const SkillModal: React.FC<SkillModalProps> = ({
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            padding: "0px 96px 0",
+            padding: isMobile ? "0px 20px 0" : "0px 96px 0",
             gap: 0,
             width: "100%",
             boxSizing: "border-box",
+            overflow: "visible",
           }}
         >
           {/* Tools Section */}
@@ -329,9 +346,9 @@ const SkillModal: React.FC<SkillModalProps> = ({
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: 32,
-                  width: 808,
+                  gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+                  gap: isMobile ? 16 : 32,
+                  width: isMobile ? "100%" : 808,
                   maxWidth: "100%",
                   alignItems: "stretch",
                 }}
@@ -350,7 +367,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
                       gap: 16,
                       color: "#242628",
                       fontFamily: "Ubuntu Mono, monospace",
-                      width: 253.33,
+                      width: isMobile ? "100%" : 253.33,
                       minWidth: 0,
                       height: "100%",
                       borderRadius: 0,
@@ -431,9 +448,16 @@ const SkillModal: React.FC<SkillModalProps> = ({
             <div
               className="background-tile-pattern"
               style={{
-                margin: "-1px -96px 0",
+                position: "relative",
+                left: isMobile ? "-20px" : "-96px",
+                width: isMobile ? "calc(100vw - 20px)" : "1000px",
+                maxWidth: isMobile ? "calc(100vw - 20px)" : "1000px",
+                marginLeft: 0,
+                marginRight: 0,
+                marginTop: "-1px",
                 background: `url(${backgroundTile}) repeat`,
-                padding: "80px 0",
+                padding: isMobile ? "40px 20px" : "80px 96px",
+                boxSizing: "border-box",
               }}
             >
               {/* How to Self Improve Section */}
@@ -441,7 +465,6 @@ const SkillModal: React.FC<SkillModalProps> = ({
                 <div
                   style={{
                     width: "100%",
-                    position: "relative",
                     paddingTop: "34px",
                     paddingBottom: "24px",
                     minHeight: "495px",
@@ -454,8 +477,6 @@ const SkillModal: React.FC<SkillModalProps> = ({
                       justifyContent: "flex-start",
                       gap: "24px",
                       marginBottom: "24px",
-                      paddingLeft: "96px",
-                      paddingRight: "96px",
                     }}
                   >
                     <BookSmall width={40} height={40} />
@@ -468,18 +489,18 @@ const SkillModal: React.FC<SkillModalProps> = ({
                   </div>
                   <div
                     style={{
-                      position: "absolute",
-                      left: 0,
-                      right: 0,
+                      position: "relative",
+                      left: isMobile ? "0px" : "-96px",
+                      width: isMobile ? "100%" : "calc(100vw - 20px)",
+                      maxWidth: isMobile ? "100%" : "1000px",
                       overflowX: "auto",
                       overflowY: "hidden",
-                      paddingLeft: "96px",
-                      paddingRight: "96px",
                       paddingTop: "10px",
                       paddingBottom: "20px",
                       height: "440px",
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
+                      WebkitOverflowScrolling: "touch",
                     }}
                   >
                     <div
@@ -488,6 +509,8 @@ const SkillModal: React.FC<SkillModalProps> = ({
                         gap: "24px",
                         minWidth: "min-content",
                         height: "410px",
+                        paddingLeft: isMobile ? "20px" : "96px",
+                        paddingRight: isMobile ? "20px" : "96px",
                       }}
                     >
                       {booksForSkill.map((book, index) => (
@@ -515,7 +538,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
 
               {/* Used In these Quests Section */}
               {relatedCaseStudies.length > 0 && (
-                <div style={{ padding: "80px 96px 0" }}>
+                <div style={{ paddingTop: isMobile ? "40px" : "80px" }}>
                   <div
                     style={{
                       display: "flex",
@@ -544,9 +567,10 @@ const SkillModal: React.FC<SkillModalProps> = ({
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns:
-                        "repeat(auto-fill, minmax(250px, 1fr))",
-                      gap: 32,
+                      gridTemplateColumns: isMobile
+                        ? "1fr"
+                        : "repeat(auto-fill, minmax(250px, 1fr))",
+                      gap: isMobile ? 16 : 32,
                       width: "100%",
                     }}
                   >
