@@ -1075,11 +1075,55 @@ p {
   max-width: calc(100vw - 32px);
   height: fit-content;
   position: absolute;
-  bottom: clamp(20px, 6vh, 60px);
+  top: clamp(80px, 12vh, 120px);
   left: 16px;
   right: 16px;
   margin: 0 auto;
   z-index: 10;
+}
+
+/* Hero background image responsive positioning */
+.hero-background-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 40%;
+  z-index: 1;
+}
+
+/* Desktop hero background image positioning */
+@media (min-width: 768px) {
+  .hero-background-image {
+    left: auto;
+    right: 10%;
+    transform: none;
+    height: 65%;
+  }
+}
+
+/* Hero stars responsive sizing */
+.hero-star-large {
+  width: 100px;
+  height: 100px;
+}
+
+.hero-star-small {
+  width: 35px;
+  height: auto;
+}
+
+/* Desktop hero stars sizing */
+@media (min-width: 768px) {
+  .hero-star-large {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-star-small {
+    width: 50px;
+  }
 }
 
 /* Desktop hero text box positioning */
@@ -1087,6 +1131,7 @@ p {
   .hero-text-box {
     padding: 24px;
     width: min(578px, 90vw);
+    top: auto;
     bottom: clamp(24px, 8vh, 88px);
     left: clamp(24px, 2vw, 40px);
     right: auto;
@@ -1107,7 +1152,7 @@ p {
   margin: 0;
   margin-bottom: 8px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   position: relative;
   word-break: normal;
   overflow-wrap: normal;
@@ -1134,7 +1179,7 @@ p {
   position: relative;
   word-break: normal;
   overflow-wrap: normal;
-  text-align: center;
+  text-align: left;
 }
 
 /* Desktop hero paragraph */

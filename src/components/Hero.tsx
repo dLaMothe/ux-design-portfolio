@@ -25,9 +25,14 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
   const [visibleChars, setVisibleChars] = useState<number>(0);
 
   const title = "HEY THERE!";
-  const paragraph =
-    "I'm Carina an Interface… User Experience… Product Designer… I AM A DESIGNER! Over the past 10 years I have worked on cross platform SaaS and E-Commerce for both B2B and B2C. Design lets me help people and satisfies my curiosity along the way. Win win.";
-  const fullText = title + " " + paragraph;
+  const paragraph1 =
+    "My name is Carina, an Interface… User Experience… Product… I'M A DESIGNER!";
+  const paragraph2 =
+    "Over the past 10 years I worked on cross platform SaaS and E-Commerce for both B2B and B2C. Design lets me help others and satisfies my curiosity along the way through research and creative thinking. Win win.";
+  const paragraph3 =
+    "Though my journey started with illustration it quickly developed into making information accessible and interactive. I developed quite the knack for methodical work and behavioural psychology but if you want to talk games, I'm down for that too \\(^-^)/";
+  const fullText =
+    title + " " + paragraph1 + " " + paragraph2 + " " + paragraph3;
 
   useEffect(() => {
     let currentChar = 0;
@@ -80,25 +85,17 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       <img
         src={carinaWorking}
         alt="Carina Working"
-        style={{
-          position: "absolute",
-          bottom: "-5%",
-          right: "10%",
-          width: "auto",
-          height: "70%",
-          zIndex: 1,
-        }}
+        className="hero-background-image"
       />
       {/* Decorative Elements: 3 animated, 3 static */}
 
       {/* 1. Large Animated Star */}
       <div
+        className="hero-star-large"
         style={{
           position: "absolute",
           top: "15%",
           left: "15%",
-          width: "150px",
-          height: "150px",
         }}
       >
         <FrameAnimation frameSources={star1Frames} frameRate={6} />
@@ -108,23 +105,21 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       <img
         src={star2}
         alt=""
+        className="hero-star-small"
         style={{
           position: "absolute",
           top: "30%",
           left: "40%",
-          width: "50px",
-          height: "auto",
         }}
       />
 
       {/* 3. Small Animated Star */}
       <div
+        className="hero-star-large"
         style={{
           position: "absolute",
           top: "25%",
           right: "15%",
-          width: "150px",
-          height: "150px",
         }}
       >
         <FrameAnimation frameSources={star1Frames} frameRate={6} delay={200} />
@@ -134,23 +129,21 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       <img
         src={star2}
         alt=""
+        className="hero-star-small"
         style={{
           position: "absolute",
           top: "10%",
           right: "30%",
-          width: "50px",
-          height: "auto",
         }}
       />
 
       {/* 5. Small Animated Star */}
       <div
+        className="hero-star-large"
         style={{
           position: "absolute",
           bottom: "15%",
           left: "10%",
-          width: "150px",
-          height: "150px",
         }}
       >
         <FrameAnimation frameSources={star1Frames} frameRate={6} delay={400} />
@@ -160,12 +153,11 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
       <img
         src={star2}
         alt=""
+        className="hero-star-small"
         style={{
           position: "absolute",
           bottom: "8%",
           right: "2%",
-          width: "50px",
-          height: "auto",
         }}
       />
 
@@ -196,28 +188,100 @@ const Hero: React.FC<HeroProps> = ({ style }) => {
             visibleChars > title.length ? "visible" : ""
           }`}
         >
-          {paragraph.split("").map((char, index) => (
-            <React.Fragment key={index}>
-              <span
-                className={
-                  index < visibleChars - title.length - 1 ? "visible" : ""
-                }
-              >
-                {char}
-              </span>
-              {index ===
-                Math.min(
-                  visibleChars - title.length - 2,
-                  paragraph.length - 1
-                ) &&
-                visibleChars > title.length && (
-                  <div
-                    className="cursor paragraph"
-                    style={{ height: "clamp(14px, 3vw, 16px)" }}
-                  />
-                )}
-            </React.Fragment>
-          ))}
+          {paragraph1.split("").map((char, index) => {
+            const charPosition = title.length + 1 + index;
+            return (
+              <React.Fragment key={index}>
+                <span className={charPosition < visibleChars ? "visible" : ""}>
+                  {char}
+                </span>
+                {charPosition === visibleChars - 1 &&
+                  visibleChars > title.length &&
+                  visibleChars <= title.length + 1 + paragraph1.length && (
+                    <div
+                      className="cursor paragraph"
+                      style={{ height: "clamp(14px, 3vw, 16px)" }}
+                    />
+                  )}
+              </React.Fragment>
+            );
+          })}
+        </p>
+        <p
+          className={`typing-container typing-paragraph ${
+            visibleChars > title.length + 1 + paragraph1.length ? "visible" : ""
+          }`}
+        >
+          {paragraph2.split("").map((char, index) => {
+            const charPosition =
+              title.length + 1 + paragraph1.length + 1 + index;
+            return (
+              <React.Fragment key={index}>
+                <span className={charPosition < visibleChars ? "visible" : ""}>
+                  {char}
+                </span>
+                {charPosition === visibleChars - 1 &&
+                  visibleChars > title.length + 1 + paragraph1.length &&
+                  visibleChars <=
+                    title.length +
+                      1 +
+                      paragraph1.length +
+                      1 +
+                      paragraph2.length && (
+                    <div
+                      className="cursor paragraph"
+                      style={{ height: "clamp(14px, 3vw, 16px)" }}
+                    />
+                  )}
+              </React.Fragment>
+            );
+          })}
+        </p>
+        <p
+          className={`typing-container typing-paragraph ${
+            visibleChars >
+            title.length + 1 + paragraph1.length + 1 + paragraph2.length
+              ? "visible"
+              : ""
+          }`}
+        >
+          {paragraph3.split("").map((char, index) => {
+            const charPosition =
+              title.length +
+              1 +
+              paragraph1.length +
+              1 +
+              paragraph2.length +
+              1 +
+              index;
+            return (
+              <React.Fragment key={index}>
+                <span className={charPosition < visibleChars ? "visible" : ""}>
+                  {char}
+                </span>
+                {charPosition === visibleChars - 1 &&
+                  visibleChars >
+                    title.length +
+                      1 +
+                      paragraph1.length +
+                      1 +
+                      paragraph2.length &&
+                  visibleChars <=
+                    title.length +
+                      1 +
+                      paragraph1.length +
+                      1 +
+                      paragraph2.length +
+                      1 +
+                      paragraph3.length && (
+                    <div
+                      className="cursor paragraph"
+                      style={{ height: "clamp(14px, 3vw, 16px)" }}
+                    />
+                  )}
+              </React.Fragment>
+            );
+          })}
         </p>
       </motion.div>
       <HeroTransition />
