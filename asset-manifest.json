@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.09d080cc.css",
-    "main.js": "/static/js/main.3cf2632c.js",
+    "main.css": "/static/css/main.bc1cd419.css",
+    "main.js": "/static/js/main.3a1de1ae.js",
     "static/media/a-design-system-for-all-teams_01.png": "/static/media/a-design-system-for-all-teams_01.adb01bd1409472d4b541.png",
     "static/media/A Theory of Fun.png": "/static/media/A Theory of Fun.c7e3ddeb571c09b404a7.png",
     "static/media/easy-ordering-for-every-diet_02.png": "/static/media/easy-ordering-for-every-diet_02.cb7e883d422d5d084ad9.png",
@@ -39,7 +39,6 @@
     "static/media/Influence.png": "/static/media/Influence.099e5101bf7c9ac46f5b.png",
     "static/media/oouxing-my-portfolio_07.png": "/static/media/oouxing-my-portfolio_07.b4ba946c26fba234bd6a.png",
     "static/media/oouxing-my-portfolio_06.png": "/static/media/oouxing-my-portfolio_06.e9420101ae4d6cc36797.png",
-    "static/media/carinaMeyer.png": "/static/media/carinaMeyer.01269bcde620c2a3b053.png",
     "static/media/oouxing-my-portfolio_03.png": "/static/media/oouxing-my-portfolio_03.aff08f151139c84d7ce8.png",
     "static/media/Nudge.png": "/static/media/Nudge.f76f1bb9dba6a60fda39.png",
     "static/media/Thinking fast and slow.png": "/static/media/Thinking fast and slow.79da3ef9a05d0ef83cff.png",
@@ -71,13 +70,14 @@
     "static/media/improving-marketplace-checkout-experience_04.png": "/static/media/improving-marketplace-checkout-experience_04.b53dad4ec583a8fb5441.png",
     "static/media/improving-marketplace-checkout-experience.png": "/static/media/improving-marketplace-checkout-experience.1e73197545fbbd63b8cf.png",
     "static/media/profilPicture.png": "/static/media/profilPicture.f9d4797c976d98819741.png",
+    "static/media/carinaWorking.gif": "/static/media/carinaWorking.082eaeaee6f9811da3a0.gif",
     "index.html": "/index.html",
     "static/media/case-study-tile-bg.svg": "/static/media/case-study-tile-bg.ef32354bf422af28ea74.svg",
-    "main.09d080cc.css.map": "/static/css/main.09d080cc.css.map",
-    "main.3cf2632c.js.map": "/static/js/main.3cf2632c.js.map"
+    "main.bc1cd419.css.map": "/static/css/main.bc1cd419.css.map",
+    "main.3a1de1ae.js.map": "/static/js/main.3a1de1ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.09d080cc.css",
-    "static/js/main.3cf2632c.js"
+    "static/css/main.bc1cd419.css",
+    "static/js/main.3a1de1ae.js"
   ]
 }
