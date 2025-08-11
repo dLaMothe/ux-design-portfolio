@@ -348,7 +348,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           >
             <div className="mb-8">
               <div
-                className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left"
+                className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left"
                 style={{
                   gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                 }}
@@ -464,6 +464,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                           {phase.name}
                         </h3>
                         <div
+                          className="case-study-content-box"
                           style={{
                             flexGrow: 1,
                             padding: "clamp(16px, 4vw, 24px)", // Responsive padding
@@ -756,6 +757,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                           {learning.title}
                         </h3>
                         <div
+                          className="case-study-content-box"
                           style={{
                             flexGrow: 1,
                             padding: "clamp(16px, 4vw, 24px)", // Responsive padding
@@ -779,6 +781,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                   </div>
                 ) : (
                   <div
+                    className="case-study-content-box"
                     style={{
                       padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                       backgroundColor: "#EFEFEF",
@@ -993,6 +996,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                     User Feedback
                   </h3>
                   <div
+                    className="case-study-content-box"
                     style={{
                       padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                       backgroundColor: "#EFEFEF",
@@ -1048,6 +1052,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         Lesson Learned
                       </h3>
                       <div
+                        className="case-study-content-box"
                         style={{
                           padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                           backgroundColor: "#EFEFEF",
@@ -1084,6 +1089,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         Fun Fact
                       </h3>
                       <div
+                        className="case-study-content-box"
                         style={{
                           padding: "clamp(16px, 4vw, 24px)", // Responsive padding
                           backgroundColor: "#EFEFEF",
@@ -1127,7 +1133,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
               }}
             >
               <div
-                className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left overflow-visible"
+                className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left overflow-visible"
                 style={{
                   gap: "clamp(16px, 4vw, 24px)", // Responsive gap
                   marginBottom: "clamp(16px, 4vw, 32px)", // Responsive margin
@@ -1193,7 +1199,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           >
             {/* Header Section with Icon and Title */}
             <div
-              className="flex flex-col sm:flex-row items-center justify-start text-center sm:text-left self-stretch"
+              className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left self-stretch"
               style={{
                 padding: 0,
                 gap: "clamp(16px, 4vw, 24px)", // Responsive gap

@@ -1335,7 +1335,7 @@ p,
   height: 100% !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch !important;
-  overflow-x: hidden !important;
+  overflow-x: visible !important;
   padding: 24px 20px 32px 20px !important;
   box-sizing: border-box !important;
 }
@@ -1551,17 +1551,23 @@ div.book-modal-cover > img {
 
 /* Mobile book modal quotes with background */
 .book-modal-quotes-with-bg {
+  position: relative !important;
+  left: -20px !important;
+  width: calc(100vw - 20px) !important;
+  max-width: calc(100vw - 20px) !important;
+  margin: 16px 0 !important;
   padding: 32px 20px !important;
-  margin: 16px -20px !important;
-  width: calc(100% + 40px) !important;
+  box-sizing: border-box !important;
 }
 
 /* Desktop book modal quotes with background */
 @media (min-width: 768px) {
   .book-modal-quotes-with-bg {
+    left: -90px !important;
+    width: 1000px !important;
+    max-width: 1000px !important;
+    margin: 24px 0 !important;
     padding: 64px 90px !important;
-    margin: 24px -90px !important;
-    width: calc(100% + 180px) !important;
   }
 }
 .book-modal-quotes-header {
@@ -2304,7 +2310,7 @@ div.book-modal-cover > img {
 }
 
 .skill-modal {
-  overflow-x: hidden !important;
+  overflow-x: visible !important;
 }
 
 .skill-modal .books-container {
@@ -2491,5 +2497,205 @@ div {
   .case-study-grid {
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: 40px; /* More space on desktop for larger cards */
+  }
+}
+
+/* Case Study Detail Mobile Consistency Styles */
+@media (max-width: 768px) {
+  /* Center all case study content on mobile */
+  .case-study-detail .container {
+    text-align: center;
+  }
+
+  /* Hero section mobile consistency */
+  .case-study-hero {
+    text-align: center;
+    padding: 32px 20px 48px !important;
+  }
+
+  .case-study-hero .max-w-4xl {
+    text-align: center;
+  }
+
+  .case-study-hero .custom-link {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 32px !important;
+  }
+
+  .case-study-title {
+    text-align: center !important;
+    font-size: clamp(24px, 7vw, 48px) !important;
+    line-height: clamp(28px, 8vw, 52px) !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Section headings mobile consistency */
+  .case-study-detail h2 {
+    text-align: center !important;
+    font-size: clamp(20px, 6vw, 32px) !important;
+    line-height: clamp(24px, 7vw, 36px) !important;
+    margin-bottom: 24px !important;
+  }
+
+  .case-study-detail h3 {
+    text-align: center !important;
+    font-size: clamp(16px, 4vw, 20px) !important;
+    line-height: clamp(20px, 5vw, 24px) !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Body text mobile consistency - but not inside content cards or project cards */
+  .case-study-detail
+    p:not([style*="backgroundColor"]):not([style*="background-color"]):not(
+      .project-section-text
+    ) {
+    text-align: center !important;
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+    line-height: clamp(20px, 4.5vw, 23px) !important;
+  }
+
+  .case-study-detail p {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+    line-height: clamp(20px, 4.5vw, 23px) !important;
+  }
+
+  /* Problem/Goal/Challenge section mobile */
+  .case-study-detail .grid.grid-cols-1.md\\:grid-cols-3 > div {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .case-study-detail .grid.grid-cols-1.md\\:grid-cols-3 > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Process section mobile */
+  .case-study-detail .flex.flex-col.md\\:flex-row {
+    text-align: center;
+    gap: 24px !important;
+  }
+
+  /* Skills section mobile */
+  .case-study-detail .flex.flex-col.sm\\:flex-row {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Learnings & Decisions mobile */
+  .case-study-detail .grid.grid-cols-1.md\\:grid-cols-2 > div {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .case-study-detail .grid.grid-cols-1.md\\:grid-cols-2 > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Gallery controls center */
+  .case-study-detail [style*="display: flex"][style*="flex-direction: row"] {
+    justify-content: center !important;
+  }
+
+  /* Background content boxes - keep content left-aligned for readability */
+  .case-study-detail [style*="backgroundColor"] p,
+  .case-study-detail [style*="background-color"] p,
+  .case-study-detail [style*="#EFEFEF"] p,
+  .case-study-detail [style*="#efefef"] p {
+    text-align: left !important;
+  }
+
+  .case-study-detail [style*="backgroundColor"],
+  .case-study-detail [style*="background-color"],
+  .case-study-detail [style*="#EFEFEF"],
+  .case-study-detail [style*="#efefef"] {
+    text-align: left !important;
+  }
+
+  /* More specific targeting for content boxes */
+  .case-study-detail div[style*="padding"][style*="backgroundColor"] p,
+  .case-study-detail div[style*="padding"][style*="background-color"] p {
+    text-align: left !important;
+  }
+
+  .case-study-detail div[style*="padding"][style*="backgroundColor"],
+  .case-study-detail div[style*="padding"][style*="background-color"] {
+    text-align: left !important;
+  }
+
+  /* Target content boxes by class - highest specificity */
+  .case-study-detail .case-study-content-box,
+  .case-study-detail .case-study-content-box * {
+    text-align: left !important;
+  }
+
+  /* Project cards on checkout page - left align content */
+  .case-study-detail .project-card,
+  .case-study-detail .project-card * {
+    text-align: left !important;
+  }
+
+  .case-study-detail .project-content,
+  .case-study-detail .project-content * {
+    text-align: left !important;
+  }
+
+  /* Specific targeting for project section text paragraphs */
+  .case-study-detail .project-section-text,
+  .case-study-detail p.project-section-text {
+    text-align: left !important;
+  }
+
+  .case-study-detail .project-title,
+  .case-study-detail h2.project-title {
+    text-align: left !important;
+  }
+
+  /* Keep project section titles left-aligned too for consistency */
+  .case-study-detail .project-section-title,
+  .case-study-detail h3.project-section-title {
+    text-align: left !important;
+  }
+
+  /* More specific targeting for project paragraphs */
+  .case-study-detail .project-section p,
+  .case-study-detail .project-content p {
+    text-align: left !important;
+  }
+
+  /* Checkout case study specific intro content */
+  .case-study-detail .project-section {
+    text-align: left !important;
+  }
+
+  .case-study-detail .projects-grid {
+    text-align: left !important;
+  }
+
+  /* Override center alignment for specific checkout content */
+  .case-study-detail .project-filter-tag {
+    text-align: center !important; /* Keep filter tags centered */
+  }
+
+  /* Skill cards on case study detail pages - left align content */
+  .case-study-detail .skill-card,
+  .case-study-detail .skill-card * {
+    text-align: left !important;
+  }
+
+  .case-study-detail .skill-card-title {
+    text-align: left !important;
+  }
+
+  .case-study-detail .skill-card-description {
+    text-align: left !important;
+  }
+
+  .case-study-detail .skill-card-link {
+    text-align: left !important;
+  }
+
+  .case-study-detail .skill-card-arrow {
+    text-align: left !important;
   }
 }
