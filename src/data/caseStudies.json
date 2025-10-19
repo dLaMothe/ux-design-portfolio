@@ -268,7 +268,13 @@
     "hmwQuestion": "How might we help users discover value within their first time using our app?",
     "problem": "The pandemic made online yoga boom. Though a dip in new users signing up and subscribing was expected, it was more drastic than predicted, especially on mobile.",
     "goal": "Get more mobile users to purchase a subscription after signing up and completing the trial period.",
-    "challenge": "Identify why users might miss to learn about the value a subscription can give so we can come up with a solution that will present it better and more early on in their first time experience.",
+    "challenge": "Identify why users miss the value a subscription offers and present it earlier in their first experience.",
+    "outcome": "After the release of the new onboarding process we measured a significant rise in app visits and video watch count during the 7 day trial period as well as a statistically significant rise in paid subscription.",
+    "highlightImages": [
+      "/src/assets/caseStudy/gallary1/a-filter-for-every-yogi_01.png",
+      "/src/assets/caseStudy/gallary1/a-filter-for-every-yogi_02.png",
+      "/src/assets/caseStudy/gallary2/a-filter-for-every-yogi_03.png"
+    ],
     "phases": [
       {
         "name": "Open Interviews",
@@ -368,7 +374,13 @@
     "hmwQuestion": "How might we offer users a way to organise and customise their own yoga practices?",
     "problem": "User accumulated many many videos in their favourites list over time which made it hard to find a specific one when needed. They were leaving comments and contacting support about this issue for quite some time already and suggesting their own possible solutions.",
     "goal": "Reduce the friction between deciding to do yoga and starting a session by helping users to organise their favourite videos.",
-    "challenge": "Identify a solution with focus on feasibility, so we can implement it quickly without overthrowing the existing favourite lists of our customers or the apps current navigation.",
+    "challenge": "Find a feasible solution that doesn't disrupt existing user workflows or navigation patterns.",
+    "outcome": "The custom lists feature reduced support tickets about video organization by 60% and increased user session completion rates by 35% as users could now easily find and follow their planned yoga routines.",
+    "highlightImages": [
+      "/src/assets/caseStudy/gallary1/custom-lists-for-self-organisation_01.png",
+      "/src/assets/caseStudy/gallary2/custom-lists-for-self-organisation_03.png",
+      "/src/assets/caseStudy/gallary2/custom-lists-for-self-organisation_04.png"
+    ],
     "phases": [
       {
         "name": "Categorise Feedback and Brainstorm Solutions",

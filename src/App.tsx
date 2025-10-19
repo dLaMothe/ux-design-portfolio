@@ -420,13 +420,14 @@ function App() {
           cs.team.split(", "),
           cs.challenge,
           "", // solution
-          "", // outcome
+          cs.outcome ?? "", // outcome
           caseStudyImages[cs.id] ?? "",
           cs.toolIds,
           cs.skillIds,
           cs.phases,
           caseStudyGalleries[cs.id] ?? [], // images
           caseStudyGalleries2[cs.id] ?? [], // images2
+          cs.highlightImages ?? [], // highlightImages
           "", // learnings
           getGradientByCaseStudyId(cs.id),
           cs.hmwQuestion,

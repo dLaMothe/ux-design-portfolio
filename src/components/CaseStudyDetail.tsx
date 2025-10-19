@@ -319,7 +319,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
                         margin: 0,
                       }}
                     >
-                      {caseStudy.challenge || caseStudy.outcome}
+                      {caseStudy.challenge}
                     </p>
                   </div>
                 </div>
@@ -328,6 +328,160 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({
           </section>
         </>
       )}
+
+      {/* MY ROLE Section */}
+      {caseStudy.id !== "improving-marketplace-checkout-experience" && (
+        <section
+          className="py-8"
+          style={{
+            marginTop: "clamp(64px, 12vw, 128px)",
+            marginBottom: "clamp(48px, 10vw, 96px)",
+            padding: "0 20px",
+            borderTop: "1px solid #E5E5E5",
+            paddingTop: "clamp(48px, 10vw, 96px)",
+          }}
+        >
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <h2
+                style={{
+                  fontFamily: "'Ubuntu Sans Mono', monospace",
+                  fontWeight: 700,
+                  fontSize: "clamp(16px, 4vw, 20px)",
+                  lineHeight: "clamp(20px, 5vw, 24px)",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  color: "#242628",
+                  marginBottom: "24px",
+                }}
+              >
+                MY ROLE
+              </h2>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "12px",
+                  alignItems: "center",
+                }}
+              >
+                {portfolioManager
+                  .getSkillsForCaseStudy(caseStudy.id)
+                  .map((skill, index) => (
+                    <div
+                      key={skill.id}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "8px 16px",
+                        backgroundColor: "#EFEFEF",
+                        border: "1px solid #242628",
+                        borderRadius: "2px",
+                        fontFamily: "'Ubuntu Mono', monospace",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#242628",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      <span>—</span>
+                      <span>{skill.title}</span>
+                      <span>—</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* OUTCOME Section */}
+      {caseStudy.id !== "improving-marketplace-checkout-experience" &&
+        caseStudy.outcome && (
+          <section
+            className="py-8"
+            style={{
+              marginTop: "clamp(48px, 10vw, 96px)",
+              marginBottom: "clamp(64px, 12vw, 128px)",
+              padding: "0 20px",
+              borderTop: "1px solid #E5E5E5",
+              paddingTop: "clamp(48px, 10vw, 96px)",
+            }}
+          >
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2
+                  style={{
+                    fontFamily: "'Ubuntu Sans Mono', monospace",
+                    fontWeight: 700,
+                    fontSize: "clamp(16px, 4vw, 20px)",
+                    lineHeight: "clamp(20px, 5vw, 24px)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "#242628",
+                    marginBottom: "24px",
+                  }}
+                >
+                  OUTCOME
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "'Ubuntu Mono', monospace",
+                    fontSize: "clamp(14px, 3vw, 16px)",
+                    lineHeight: "clamp(20px, 4vw, 23px)",
+                    color: "#242628",
+                    marginBottom: "32px",
+                  }}
+                >
+                  {caseStudy.outcome}
+                </p>
+
+                {/* Project Highlight Images */}
+                {caseStudy.highlightImages &&
+                  caseStudy.highlightImages.length > 0 && (
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns:
+                          "repeat(auto-fit, minmax(250px, 1fr))",
+                        gap: "24px",
+                        marginTop: "32px",
+                      }}
+                    >
+                      {caseStudy.highlightImages
+                        .slice(0, 3)
+                        .map((imagePath: string, index: number) => (
+                          <div
+                            key={index}
+                            style={{
+                              backgroundColor: "#EFEFEF",
+                              border: "1px solid #242628",
+                              borderRadius: "2px",
+                              padding: "16px",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              minHeight: "300px",
+                            }}
+                          >
+                            <img
+                              src={imagePath.replace("/src", "")}
+                              alt={`${caseStudy.title} highlight ${index + 1}`}
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "280px",
+                                objectFit: "contain",
+                              }}
+                            />
+                          </div>
+                        ))}
+                    </div>
+                  )}
+              </div>
+            </div>
+          </section>
+        )}
 
       {/* Main Content container for Skills */}
       <div
